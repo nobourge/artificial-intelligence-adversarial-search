@@ -7,8 +7,8 @@ def test_state_turn():
     world = WorldMDP(
         World(
             """
-    S0 . G
-    S1 X X
+            S0 . G
+            S1 X X
 """
         )
     )
