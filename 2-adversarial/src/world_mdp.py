@@ -45,14 +45,21 @@ class WorldMDP(MDP[Action, MyWorldState]):
         while all other agents will remain in place. 
         Then, it's Agent 1's turn to move, and so on"""
         self.n_expanded_states = 0
+        self.world.reset()
         return MyWorldState(0, 0, self.world)
         ...
 
     def available_actions(self, state: MyWorldState) -> list[Action]:
         """returns the actions available to the current agent."""
+        world_available_actions = state.world.available_actions()
+        print(f"world_available_actions: {world_available_actions}")
+        current_agent = state.current_agent
+        print(f"current_agent: {current_agent}")
+        return world_available_actions[current_agent]
 
     def is_final(self, state: MyWorldState) -> bool:
-        ...
+        """returns True if the state is final, False otherwise."""
+        return state.world.done
 
     def get_actions(self
                 , current_agent: int
@@ -66,7 +73,23 @@ class WorldMDP(MDP[Action, MyWorldState]):
         """Converts MyWorldState to lle.WorldState"""
         return lle.WorldState(state.agents_positions, state.gems_collected)
     
-    # def get_reward(self, state: MyWorldState, next_world_state: lle.WorldState) -> float:
+    # def agents_each_on_different_exit_pos(self, state: WorldState) -> bool:
+    #     """Whether each agent is on a different exit position."""
+    #     agent_positions = set(state.agents_positions)  
+    #     exit_positions = set(self.world.exit_pos)  
+    #     # Intersect the sets to find agents that are on exit positions
+    #     agents_on_exits = agent_positions.intersection(exit_positions)
+    #     # Check if the number of agents on exits is equal to the total number of agents
+    #     # and if each agent is on a different exit
+    #     return len(agents_on_exits) == len(agent_positions) # and len(agents_on_exits) == len(exit_positions)
+
+    def current_agent_on_exit(self
+                              , state: MyWorldState
+                              , current_agent: int
+                              ) -> bool:
+        """Whether the current agent is on an exit position."""
+        current_agent_position = state.agents_positions[current_agent]
+        return current_agent_position in self.world.exit_pos
 
     def transition(self, state: MyWorldState, action: Action) -> MyWorldState:
         """Returns the next state and the reward.
@@ -85,16 +108,26 @@ class WorldMDP(MDP[Action, MyWorldState]):
         if state.current_agent == 0:
             print(f"actions: {actions}")
             reward = self.world.step(actions)
+            world_state_after_action = self.world.get_state()
+            if self.current_agent_on_exit(world_state_after_action, state.current_agent):
+                # print(f"lle.REWARD_AGENT_JUST_ARRIVED: {lle.REWARD_AGENT_JUST_ARRIVED}")
+                # reward = lle.REWARD_AGENT_JUST_ARRIVED
+                reward += 1
+
+            agents_positions = world_state_after_action.agents_positions
+            print(f"agents_positions: {agents_positions}")
             print(f"reward: {reward}")
-        # reward = int(self.world.step(actions))
-        next_world_state = self.world.get_state()
-        next_state_value = state.value + reward
+        if state.current_agent == 0 and reward == -1:
+            next_state_value = -1
+        else:
+            next_state_value = state.value + reward
+        print(f"next_state_value: {next_state_value}")
         next_state_current_agent = (state.current_agent+1)%self.world.n_agents
 
         # self.world.set_state(current_state)
         # self.world.reset()
-        return MyWorldState(next_state_value, next_state_current_agent, self.world)
-
+        my_world_state_transitioned = MyWorldState(next_state_value, next_state_current_agent, self.world)
+        return my_world_state_transitioned
 
 class BetterValueFunction(WorldMDP):
     def transition(self, state: MyWorldState, action: Action) -> MyWorldState:
