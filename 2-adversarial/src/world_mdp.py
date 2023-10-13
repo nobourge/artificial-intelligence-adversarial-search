@@ -1,8 +1,13 @@
 from dataclasses import dataclass
+import sys
 import lle
 from lle import Position, World, Action
 from mdp import MDP, State
 
+import auto_indent
+from utils import print_items
+
+sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
 @dataclass
 class MyWorldState(State):

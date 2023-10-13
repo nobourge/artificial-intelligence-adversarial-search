@@ -1,10 +1,14 @@
+import sys
 from lle import World, Action
 from adversarial_search import minimax
 from world_mdp import WorldMDP
 from .graph_mdp import GraphMDP
 
+import auto_indent
+sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
 def test_raise_value_error():
+    """This test checks that minimax raises a ValueError when the given state is not the turn of Agent 0"""
     mdp = GraphMDP.parse("tests/graphs/vary-depth.graph")
     s0 = mdp.reset()
     s = mdp.transition(s0, "Right")
