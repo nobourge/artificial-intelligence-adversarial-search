@@ -1,5 +1,7 @@
+import copy
 from dataclasses import dataclass
 import sys
+from typing import List
 import lle
 from lle import Position, World, Action
 from mdp import MDP, State
@@ -21,10 +23,12 @@ class MyWorldState(State):
     current_agent: int
     agents_positions: list
     gems_collected: list
+    value_vector: List[float]
     # gems_collected_by_agents: list[list[Position]]
     # Add more attributes here if needed.
     def __init__(self
                  , value: float
+                    , value_vector: List[float]
                  , current_agent: int
                  , world: World
                 #  , gems_collected_by_agents: list(list(Position)) = None
@@ -33,6 +37,7 @@ class MyWorldState(State):
         self.world = world
         self.agents_positions = world.agents_positions
         self.gems_collected = world.get_state().gems_collected
+        self.value_vector = value_vector
         # self.gems_collected_by_agents = gems_collected_by_agents
     
 class WorldMDP(MDP[Action, MyWorldState]):
@@ -49,16 +54,22 @@ class WorldMDP(MDP[Action, MyWorldState]):
         Then, it's Agent 1's turn to move, and so on"""
         self.n_expanded_states = 0
         self.world.reset()
-        return MyWorldState(0, 0, self.world)
+        return MyWorldState(0
+                            , [0 for _ in range(self.world.n_agents)]
+                            , 0
+                            , self.world)
         ...
 
     def available_actions(self, state: MyWorldState) -> list[Action]:
         """returns the actions available to the current agent."""
+        print(f"available_actions()")
         world_available_actions = state.world.available_actions()
         print(f"world_available_actions: {world_available_actions}")
         current_agent = state.current_agent
         print(f"current_agent: {current_agent}")
-        return world_available_actions[current_agent]
+        current_agent_available_actions = world_available_actions[current_agent]
+        print(f"current_agent_available_actions: {current_agent_available_actions}")
+        return current_agent_available_actions
 
     def is_final(self, state: MyWorldState) -> bool:
         """returns True if the state is final, False otherwise."""
@@ -95,36 +106,51 @@ class WorldMDP(MDP[Action, MyWorldState]):
         current_agent_position = state.agents_positions[current_agent]
         return current_agent_position in self.world.exit_pos
 
-    def transition(self, state: MyWorldState, action: Action) -> MyWorldState:
+    def transition(self
+                   , state: MyWorldState
+                   , action: Action) -> MyWorldState:
         """Returns the next state and the reward.
         If Agent 0 dies during a transition, 
         the state value immediately drops to 
         lle.REWARD_AGENT_DIED (-1), 
         without taking into account any gems already collected
         """
+        print(f"transition()")
         self.n_expanded_states += 1
         # current_state = self.world.get_state()
         self.world.set_state(self.convert_to_WorldState(state))
 
         actions = self.get_actions(state.current_agent, action)
-        next_state_value = state.value
+        # next_state_value_vector = copy.deepcopy(state.value_vector)
+        print(f"state.value_vector: {state.value_vector}")
+        next_state_value_vector = state.value_vector
         reward = 0
         print(f"actions: {actions}")
         reward = self.world.step(actions)
         world_state_after_action = self.world.get_state()
+
+        next_state_value_vector[state.current_agent] += reward
         if state.current_agent == 0:
             agents_positions = world_state_after_action.agents_positions
             print(f"agents_positions: {agents_positions}")
             print(f"reward: {reward}")
             if reward == -1:
-                next_state_value = -1
-            else:
-                next_state_value += reward
-        print(f"next_state_value: {next_state_value}")
+                next_state_value_vector[0] = -1 #lle.REWARD_AGENT_DIED
+                
+        print(f"next_state_value_vector: {next_state_value_vector}")
+        print(f"transitioned state: {world_state_after_action}")
+        print(f"transitioned state value: {next_state_value_vector[state.current_agent]}")
+        
         next_state_current_agent = (state.current_agent+1)%self.world.n_agents
 
+        print(f"state.value_vector: {state.value_vector}")
+        print(f"next_state_value_vector: {next_state_value_vector}")
         # self.world.set_state(current_state)
-        my_world_state_transitioned = MyWorldState(next_state_value, next_state_current_agent, self.world)
+        # my_world_state_transitioned = MyWorldState(next_state_value_vector[state.current_agent]
+        my_world_state_transitioned = MyWorldState(next_state_value_vector[0]
+                                                   , next_state_value_vector
+                                                   , next_state_current_agent
+                                                   , self.world)
         return my_world_state_transitioned
 
 class BetterValueFunction(WorldMDP):

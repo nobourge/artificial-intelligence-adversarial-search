@@ -1244,3 +1244,5275 @@ max_depth: 3max_depth: 3
 
 action: Southaction: South
 
+_max()_max()
+
+max_depth: 3max_depth: 3
+
+  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 0  current_agent: 0
+
+  actions: [Stay, Stay, Stay]  actions: [Stay, Stay, Stay]
+
+  agents_positions: [(0, 6), (3, 6), (2, 0)]  agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+  reward: 0.0  reward: 0.0
+
+  next_state_value: 0.0  next_state_value: 0.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+  actions: [South, Stay, Stay]  actions: [South, Stay, Stay]
+
+  agents_positions: [(1, 6), (3, 6), (2, 0)]  agents_positions: [(1, 6), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+  actions: [West, Stay, Stay]  actions: [West, Stay, Stay]
+
+  agents_positions: [(0, 5), (3, 6), (2, 0)]  agents_positions: [(0, 5), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+action: Southaction: South
+
+_max()_max()
+
+max_depth: 3max_depth: 3
+
+  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 0  current_agent: 0
+
+  actions: [Stay, Stay, Stay]  actions: [Stay, Stay, Stay]
+
+  agents_positions: [(0, 6), (3, 6), (2, 0)]  agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+  reward: 0.0  reward: 0.0
+
+  next_state_value: 0.0  next_state_value: 0.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+  actions: [South, Stay, Stay]  actions: [South, Stay, Stay]
+
+  agents_positions: [(1, 6), (3, 6), (2, 0)]  agents_positions: [(1, 6), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+  actions: [West, Stay, Stay]  actions: [West, Stay, Stay]
+
+  agents_positions: [(0, 5), (3, 6), (2, 0)]  agents_positions: [(0, 5), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+action: Southaction: South
+
+_max()_max()
+
+max_depth: 3max_depth: 3
+
+current_agent: 0current_agent: 0
+
+  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 0  current_agent: 0
+
+  actions: [Stay, Stay, Stay]  actions: [Stay, Stay, Stay]
+
+  agents_positions: [(0, 6), (3, 6), (2, 0)]  agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+  reward: 0.0  reward: 0.0
+
+  next_state_value: 0.0  next_state_value: 0.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  actions: [South, Stay, Stay]  actions: [South, Stay, Stay]
+
+  agents_positions: [(1, 6), (3, 6), (2, 0)]  agents_positions: [(1, 6), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  actions: [West, Stay, Stay]  actions: [West, Stay, Stay]
+
+  agents_positions: [(0, 5), (3, 6), (2, 0)]  agents_positions: [(0, 5), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+action: Southaction: South
+
+_max()_max()
+
+max_depth: 3max_depth: 3
+
+current_agent: 0current_agent: 0
+
+  available_actions()  available_actions()
+
+  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]  world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 0  current_agent: 0
+
+  current_agent_available_actions: [Stay, South, West]  current_agent_available_actions: [Stay, South, West]
+
+mdp_available_actions: [Stay, South, West]mdp_available_actions: [Stay, South, West]
+
+action: Stayaction: Stay
+
+  actions: [Stay, Stay, Stay]  actions: [Stay, Stay, Stay]
+
+  agents_positions: [(0, 6), (3, 6), (2, 0)]  agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+  reward: 0.0  reward: 0.0
+
+  next_state_value: 0.0  next_state_value: 0.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    available_actions()    available_actions()
+
+    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    current_agent_available_actions: [Stay, North, West]    current_agent_available_actions: [Stay, North, West]
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 0.0    next_state_value: 0.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 0.0      next_state_value: 0.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+action: Southaction: South
+
+  actions: [South, Stay, Stay]  actions: [South, Stay, Stay]
+
+  agents_positions: [(1, 6), (3, 6), (2, 0)]  agents_positions: [(1, 6), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    available_actions()    available_actions()
+
+    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    current_agent_available_actions: [Stay, North, West]    current_agent_available_actions: [Stay, North, West]
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]      world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+action: Westaction: West
+
+  actions: [West, Stay, Stay]  actions: [West, Stay, Stay]
+
+  agents_positions: [(0, 5), (3, 6), (2, 0)]  agents_positions: [(0, 5), (3, 6), (2, 0)]
+
+  reward: 1.0  reward: 1.0
+
+  next_state_value: 1.0  next_state_value: 1.0
+
+  _min()  _min()
+
+  max_depth: 2  max_depth: 2
+
+  current_agent: 1  current_agent: 1
+
+    available_actions()    available_actions()
+
+    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]    world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+    current_agent: 1    current_agent: 1
+
+    current_agent_available_actions: [Stay, North, West]    current_agent_available_actions: [Stay, North, West]
+
+    actions: [Stay, Stay, Stay]    actions: [Stay, Stay, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+        _min()      _min()
+
+        max_depth: 0      max_depth: 0
+
+        current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, North, Stay]    actions: [Stay, North, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    actions: [Stay, West, Stay]    actions: [Stay, West, Stay]
+
+    next_state_value: 1.0    next_state_value: 1.0
+
+    _max()    _max()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East, South]      current_agent_available_actions: [Stay, North, East, South]
+
+    mdp_available_actions: [Stay, North, East, South]    mdp_available_actions: [Stay, North, East, South]
+
+    action: Stay    action: Stay
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: North    action: North
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: East    action: East
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    action: South    action: South
+
+      actions: [Stay, Stay, South]      actions: [Stay, Stay, South]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _min()      _min()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+  new_state.current_agent: 2  new_state.current_agent: 2
+
+    _min()    _min()
+
+    max_depth: 1    max_depth: 1
+
+    current_agent: 2    current_agent: 2
+
+      available_actions()      available_actions()
+
+      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]      world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East]]
+
+      current_agent: 2      current_agent: 2
+
+      current_agent_available_actions: [Stay, North, East]      current_agent_available_actions: [Stay, North, East]
+
+      actions: [Stay, Stay, Stay]      actions: [Stay, Stay, Stay]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, North]      actions: [Stay, Stay, North]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+      actions: [Stay, Stay, East]      actions: [Stay, Stay, East]
+
+      next_state_value: 1.0      next_state_value: 1.0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+    new_state.current_agent: 0    new_state.current_agent: 0
+
+      _max()      _max()
+
+      max_depth: 0      max_depth: 0
+
+      current_agent: 0      current_agent: 0
+
+action: Southaction: South
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 0current_agent: 0
+
+current_agent_available_actions: [Stay, South, West]current_agent_available_actions: [Stay, South, West]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+agents_positions: [(0, 6), (3, 6), (2, 0)]agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+reward: 0.0reward: 0.0
+
+next_state_value: 0.0next_state_value: 0.0
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 1current_agent: 1
+
+current_agent_available_actions: [Stay, North, West]current_agent_available_actions: [Stay, North, West]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value: 0.0next_state_value: 0.0
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value: 0.0next_state_value: 0.0
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 0current_agent: 0
+
+current_agent_available_actions: [Stay, South, West]current_agent_available_actions: [Stay, South, West]
+
+transition()transition()
+
+state.value_vector: [0, 0, 0]state.value_vector: [0, 0, 0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+agents_positions: [(0, 6), (3, 6), (2, 0)]agents_positions: [(0, 6), (3, 6), (2, 0)]
+
+reward: 0.0reward: 0.0
+
+next_state_value_vector: [0.0, 0, 0]next_state_value_vector: [0.0, 0, 0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0, 0]state.value_vector: [0.0, 0, 0]
+
+next_state_value_vector: [0.0, 0, 0]next_state_value_vector: [0.0, 0, 0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 1current_agent: 1
+
+current_agent_available_actions: [Stay, North, West]current_agent_available_actions: [Stay, North, West]
+
+transition()transition()
+
+state.value_vector: [0.0, 0, 0]state.value_vector: [0.0, 0, 0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [0.0, 0.0, 0]next_state_value_vector: [0.0, 0.0, 0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0.0, 0]state.value_vector: [0.0, 0.0, 0]
+
+next_state_value_vector: [0.0, 0.0, 0]next_state_value_vector: [0.0, 0.0, 0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [0.0, 0.0, 0]state.value_vector: [0.0, 0.0, 0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 0)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (1, 0)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (1, 0)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 1)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (2, 1)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (3, 0)], gems_collected=[false, false, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (3, 6), (3, 0)], gems_collected=[false, false, false, false, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+next_state_value_vector: [0.0, 0.0, 0.0]next_state_value_vector: [0.0, 0.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 0.0, 0.0]state.value_vector: [0.0, 0.0, 0.0]
+
+actions: [Stay, North, Stay]actions: [Stay, North, Stay]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 0)], gems_collected=[false, false, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 0)], gems_collected=[false, false, false, true, false, false])
+
+transitioned state value: 1.0transitioned state value: 1.0
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 0)], gems_collected=[false, false, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 0)], gems_collected=[false, false, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (1, 0)], gems_collected=[false, false, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (1, 0)], gems_collected=[false, false, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 1)], gems_collected=[false, false, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (2, 1)], gems_collected=[false, false, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (3, 0)], gems_collected=[false, false, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 6), (2, 6), (3, 0)], gems_collected=[false, false, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+next_state_value_vector: [0.0, 1.0, 0.0]next_state_value_vector: [0.0, 1.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 1.0, 0.0]state.value_vector: [0.0, 1.0, 0.0]
+
+actions: [Stay, West, Stay]actions: [Stay, West, Stay]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 0)], gems_collected=[false, false, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 0)], gems_collected=[false, false, false, false, false, true])
+
+transitioned state value: 2.0transitioned state value: 2.0
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]world_available_actions: [[Stay, South, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 0)], gems_collected=[false, false, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 0)], gems_collected=[false, false, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (1, 0)], gems_collected=[false, false, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (1, 0)], gems_collected=[false, false, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 1)], gems_collected=[false, false, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (2, 1)], gems_collected=[false, false, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (3, 0)], gems_collected=[false, false, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 6), (3, 5), (3, 0)], gems_collected=[false, false, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+next_state_value_vector: [0.0, 2.0, 0.0]next_state_value_vector: [0.0, 2.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [0.0, 2.0, 0.0]state.value_vector: [0.0, 2.0, 0.0]
+
+actions: [South, Stay, Stay]actions: [South, Stay, Stay]
+
+agents_positions: [(1, 6), (3, 6), (2, 0)]agents_positions: [(1, 6), (3, 6), (2, 0)]
+
+reward: 1.0reward: 1.0
+
+next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])
+
+transitioned state value: 1.0transitioned state value: 1.0
+
+state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 1current_agent: 1
+
+current_agent_available_actions: [Stay, North, West]current_agent_available_actions: [Stay, North, West]
+
+transition()transition()
+
+state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])
+
+transitioned state value: 2.0transitioned state value: 2.0
+
+state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  available_actions()available_actions()
+
+  world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, North, South], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 2current_agent: 2
+
+  current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+  transition()transition()
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 0)], gems_collected=[false, false, true, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (1, 0)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (1, 0)], gems_collected=[false, false, true, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 1)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (2, 1)], gems_collected=[false, false, true, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (3, 0)], gems_collected=[false, false, true, false, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (3, 6), (3, 0)], gems_collected=[false, false, true, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+  next_state_value_vector: [1.0, 2.0, 0.0]next_state_value_vector: [1.0, 2.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 2.0, 0.0]state.value_vector: [1.0, 2.0, 0.0]
+
+actions: [Stay, North, Stay]actions: [Stay, North, Stay]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 0)], gems_collected=[false, false, true, true, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 0)], gems_collected=[false, false, true, true, false, false])
+
+transitioned state value: 3.0transitioned state value: 3.0
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]world_available_actions: [[Stay, North], [Stay, South, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 0)], gems_collected=[false, false, true, true, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 0)], gems_collected=[false, false, true, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (1, 0)], gems_collected=[false, false, true, true, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (1, 0)], gems_collected=[false, false, true, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 1)], gems_collected=[false, false, true, true, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (2, 1)], gems_collected=[false, false, true, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (3, 0)], gems_collected=[false, false, true, true, false, false])transitioned state: WorldState(agent_positions=[(1, 6), (2, 6), (3, 0)], gems_collected=[false, false, true, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+next_state_value_vector: [1.0, 3.0, 0.0]next_state_value_vector: [1.0, 3.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 3.0, 0.0]state.value_vector: [1.0, 3.0, 0.0]
+
+actions: [Stay, West, Stay]actions: [Stay, West, Stay]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 0)], gems_collected=[false, false, true, false, false, true])transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 0)], gems_collected=[false, false, true, false, false, true])
+
+transitioned state value: 4.0transitioned state value: 4.0
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]world_available_actions: [[Stay, North, South], [Stay, North, East, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 0)], gems_collected=[false, false, true, false, false, true])transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 0)], gems_collected=[false, false, true, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (1, 0)], gems_collected=[false, false, true, false, false, true])transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (1, 0)], gems_collected=[false, false, true, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 1)], gems_collected=[false, false, true, false, false, true])transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (2, 1)], gems_collected=[false, false, true, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (3, 0)], gems_collected=[false, false, true, false, false, true])transitioned state: WorldState(agent_positions=[(1, 6), (3, 5), (3, 0)], gems_collected=[false, false, true, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+next_state_value_vector: [1.0, 4.0, 0.0]next_state_value_vector: [1.0, 4.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [1.0, 4.0, 0.0]state.value_vector: [1.0, 4.0, 0.0]
+
+actions: [West, Stay, Stay]actions: [West, Stay, Stay]
+
+agents_positions: [(0, 5), (3, 6), (2, 0)]agents_positions: [(0, 5), (3, 6), (2, 0)]
+
+reward: 1.0reward: 1.0
+
+next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])
+
+transitioned state value: 2.0transitioned state value: 2.0
+
+state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+current_agent: 1current_agent: 1
+
+current_agent_available_actions: [Stay, North, West]current_agent_available_actions: [Stay, North, West]
+
+transition()transition()
+
+state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])
+
+transitioned state value: 4.0transitioned state value: 4.0
+
+state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  available_actions()available_actions()
+
+  world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]world_available_actions: [[Stay, East, West], [Stay, North, West], [Stay, North, East, South]]
+
+  current_agent: 2current_agent: 2
+
+  current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+  transition()transition()
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 0)], gems_collected=[false, true, false, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (1, 0)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (1, 0)], gems_collected=[false, true, false, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 1)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (2, 1)], gems_collected=[false, true, false, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transition()transition()
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+  transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (3, 0)], gems_collected=[false, true, false, false, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (3, 6), (3, 0)], gems_collected=[false, true, false, false, false, false])
+
+  transitioned state value: 0.0transitioned state value: 0.0
+
+  state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+  next_state_value_vector: [2.0, 4.0, 0.0]next_state_value_vector: [2.0, 4.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 4.0, 0.0]state.value_vector: [2.0, 4.0, 0.0]
+
+actions: [Stay, North, Stay]actions: [Stay, North, Stay]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 0)], gems_collected=[false, true, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 0)], gems_collected=[false, true, false, true, false, false])
+
+transitioned state value: 5.0transitioned state value: 5.0
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]world_available_actions: [[Stay, East, West], [Stay, North, South, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 0)], gems_collected=[false, true, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 0)], gems_collected=[false, true, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (1, 0)], gems_collected=[false, true, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (1, 0)], gems_collected=[false, true, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 1)], gems_collected=[false, true, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (2, 1)], gems_collected=[false, true, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (3, 0)], gems_collected=[false, true, false, true, false, false])transitioned state: WorldState(agent_positions=[(0, 5), (2, 6), (3, 0)], gems_collected=[false, true, false, true, false, false])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+next_state_value_vector: [2.0, 5.0, 0.0]next_state_value_vector: [2.0, 5.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 5.0, 0.0]state.value_vector: [2.0, 5.0, 0.0]
+
+actions: [Stay, West, Stay]actions: [Stay, West, Stay]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 0)], gems_collected=[false, true, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 0)], gems_collected=[false, true, false, false, false, true])
+
+transitioned state value: 6.0transitioned state value: 6.0
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+available_actions()available_actions()
+
+world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]world_available_actions: [[Stay, East, West], [Stay, North, East, West], [Stay, North, East, South]]
+
+current_agent: 2current_agent: 2
+
+current_agent_available_actions: [Stay, North, East, South]current_agent_available_actions: [Stay, North, East, South]
+
+transition()transition()
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+actions: [Stay, Stay, Stay]actions: [Stay, Stay, Stay]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 0)], gems_collected=[false, true, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 0)], gems_collected=[false, true, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+actions: [Stay, Stay, North]actions: [Stay, Stay, North]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (1, 0)], gems_collected=[false, true, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (1, 0)], gems_collected=[false, true, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+actions: [Stay, Stay, East]actions: [Stay, Stay, East]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 1)], gems_collected=[false, true, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (2, 1)], gems_collected=[false, true, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transition()transition()
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+actions: [Stay, Stay, South]actions: [Stay, Stay, South]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (3, 0)], gems_collected=[false, true, false, false, false, true])transitioned state: WorldState(agent_positions=[(0, 5), (3, 5), (3, 0)], gems_collected=[false, true, false, false, false, true])
+
+transitioned state value: 0.0transitioned state value: 0.0
+
+state.value_vector: [2.0, 6.0, 0.0]state.value_vector: [2.0, 6.0, 0.0]
+
+next_state_value_vector: [2.0, 6.0, 0.0]next_state_value_vector: [2.0, 6.0, 0.0]
+
+action: Stayaction: Stay
+
