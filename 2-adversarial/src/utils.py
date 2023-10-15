@@ -40,7 +40,9 @@ def min_distance_position(position : Tuple[int, int]
 
 # def order_items()
 # function to print visited set or stack items in terminal
-def print_items(title, items, transform=None) -> None:
+def print_items(items
+                , title="items:"
+                , transform=None) -> None:
     """Prints items in terminal
     Args:
         items: items to print

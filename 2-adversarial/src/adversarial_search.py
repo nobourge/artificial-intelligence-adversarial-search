@@ -9,6 +9,7 @@ import auto_indent
 # from ..tests.graph_mdp import GraphMDP
 from utils import print_items
 from world_mdp import WorldMDP
+from anytree import Node, RenderTree
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
@@ -18,7 +19,7 @@ def _maxN(mdp: MDP[A, S]
           ) -> Tuple[List[float], A]:
     if mdp.is_final(state) or max_depth == 0:
         return state.value, None  # Assume state.value_vector is a list of values for each agent
-    num_agents = mdp.n_agents
+    num_agents = mdp.world.n_agents
     print(f"num_agents: {num_agents}")
     # best_value_vector = [float('-inf') for _ in range(num_agents)]
     best_value = float('-inf')
@@ -33,14 +34,14 @@ def _maxN(mdp: MDP[A, S]
             best_action = action
     return best_value, best_action
 
-def maxN(mdp: MDP[A, S]
-         , state: S
-         , max_depth: int) -> A:
-    if state.current_agent != 0:
-        raise ValueError("It's not Agent 0's turn to play")
-    num_agents = mdp.n_agents
-    _, action = _maxN(mdp, state, max_depth, num_agents)
-    return action
+# def maxN(mdp: MDP[A, S]
+#          , state: S
+#          , max_depth: int) -> A:
+#     if state.current_agent != 0:
+#         raise ValueError("It's not Agent 0's turn to play")
+#     num_agents = mdp.world.n_agents
+#     _, action = _maxN(mdp, state, max_depth, num_agents)
+#     return action
 
 def _max(mdp: MDP[A, S]
          , state: S
@@ -49,15 +50,28 @@ def _max(mdp: MDP[A, S]
     print("_max()")
     print(f"max_depth: {max_depth}")
     print(f"current_agent: {state.current_agent}")
+    print(f"current_agent position: {state.world.agents_positions[state.current_agent]}")
     if mdp.is_final(state) or max_depth == 0:
         return state.value, None
     best_value = float('-inf')
     best_action = None
     mdp_available_actions = mdp.available_actions(state)
     print(f"mdp_available_actions: {mdp_available_actions}")
-    for action in mdp_available_actions:
+    for action in mdp_available_actions: #todo reverse order
         print(f"action: {action}")
+        print(f"state.current_agent: {state.current_agent}")
+        print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
+        # print(f"state.agents_positions: {state.agents_positions}")
         new_state = mdp.transition(state, action)
+        #add state to tree
+        new_state_string = new_state.to_string()
+        print_items(mdp.nodes)
+        mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
+        # print tree
+        print("tree:")
+        for pre, fill, node in RenderTree(mdp.root):
+            print("%s%s" % (pre, node.name))
+        print(RenderTree(mdp.root))
         # value, _ = _min(mdp, new_state, max_depth - 1)
         value = _min(mdp, new_state, max_depth - 1)
         if value > best_value:
@@ -75,8 +89,26 @@ def _min(mdp: MDP[A, S]
     if mdp.is_final(state) or max_depth == 0:
         return state.value
     best_value = float('inf')
+    
     for action in mdp.available_actions(state):
+        print(f"action: {action}")
+        print(f"state.current_agent: {state.current_agent}")
         new_state = mdp.transition(state, action)
+        print(f"new_state.current_agent: {new_state.current_agent}")
+        #add state to tree
+        new_state_string = new_state.to_string()
+        print_items(mdp.nodes)
+        mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+        # = Node(new_state.to_string(), parent=state.node)
+        # print tree
+        print("tree:")
+        for pre, fill, node in RenderTree(mdp.root):
+            print("%s%s" % (pre, node.name))
+        print(RenderTree(mdp.root))
+        # todo:
+#         from anytree.exporter import UniqueDotExporter
+# >>> # graphviz needs to be installed for the next line!
+# >>> UniqueDotExporter(udo).to_picture("udo.png")
         value, _ = _max(mdp, new_state, max_depth - 1)
 
         print(f"new_state.current_agent: {new_state.current_agent}")
@@ -96,14 +128,27 @@ def minimax(mdp: MDP[A, S]
     This function only accepts 
     states where it's Agent 0's turn to play 
     and raises a ValueError otherwise. 
-    It is suggested to divide this algorithm into 
-    a _min function and 
-    a _max function. 
+    if 2 agents, 
+        minimax() is used.
+        It is suggested to divide this algorithm into 
+        a _min function and 
+        a _max function. 
+    if 3 agents or more,
+        maxN() is used.
     Don't forget that there may be more than one opponent"""
+
+    new_state_string = state.to_string()
+    mdp.root = new_state_string
+    mdp.nodes[new_state_string] = Node(new_state_string)
+    print_items(mdp.nodes)
     if state.current_agent != 0:
         raise ValueError("It's not Agent 0's turn to play")
-    # _, action = _max(mdp, state, max_depth)
-    _, action = _maxN(mdp, state, max_depth)
+    #if 
+    # if mdp.world.n_agents == 2:
+    if state.world.n_agents == 2:
+        _, action = _max(mdp, state, max_depth)
+    else:
+        _, action = _maxN(mdp, state, max_depth)
     print(f"action: {action}")
     return action
 
@@ -133,22 +178,35 @@ def expectimax(mdp: MDP[A, S]
 #main
 if __name__ == "__main__":
     
+    # world = WorldMDP(
+    #     World(
+    #         """
+    #     .  . . . G G S0
+    #     .  . . @ @ @ G
+    #     S2 . . X X X G
+    #     .  . . . G G S1
+    #         """
+    #     )
+    # )
+
+    # action = minimax(world, world.reset(), 3)
+    # assert action == Action.WEST
+
+    # action = minimax(world, world.reset(), 7)
+    # assert action == Action.SOUTH
+
+    # def test_two_agents_laser():
     world = WorldMDP(
-        World(
-            """
-        .  . . . G G S0
-        .  . . @ @ @ G
-        S2 . . X X X G
-        .  . . . G G S1
-"""
+            World(
+                """
+            S0 G  .  X
+            .  .  .  .
+            X L1N S1 .
+    """
+            )
         )
-    )
-
     action = minimax(world, world.reset(), 3)
-    assert action == Action.WEST
 
-    action = minimax(world, world.reset(), 7)
-    assert action == Action.SOUTH
 
 #  mdp = GraphMDP.parse("tests/graphs/vary-depth.graph")
 #  assert minimax(mdp, mdp.reset(), 1) == "Right"

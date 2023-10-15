@@ -9,6 +9,8 @@ from mdp import MDP, State
 import auto_indent
 from utils import print_items
 
+from anytree import Node, RenderTree
+
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
 @dataclass
@@ -21,6 +23,7 @@ class MyWorldState(State):
     # (c’est-à-dire les gemmes collectées + arriver sur une case de ﬁn)
     value: float 
     current_agent: int
+
     agents_positions: list
     gems_collected: list
     value_vector: List[float]
@@ -28,21 +31,34 @@ class MyWorldState(State):
     # Add more attributes here if needed.
     def __init__(self
                  , value: float
-                    , value_vector: List[float]
+                 , value_vector: List[float]
                  , current_agent: int
                  , world: World
-                #  , gems_collected_by_agents: list(list(Position)) = None
                  ):
         super().__init__(value, current_agent)
         self.world = world
         self.agents_positions = world.agents_positions
         self.gems_collected = world.get_state().gems_collected
         self.value_vector = value_vector
-        # self.gems_collected_by_agents = gems_collected_by_agents
+        self.node = None
+
+    def get_agents_positions(self) -> list:
+        # return self.agents_positions
+        return self.world.agents_positions
+    
+    def to_string(self) -> str:
+        return f"current_agent: {self.current_agent}, value: {self.value}, value_vector: {self.value_vector}, agents_positions: {self.agents_positions}, gems_collected: {self.gems_collected}"
     
 class WorldMDP(MDP[Action, MyWorldState]):
     def __init__(self, world: World):
         self.world = world
+        world.reset()
+        self.initial_state = world.get_state()
+        self.root = None
+
+        # nodes dict
+        self.nodes = {}
+        self.n_expanded_states = 0
 
     def reset(self):
         """The world.reset() method returns an initial state of the game. 
@@ -55,14 +71,13 @@ class WorldMDP(MDP[Action, MyWorldState]):
         self.n_expanded_states = 0
         self.world.reset()
         return MyWorldState(0
-                            , [0 for _ in range(self.world.n_agents)]
+                            , [0.0 for _ in range(self.world.n_agents)]
                             , 0
                             , self.world)
-        ...
 
     def available_actions(self, state: MyWorldState) -> list[Action]:
         """returns the actions available to the current agent."""
-        print(f"available_actions()")
+        print("available_actions()")
         world_available_actions = state.world.available_actions()
         print(f"world_available_actions: {world_available_actions}")
         current_agent = state.current_agent
@@ -90,7 +105,9 @@ class WorldMDP(MDP[Action, MyWorldState]):
     def agents_each_on_different_exit_pos(self
                                           , state: MyWorldState) -> bool:
         """Whether each agent is on a different exit position."""
-        agent_positions = set(state.agents_positions)  
+        # agent_positions = set(state.agents_positions)  
+        agent_positions = set(state.world.agents_positions)  
+
         exit_positions = set(self.world.exit_pos)  
         # Intersect the sets to find agents that are on exit positions
         agents_on_exits = agent_positions.intersection(exit_positions)
@@ -116,6 +133,14 @@ class WorldMDP(MDP[Action, MyWorldState]):
         without taking into account any gems already collected
         """
         print(f"transition()")
+        print(f"state: {state}")
+        print(f"state.world.agents_positions: {state.world.agents_positions}")
+        print(f"state.agents_positions: {state.agents_positions}")
+        
+        print(f"state.current_agent: {state.current_agent}")
+        print(f"state.current_agent position: {state.agents_positions[state.current_agent]}")
+        print(f"action: {action}")
+
         self.n_expanded_states += 1
         # current_state = self.world.get_state()
         self.world.set_state(self.convert_to_WorldState(state))
@@ -126,11 +151,14 @@ class WorldMDP(MDP[Action, MyWorldState]):
         next_state_value_vector = state.value_vector
         reward = 0
         print(f"actions: {actions}")
-        reward = self.world.step(actions)
-        world_state_after_action = self.world.get_state()
+        # reward = self.world.step(actions)
+        reward = state.world.step(actions)
+        # world_state_after_action = self.world.get_state()
+        world_state_after_action = state.world.get_state()
 
         next_state_value_vector[state.current_agent] += reward
         if state.current_agent == 0:
+            print(f"state.current_agent: {state.current_agent}")
             agents_positions = world_state_after_action.agents_positions
             print(f"agents_positions: {agents_positions}")
             print(f"reward: {reward}")
@@ -151,6 +179,11 @@ class WorldMDP(MDP[Action, MyWorldState]):
                                                    , next_state_value_vector
                                                    , next_state_current_agent
                                                    , self.world)
+        # add transitioned state to tree
+        # Node(my_world_state_transitioned.to_string, parent=state)
+        # for pre, fill, node in RenderTree(self.root):
+        #     print("%s%s" % (pre, node.name))
+
         return my_world_state_transitioned
 
 class BetterValueFunction(WorldMDP):
