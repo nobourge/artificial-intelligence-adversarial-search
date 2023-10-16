@@ -50,7 +50,8 @@ class MyWorldState(State):
         return f"current_agent: {self.current_agent}, value: {self.value}, value_vector: {self.value_vector}, agents_positions: {self.agents_positions}, gems_collected: {self.gems_collected}"
     
 class WorldMDP(MDP[Action, MyWorldState]):
-    def __init__(self, world: World):
+    def __init__(self
+                 , world: World):
         self.world = world
         world.reset()
         self.initial_state = world.get_state()
@@ -70,7 +71,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
         Then, it's Agent 1's turn to move, and so on"""
         self.n_expanded_states = 0
         self.world.reset()
-        return MyWorldState(0
+        return MyWorldState(0.0
                             , [0.0 for _ in range(self.world.n_agents)]
                             , 0
                             , self.world)
@@ -149,7 +150,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # next_state_value_vector = copy.deepcopy(state.value_vector)
         print(f"state.value_vector: {state.value_vector}")
         next_state_value_vector = state.value_vector
-        reward = 0
+        reward = 0.0
         print(f"actions: {actions}")
         # reward = self.world.step(actions)
         reward = state.world.step(actions)
@@ -163,7 +164,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
             print(f"agents_positions: {agents_positions}")
             print(f"reward: {reward}")
             if reward == -1:
-                next_state_value_vector[0] = -1 #lle.REWARD_AGENT_DIED
+                next_state_value_vector[0] = -1.0 #lle.REWARD_AGENT_DIED
                 
         print(f"next_state_value_vector: {next_state_value_vector}")
         print(f"transitioned state: {world_state_after_action}")

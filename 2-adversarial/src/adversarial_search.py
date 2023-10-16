@@ -1,3 +1,4 @@
+import copy
 import sys
 from typing import List, Tuple
 
@@ -13,7 +14,7 @@ from anytree import Node, RenderTree
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
-def _maxN(mdp: MDP[A, S]
+def _max_n(mdp: MDP[A, S]
           , state: S
           , max_depth: int
           ) -> Tuple[List[float], A]:
@@ -26,7 +27,7 @@ def _maxN(mdp: MDP[A, S]
     best_action = None
     for action in mdp.available_actions(state):
         new_state = mdp.transition(state, action)
-        value = _maxN(mdp
+        value = _max_n(mdp
                              , new_state
                              , max_depth - 1)[0]
         if value > best_value:
@@ -34,14 +35,18 @@ def _maxN(mdp: MDP[A, S]
             best_action = action
     return best_value, best_action
 
-# def maxN(mdp: MDP[A, S]
-#          , state: S
-#          , max_depth: int) -> A:
-#     if state.current_agent != 0:
-#         raise ValueError("It's not Agent 0's turn to play")
-#     num_agents = mdp.world.n_agents
-#     _, action = _maxN(mdp, state, max_depth, num_agents)
-#     return action
+def max_n(mdp: MDP[A, S]
+         , state: S
+         , max_depth: int) -> A:
+    if state.current_agent != 0:
+        raise ValueError("It's not Agent 0's turn to play")
+    # num_agents = mdp.world.n_agents #todo
+    _, action = _max_n(mdp
+                       , state
+                       , max_depth
+                    #    , num_agents
+                       )
+    return action
 
 def _max(mdp: MDP[A, S]
          , state: S
@@ -62,16 +67,20 @@ def _max(mdp: MDP[A, S]
         print(f"state.current_agent: {state.current_agent}")
         print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
         # print(f"state.agents_positions: {state.agents_positions}")
-        new_state = mdp.transition(state, action)
+        state_deepcopy = copy.deepcopy(state)
+        new_state = mdp.transition(state_deepcopy, action)
         #add state to tree
         new_state_string = new_state.to_string()
         print_items(mdp.nodes)
+        print(f"state.to_string(): {state.to_string()}")
         mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
         # print tree
         print("tree:")
+        # print(RenderTree(mdp.root))
+
         for pre, fill, node in RenderTree(mdp.root):
             print("%s%s" % (pre, node.name))
-        print(RenderTree(mdp.root))
+        # print(RenderTree(mdp.root))
         # value, _ = _min(mdp, new_state, max_depth - 1)
         value = _min(mdp, new_state, max_depth - 1)
         if value > best_value:
@@ -134,21 +143,22 @@ def minimax(mdp: MDP[A, S]
         a _min function and 
         a _max function. 
     if 3 agents or more,
-        maxN() is used.
+        max_n() is used.
     Don't forget that there may be more than one opponent"""
 
     new_state_string = state.to_string()
-    mdp.root = new_state_string
+    # mdp.root = new_state_string
+    mdp.root = Node(new_state_string)
     mdp.nodes[new_state_string] = Node(new_state_string)
     print_items(mdp.nodes)
     if state.current_agent != 0:
         raise ValueError("It's not Agent 0's turn to play")
     #if 
     # if mdp.world.n_agents == 2:
-    if state.world.n_agents == 2:
-        _, action = _max(mdp, state, max_depth)
-    else:
-        _, action = _maxN(mdp, state, max_depth)
+    # if state.world.n_agents == 2:
+    _, action = _max(mdp, state, max_depth)
+    # else:
+        # _, action = _max_n(mdp, state, max_depth)
     print(f"action: {action}")
     return action
 
@@ -170,7 +180,8 @@ def expectimax(mdp: MDP[A, S]
     """ The 'expectimax' algorithm allows for 
     modeling the probabilistic behavior of humans 
     who might make suboptimal choices. 
-    The nature of expectimax requires that we know the probability that the opponent will take each action. 
+    The nature of expectimax requires that we know 
+    the probability that the opponent will take each action. 
     Here, we will assume that 
     the other agents take actions that are uniformly random."""
     ...
