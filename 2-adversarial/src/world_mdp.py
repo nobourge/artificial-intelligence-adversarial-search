@@ -23,7 +23,7 @@ class MyWorldState(State):
     # (c’est-à-dire les gemmes collectées + arriver sur une case de ﬁn)
     value: float 
     current_agent: int
-
+    last_action: Action
     agents_positions: list
     gems_collected: list
     value_vector: List[float]
@@ -37,18 +37,88 @@ class MyWorldState(State):
                  ):
         super().__init__(value, current_agent)
         self.world = world
+        self.world_string = world.world_string
         self.agents_positions = world.agents_positions
         self.gems_collected = world.get_state().gems_collected
         self.value_vector = value_vector
         self.node = None
+        self.last_action = None
 
     def get_agents_positions(self) -> list:
         # return self.agents_positions
         return self.world.agents_positions
     
-    def to_string(self) -> str:
-        return f"current_agent: {self.current_agent}, value: {self.value}, value_vector: {self.value_vector}, agents_positions: {self.agents_positions}, gems_collected: {self.gems_collected}"
+    def layout_to_matrix(self
+                         , layout):
+        """
+        Convert a given layout into a matrix.
+        
+        Parameters:
+        layout (list of str): Each string represents a row in the layout.
+
+        Returns:
+        list of list of str: A matrix representing the layout.
+        """
+        matrix = []
+        for row in layout:
+            matrix.append(row.split())
+        
+        # # Fill in remaining rows with '.' to make it a 4x4 matrix
+        # while len(matrix) < 4:
+        #     matrix.append(['.', '.', '.', '.'])
+        
+        # # Fill in remaining columns with '.' to make it a 4x4 matrix
+        # for row in matrix:
+        #     while len(row) < 4:
+        #         row.append('.')
+        
+        return matrix
     
+    def matrix_to_layout(self
+                         ,matrix):
+        """
+        Convert a given matrix into a layout.
+        
+        Parameters:
+        matrix (list of list of str): A matrix representing the layout.
+
+        Returns:
+        list of str: Each string represents a row in the layout.
+        """
+        layout = []
+        for row in matrix:
+            layout.append(' '.join(row))
+        return layout
+
+    
+    def update_world_string(self
+                            ,current_agent_previous_position: Position
+                            ,action) -> None:
+        """Updates world_string attribute with current world state:
+        current agent position, gems collected, etc."""
+        self.world_string = self.world.world_string
+        matrix = self.layout_to_matrix(self.world_string)
+        print(f"matrix: {matrix}")
+        if action != Action.STAY:
+            agent_string = "S"+str(self.current_agent)
+            matrix[current_agent_previous_position[0]][current_agent_previous_position[1]] = "."
+            matrix[self.agents_positions[self.current_agent][0]][self.agents_positions[self.current_agent][1]] = agent_string
+            self.world_string = self.matrix_to_layout(matrix)
+            
+    def to_string(self) -> str:
+        """Returns a string representation of the state.
+        with each state attribute on a new line."""
+        # return f"current_agent: {self.current_agent}, value: {self.value}, value_vector: {self.value_vector}, agents_positions: {self.agents_positions}, gems_collected: {self.gems_collected}"
+        state_attributes = f"current_agent: {self.current_agent}\n"
+        
+        if self.last_action :
+            state_attributes += f"last_action: {self.last_action}\n"
+        state_attributes += f"value: {self.value}\n"
+        state_attributes += f"value_vector: {self.value_vector}\n"
+        state_attributes += f"agents_positions: {self.agents_positions}\n"
+        state_attributes += f"gems_collected: {self.gems_collected}\n"
+        state_attributes += f"world: {self.world.world_string}\n"
+        return state_attributes
 class WorldMDP(MDP[Action, MyWorldState]):
     def __init__(self
                  , world: World):
@@ -143,23 +213,32 @@ class WorldMDP(MDP[Action, MyWorldState]):
         print(f"action: {action}")
 
         self.n_expanded_states += 1
-        # current_state = self.world.get_state()
-        self.world.set_state(self.convert_to_WorldState(state))
+        # real_state = self.world.get_state()
+        simulation_world = copy.deepcopy(self.world)
+        # simulation_world = self.world
+        # self.world.set_state(self.convert_to_WorldState(state))
+        simulation_world.set_state(self.convert_to_WorldState(state))
 
-        actions = self.get_actions(state.current_agent, action)
+
+        simulation_state = simulation_world.get_state()
+        simulation_state_current_agent = state.current_agent
+        current_agent_previous_position = simulation_state.agents_positions[simulation_state_current_agent]
+        actions = self.get_actions(simulation_state_current_agent, action)
+        # actions = self.get_actions(simulation_state.current_agent, action)
         # next_state_value_vector = copy.deepcopy(state.value_vector)
         print(f"state.value_vector: {state.value_vector}")
-        next_state_value_vector = state.value_vector
+        next_state_value_vector = copy.deepcopy(state.value_vector)
         reward = 0.0
         print(f"actions: {actions}")
         # reward = self.world.step(actions)
-        reward = state.world.step(actions)
-        # world_state_after_action = self.world.get_state()
-        world_state_after_action = state.world.get_state()
+        reward = simulation_world.step(actions)
 
-        next_state_value_vector[state.current_agent] += reward
-        if state.current_agent == 0:
-            print(f"state.current_agent: {state.current_agent}")
+        world_state_after_action = simulation_world.get_state()
+        # world_state_after_action = state.world.get_state()
+
+        next_state_value_vector[simulation_state_current_agent] += reward
+        if simulation_state_current_agent == 0:
+            print(f"simulation_state.current_agent: {simulation_state_current_agent}")
             agents_positions = world_state_after_action.agents_positions
             print(f"agents_positions: {agents_positions}")
             print(f"reward: {reward}")
@@ -168,9 +247,9 @@ class WorldMDP(MDP[Action, MyWorldState]):
                 
         print(f"next_state_value_vector: {next_state_value_vector}")
         print(f"transitioned state: {world_state_after_action}")
-        print(f"transitioned state value: {next_state_value_vector[state.current_agent]}")
+        print(f"transitioned state value: {next_state_value_vector[simulation_state_current_agent]}")
         
-        next_state_current_agent = (state.current_agent+1)%self.world.n_agents
+        next_state_current_agent = (simulation_state_current_agent+1)%simulation_world.n_agents
 
         print(f"state.value_vector: {state.value_vector}")
         print(f"next_state_value_vector: {next_state_value_vector}")
@@ -179,11 +258,15 @@ class WorldMDP(MDP[Action, MyWorldState]):
         my_world_state_transitioned = MyWorldState(next_state_value_vector[0]
                                                    , next_state_value_vector
                                                    , next_state_current_agent
-                                                   , self.world)
-        # add transitioned state to tree
-        # Node(my_world_state_transitioned.to_string, parent=state)
-        # for pre, fill, node in RenderTree(self.root):
-        #     print("%s%s" % (pre, node.name))
+                                                #    , self.world
+                                                   , simulation_world
+                                                   )
+        my_world_state_transitioned.last_action = action
+        my_world_state_transitioned.update_world_string(current_agent_previous_position
+                                                        ,actions)
+       
+        print(f"my_world_state_transitioned: {my_world_state_transitioned}")
+        # self.world.set_state(real_state)
 
         return my_world_state_transitioned
 

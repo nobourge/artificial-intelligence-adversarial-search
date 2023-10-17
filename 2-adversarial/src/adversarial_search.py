@@ -13,6 +13,7 @@ from world_mdp import WorldMDP
 from anytree import Node, RenderTree
 from anytree.exporter import UniqueDotExporter
 
+# sys.stdout.reconfigure(encoding='utf-8')
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
@@ -62,6 +63,9 @@ def _max(mdp: MDP[A, S]
         return state.value, None
     best_value = float('-inf')
     best_action = None
+    # input_state = copy.deepcopy(state) # TypeError: cannot pickle 'builtins.Action' object
+
+
     mdp_available_actions = mdp.available_actions(state)
     print(f"mdp_available_actions: {mdp_available_actions}")
     for action in mdp_available_actions: #todo reverse order
@@ -69,21 +73,23 @@ def _max(mdp: MDP[A, S]
         print(f"state.current_agent: {state.current_agent}")
         print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
         # print(f"state.agents_positions: {state.agents_positions}")
-        state_deepcopy = copy.deepcopy(state)
-        new_state = mdp.transition(state_deepcopy, action)
+        if state.last_action:
+            print(f"state.last_action: {state.last_action}")
+        else:
+            print(f"state.last_action: None")
+        # state_deepcopy = copy.deepcopy(state)
+        # new_state = mdp.transition(state_deepcopy, action)
+        new_state = mdp.transition(state, action)
         #add state to tree
         new_state_string = new_state.to_string()
         print_items(mdp.nodes)
         print(f"state.to_string(): {state.to_string()}")
+        if state.last_action:
+            print(f"state.last_action: {state.last_action}")
+        else:
+            print(f"state.last_action: None")
         mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
-        # print tree
-        print("tree:")
-        # print(RenderTree(mdp.root))
-
-        for pre, fill, node in RenderTree(mdp.root):
-            print("%s%s" % (pre, node.name))
-        # print(RenderTree(mdp.root))
-        # value, _ = _min(mdp, new_state, max_depth - 1)
+       
         value = _min(mdp, new_state, max_depth - 1)
         if value > best_value:
             best_value = value
@@ -104,21 +110,16 @@ def _min(mdp: MDP[A, S]
     for action in mdp.available_actions(state):
         print(f"action: {action}")
         print(f"state.current_agent: {state.current_agent}")
+        # new_state = mdp.transition(copy.deepcopy(state), action)
         new_state = mdp.transition(state, action)
         print(f"new_state.current_agent: {new_state.current_agent}")
+        # new_state.last_action = action #todo
         #add state to tree
         new_state_string = new_state.to_string()
+        print(f"new_state_string: {new_state_string}")
         print_items(mdp.nodes)
         mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
-        # = Node(new_state.to_string(), parent=state.node)
-        # print tree
-        print("tree:")
-        for pre, fill, node in RenderTree(mdp.root):
-            print("%s%s" % (pre, node.name))
-        print(RenderTree(mdp.root))
-        # todo:
-# >>> # graphviz needs to be installed for the next line!
-        # UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
+     
         value, _ = _max(mdp, new_state, max_depth - 1)
 
         print(f"new_state.current_agent: {new_state.current_agent}")
@@ -147,19 +148,13 @@ def minimax(mdp: MDP[A, S]
         max_n() is used.
     Don't forget that there may be more than one opponent"""
 
-    new_state_string = state.to_string()
-    # mdp.root = new_state_string
-    mdp.root = Node(new_state_string)
-    mdp.nodes[new_state_string] = Node(new_state_string)
-    print_items(mdp.nodes)
     if state.current_agent != 0:
         raise ValueError("It's not Agent 0's turn to play")
-    #if 
-    # if mdp.world.n_agents == 2:
-    # if state.world.n_agents == 2:
+    new_state_string = state.to_string()
+    mdp.root = Node(new_state_string)
+    mdp.nodes[new_state_string] = mdp.root
+    print_items(mdp.nodes)
     _, action = _max(mdp, state, max_depth)
-    # else:
-        # _, action = _max_n(mdp, state, max_depth)
     print(f"action: {action}")
     UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
 
@@ -219,6 +214,10 @@ if __name__ == "__main__":
     """
             )
         )
+    # # step
+    # world.world.step([Action.EAST, Action.NORTH])
+    # # print world
+    # print(world.world.world_string)
     action = minimax(world, world.reset(), 3)
 
 

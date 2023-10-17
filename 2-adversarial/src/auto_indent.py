@@ -27,6 +27,9 @@ class AutoIndent(object):
         return i
 
     def write(self, stuff):
+        # sys.stdout.reconfigure(encoding='utf-8')
+        stuff = stuff.encode('utf-8', errors='replace').decode('utf-8')
+
         indentation = "  " * self.indent_level()
 
         def indent(l):
