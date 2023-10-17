@@ -11,6 +11,8 @@ import auto_indent
 from utils import print_items
 from world_mdp import WorldMDP
 from anytree import Node, RenderTree
+from anytree.exporter import UniqueDotExporter
+
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
@@ -115,9 +117,8 @@ def _min(mdp: MDP[A, S]
             print("%s%s" % (pre, node.name))
         print(RenderTree(mdp.root))
         # todo:
-#         from anytree.exporter import UniqueDotExporter
 # >>> # graphviz needs to be installed for the next line!
-# >>> UniqueDotExporter(udo).to_picture("udo.png")
+        # UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
         value, _ = _max(mdp, new_state, max_depth - 1)
 
         print(f"new_state.current_agent: {new_state.current_agent}")
@@ -160,6 +161,8 @@ def minimax(mdp: MDP[A, S]
     # else:
         # _, action = _max_n(mdp, state, max_depth)
     print(f"action: {action}")
+    UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
+
     return action
 
 
