@@ -1,4 +1,5 @@
 import copy
+import datetime
 import sys
 from typing import List, Tuple
 
@@ -59,7 +60,8 @@ def _max(mdp: MDP[A, S]
     print("_max()")
     print(f"max_depth: {max_depth}")
     print(f"current_agent: {state.current_agent}")
-    print(f"current_agent position: {state.world.agents_positions[state.current_agent]}")
+    if isinstance(mdp, WorldMDP):
+        print(f"current_agent position: {state.world.agents_positions[state.current_agent]}")
     if mdp.is_final(state) or max_depth == 0:
         return state.value, None
     best_value = float('-inf')
@@ -72,25 +74,25 @@ def _max(mdp: MDP[A, S]
     for action in mdp_available_actions: #todo reverse order
         print(f"action: {action}")
         print(f"state.current_agent: {state.current_agent}")
-        print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
+        if isinstance(mdp, WorldMDP):
+            print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
         # print(f"state.agents_positions: {state.agents_positions}")
-        if state.last_action:
-            print(f"state.last_action: {state.last_action}")
-        else:
-            print(f"state.last_action: None")
+        if isinstance(mdp, WorldMDP):
+            if state.last_action:
+                print(f"state.last_action: {state.last_action}")
+            else:
+                print(f"state.last_action: None")
         # state_deepcopy = copy.deepcopy(state)
         # new_state = mdp.transition(state_deepcopy, action)
         new_state = mdp.transition(state, action)
-        #add state to tree
-        new_state_string = new_state.to_string()
-        print_items(mdp.nodes)
-        print(f"state.to_string(): {state.to_string()}")
-        if state.last_action:
-            print(f"state.last_action: {state.last_action}")
-        else:
-            print(f"state.last_action: None")
-        mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
-       
+        if isinstance(mdp, WorldMDP):
+            #add state to tree
+            new_state_string = new_state.to_string()
+            print_items(mdp.nodes)
+            print(f"state.to_string(): {state.to_string()}")
+            
+            mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
+        
         value = _min(mdp, new_state, max_depth - 1)
         if value > best_value:
             best_value = value
@@ -115,12 +117,13 @@ def _min(mdp: MDP[A, S]
         new_state = mdp.transition(state, action)
         print(f"new_state.current_agent: {new_state.current_agent}")
         # new_state.last_action = action #todo
-        #add state to tree
-        new_state_string = new_state.to_string()
-        print(f"new_state_string: {new_state_string}")
-        print_items(mdp.nodes)
-        mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
-     
+        if isinstance(mdp, WorldMDP):
+            #add state to tree
+            new_state_string = new_state.to_string()
+            print(f"new_state_string: {new_state_string}")
+            print_items(mdp.nodes)
+            mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+        
         value, _ = _max(mdp, new_state, max_depth - 1)
 
         print(f"new_state.current_agent: {new_state.current_agent}")
@@ -132,6 +135,10 @@ def _min(mdp: MDP[A, S]
         best_value = min(best_value, value)
     return best_value
 
+# def graphstate_to_my_worldstate(graphstate: str) -> World:
+#     """Converts a graphstate to a World.
+#     Parameters:
+#         graphstate (str): a string representing a graphstate.
 
 def minimax(mdp: MDP[A, S]
             , state: S
@@ -151,13 +158,18 @@ def minimax(mdp: MDP[A, S]
 
     if state.current_agent != 0:
         raise ValueError("It's not Agent 0's turn to play")
-    new_state_string = state.to_string()
-    mdp.root = Node(new_state_string)
-    mdp.nodes[new_state_string] = mdp.root
-    print_items(mdp.nodes)
+    # if isinstance(mdp, GraphMDP):
+    #     print("GraphMDP")
+    if isinstance(mdp, WorldMDP):
+        print("WorldMDP")
+        new_state_string = state.to_string()
+        mdp.root = Node(new_state_string)
+        mdp.nodes[new_state_string] = mdp.root
+        print_items(mdp.nodes)
     _, action = _max(mdp, state, max_depth)
     print(f"action: {action}")
-    UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
+    if isinstance(mdp, WorldMDP):
+        UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
     # picture to svg:
     # png_path = "mdp_root.png"
     # svg_path = "mdp_root.svg"
@@ -167,17 +179,110 @@ def minimax(mdp: MDP[A, S]
 
     return action
 
+def _alpha_beta_max(mdp: MDP[A, S]
+                    , state: S
+                    , alpha: float
+                    , beta: float
+                    , max_depth: int) -> Tuple[float, A]:
+    if mdp.is_final(state) or max_depth == 0:
+        return state.value, None
+    best_value = float('-inf')
+    best_action = None
+    for action in mdp.available_actions(state):
+        new_state = mdp.transition(state, action)
+        if isinstance(mdp, WorldMDP):
+            new_state_string = new_state.to_string()
+            mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+
+        value = _alpha_beta_min(mdp
+                                , new_state
+                                , alpha
+                                , beta
+                                , max_depth - 1)
+        if value > best_value:
+            best_value = value
+            best_action = action
+        alpha = max(alpha, best_value)  # Update alpha
+        if beta <= alpha:  # Beta cutoff
+            break
+    return best_value, best_action
+
+def _alpha_beta_min(mdp: MDP[A, S]
+                    , state: S
+                    , alpha: float
+                    , beta: float
+                    , max_depth: int) -> float:
+    if mdp.is_final(state) or max_depth == 0:
+        return state.value
+    best_value = float('inf')
+    for action in mdp.available_actions(state):
+        new_state = mdp.transition(state, action)
+        if isinstance(mdp, WorldMDP):
+            new_state_string = new_state.to_string()
+            mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+
+        value, _ = _alpha_beta_max(mdp
+                                   , new_state
+                                   , alpha
+                                   , beta
+                                   , max_depth - 1)
+        best_value = min(best_value, value)
+        beta = min(beta, best_value)  # Update beta
+        if beta <= alpha:  # Alpha cutoff
+            break
+    return best_value
 
 def alpha_beta(mdp: MDP[A, S]
                , state: S
-               , max_depth: int) -> A:
+               , max_depth: int) -> A: # todo good node ordering reduces time complexity to O(b^m/2)
     """The alpha-beta pruning algorithm 
     is an improvement over 
     minimax 
     that allows for pruning of the search tree."""
+    if state.current_agent != 0:
+        raise ValueError("It's not Agent 0's turn to play")
+    if isinstance(mdp, WorldMDP):
+        new_state_string = state.to_string()
+        mdp.root = Node(new_state_string)
+        mdp.nodes[new_state_string] = mdp.root
 
-    ...
+    _, action = _alpha_beta_max(mdp, state, float('-inf'), float('inf'), max_depth)
+    if isinstance(mdp, WorldMDP):
+        date_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        UniqueDotExporter(mdp.root).to_picture("alpha_beta_tree"+date_time+".png")
 
+    return action
+
+def _expectimax_max(mdp: MDP[A, S], state: S, max_depth: int) -> Tuple[float, A]:
+    if mdp.is_final(state) or max_depth == 0:
+        return state.value, None
+    
+    best_value = float('-inf')
+    best_action = None
+    
+    for action in mdp.available_actions(state):
+        new_state = mdp.transition(state, action)
+        value = _expectimax_exp(mdp, new_state, max_depth - 1)
+        if value > best_value:
+            best_value = value
+            best_action = action
+    
+    return best_value, best_action
+
+def _expectimax_exp(mdp: MDP[A, S], state: S, max_depth: int) -> float:
+    if mdp.is_final(state) or max_depth == 0:
+        return state.value
+    
+    total_value = 0
+    num_actions = len(mdp.available_actions(state))
+    
+    for action in mdp.available_actions(state):
+        new_state = mdp.transition(state, action)
+        value, _ = _expectimax_max(mdp, new_state, max_depth - 1)
+        total_value += value
+    
+    expected_value = total_value / num_actions if num_actions != 0 else 0
+    return expected_value
 
 def expectimax(mdp: MDP[A, S]
                , state: S
@@ -189,48 +294,57 @@ def expectimax(mdp: MDP[A, S]
     the probability that the opponent will take each action. 
     Here, we will assume that 
     the other agents take actions that are uniformly random."""
-    ...
+    if state.current_agent != 0:
+        raise ValueError("It's not Agent 0's turn to play")
+    
+    _, action = _expectimax_max(mdp, state, max_depth)
+    return action
 
 #main
 if __name__ == "__main__":
-    
-    # world = WorldMDP(
-    #     World(
-    #         """
-    #     .  . . . G G S0
-    #     .  . . @ @ @ G
-    #     S2 . . X X X G
-    #     .  . . . G G S1
-    #         """
-    #     )
-    # )
-
-    # action = minimax(world, world.reset(), 3)
-    # assert action == Action.WEST
-
-    # action = minimax(world, world.reset(), 7)
-    # assert action == Action.SOUTH
-
-    # def test_two_agents_laser():
+ 
+    # def test_three_agents2():
+    """In this test, Agent 2 should take the gem on top of him
+    in order to prevent Agent 0 from getting it, even if Agent 2
+    could deny two gems by going left."""
     world = WorldMDP(
-            World(
-                """
-            S0 G  .  X
-            .  .  .  .
-            X L1N S1 .
-    """
-            )
+        World(
+            """
+        .  . . . G G S0
+        .  . . @ @ @ G
+        S2 . . X X X G
+        .  . . . G G S1
+        """
         )
-    # # step
-    # # world.world.step([Action.EAST, Action.NORTH])
-    # world.transition(world.reset(), Action.EAST)
-    # print(world.world.get_state.world_string)
-    # # print world
-    # print(world.state.world_string)
-    # action = minimax(world, world.reset(), 1)
-    action = minimax(world, world.reset(), 2)
-    # action = minimax(world, world.reset(), 3)
+    )
+    # action = alpha_beta(world, world.reset(), 1)
+    # print(f"action: {action}")
+    # assert action == Action.SOUTH
+    # print(f"world.n_expanded_states: {world.n_expanded_states}")
+    # assert world.n_expanded_states <= 4
 
+    world.reset()
+    action = alpha_beta(world, world.reset(), 3)
+    print(f"action: {action}")
+    print(f"world.n_expanded_states: {world.n_expanded_states}")
+    assert action == Action.WEST
+    assert world.n_expanded_states <= 116
+
+#     # def test_minimax_greedy_5steps():
+#     world = WorldMDP(
+#         World(
+#             """
+# S0 . G G
+# G  @ @ @
+# .  . X X
+# S1 . . .
+# """
+#         )
+#     )
+#     action = minimax(world, world.reset(), 10)
+#     assert (
+#         action == Action.SOUTH
+#     ), "When the agent sees 10 steps in the future, it should realise that it should first take the bottom gem before the other two."
 
 #  mdp = GraphMDP.parse("tests/graphs/vary-depth.graph")
 #  assert minimax(mdp, mdp.reset(), 1) == "Right"
