@@ -10,6 +10,7 @@ import auto_indent
 from utils import print_items
 
 from anytree import Node, RenderTree
+from loguru import logger
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
 
@@ -34,15 +35,23 @@ class MyWorldState(State):
                  , value_vector: List[float]
                  , current_agent: int
                  , world: World
+                    , world_string: str = None
+                    , last_action: Action = None
                  ):
         super().__init__(value, current_agent)
         self.world = world
-        self.world_string = world.world_string
+        if world_string:
+            self.world_string = world_string
+        else:
+            self.world_string = world.world_string
         self.agents_positions = world.agents_positions
         self.gems_collected = world.get_state().gems_collected
         self.value_vector = value_vector
         self.node = None
-        self.last_action = None
+        if last_action:
+            self.last_action = last_action
+        else:
+            self.last_action = None
 
     def get_agents_positions(self) -> list:
         # return self.agents_positions
@@ -112,7 +121,7 @@ class MyWorldState(State):
         print(f"current_agent: {current_agent}")
         print(f"current_agent_previous_position: {current_agent_previous_position}")
         print(f"action: {action}")
-        self.world_string = self.world.world_string
+        # self.world_string = self.world.world_string
         matrix = self.layout_to_matrix(self.world_string)
         print(f"matrix: {matrix}")
         if action != Action.STAY:
@@ -227,6 +236,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
         print(f"transition()")
         print(f"state: {state}")
         print(f"state.world.agents_positions: {state.world.agents_positions}")
+        print(f"state.world_string: {state.world_string}")
         print(f"state.agents_positions: {state.agents_positions}")
         
         print(f"state.current_agent: {state.current_agent}")
@@ -235,7 +245,10 @@ class WorldMDP(MDP[Action, MyWorldState]):
 
         self.n_expanded_states += 1
         # real_state = self.world.get_state()
-        simulation_world = copy.deepcopy(self.world)
+        # simulation_world = copy.deepcopy(self.world)
+        simulation_world = copy.deepcopy(state.world)
+        world_string = copy.deepcopy(state.world_string)
+        print(f"world_string: {world_string}")
         # simulation_world = self.world
         # self.world.set_state(self.convert_to_WorldState(state))
         simulation_world.set_state(self.convert_to_WorldState(state))
@@ -281,8 +294,10 @@ class WorldMDP(MDP[Action, MyWorldState]):
                                                    , next_state_current_agent
                                                 #    , self.world
                                                    , simulation_world
+                                                   , world_string
+                                                   , action
                                                    )
-        my_world_state_transitioned.last_action = action
+        # my_world_state_transitioned.last_action = action
         my_world_state_transitioned.update_world_string(simulation_state_current_agent
                                                         , current_agent_previous_position
                                                         , actions)

@@ -227,7 +227,8 @@ if __name__ == "__main__":
     # print(world.world.get_state.world_string)
     # # print world
     # print(world.state.world_string)
-    action = minimax(world, world.reset(), 1)
+    # action = minimax(world, world.reset(), 1)
+    action = minimax(world, world.reset(), 2)
     # action = minimax(world, world.reset(), 3)
 
 
