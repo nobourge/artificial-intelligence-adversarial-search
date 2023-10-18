@@ -51,27 +51,32 @@ class MyWorldState(State):
     def layout_to_matrix(self
                          , layout):
         """
-        Convert a given layout into a matrix.
-        
+        Convert a given layout into a matrix where each first row of each line
+        contains the (group of) character of the layout line.
+
         Parameters:
-        layout (list of str): Each string represents a row in the layout.
+        layout (str): A multi-line string where each line represents a row in the layout.
 
         Returns:
         list of list of str: A matrix representing the layout.
         """
+        # Split the layout into lines
+        lines = layout.strip().split('\n')
+        
         matrix = []
-        for row in layout:
-            matrix.append(row.split())
-        
-        # # Fill in remaining rows with '.' to make it a 4x4 matrix
-        # while len(matrix) < 4:
-        #     matrix.append(['.', '.', '.', '.'])
-        
-        # # Fill in remaining columns with '.' to make it a 4x4 matrix
-        # for row in matrix:
-        #     while len(row) < 4:
-        #         row.append('.')
-        
+        max_cols = 0  # Keep track of the maximum number of columns
+
+        # Convert each line into a row in the matrix
+        for line in lines:
+            row = [char for char in line.split() if char != ' ']
+            matrix.append(row)
+            max_cols = max(max_cols, len(row))
+
+        # Fill in missing columns with '.'
+        for row in matrix:
+            while len(row) < max_cols:
+                row.append('.')
+                
         return matrix
     
     def matrix_to_layout(self
@@ -85,25 +90,40 @@ class MyWorldState(State):
         Returns:
         list of str: Each string represents a row in the layout.
         """
-        layout = []
+        # Determine the maximum length of any element in the matrix for alignment
+        max_len = max(len(str(item)) for row in matrix for item in row)
+        
+        layout = ""
         for row in matrix:
-            layout.append(' '.join(row))
+            # Align the elements by padding with spaces
+            aligned_row = " ".join(str(item).ljust(max_len) for item in row)
+            layout += aligned_row + "\n"
+            
         return layout
 
     
     def update_world_string(self
+                            ,current_agent: int
                             ,current_agent_previous_position: Position
                             ,action) -> None:
         """Updates world_string attribute with current world state:
         current agent position, gems collected, etc."""
+        print(f"update_world_string()")
+        print(f"current_agent: {current_agent}")
+        print(f"current_agent_previous_position: {current_agent_previous_position}")
+        print(f"action: {action}")
         self.world_string = self.world.world_string
         matrix = self.layout_to_matrix(self.world_string)
         print(f"matrix: {matrix}")
         if action != Action.STAY:
-            agent_string = "S"+str(self.current_agent)
+            agent_string = "S"+str(current_agent)
             matrix[current_agent_previous_position[0]][current_agent_previous_position[1]] = "."
-            matrix[self.agents_positions[self.current_agent][0]][self.agents_positions[self.current_agent][1]] = agent_string
-            self.world_string = self.matrix_to_layout(matrix)
+            matrix[self.agents_positions[current_agent][0]][self.agents_positions[current_agent][1]] = agent_string
+            matrix_after_action = matrix
+            print(f"matrix_after_action: {matrix_after_action}")
+            layout_after_action = self.matrix_to_layout(matrix_after_action)
+            print(f"layout_after_action: {layout_after_action}")
+            self.world_string = layout_after_action
             
     def to_string(self) -> str:
         """Returns a string representation of the state.
@@ -117,7 +137,8 @@ class MyWorldState(State):
         state_attributes += f"value_vector: {self.value_vector}\n"
         state_attributes += f"agents_positions: {self.agents_positions}\n"
         state_attributes += f"gems_collected: {self.gems_collected}\n"
-        state_attributes += f"world: {self.world.world_string}\n"
+        # state_attributes += f"world: {self.world.world_string}\n"
+        state_attributes += f"world: \n{self.world_string}\n"
         return state_attributes
 class WorldMDP(MDP[Action, MyWorldState]):
     def __init__(self
@@ -262,10 +283,11 @@ class WorldMDP(MDP[Action, MyWorldState]):
                                                    , simulation_world
                                                    )
         my_world_state_transitioned.last_action = action
-        my_world_state_transitioned.update_world_string(current_agent_previous_position
-                                                        ,actions)
+        my_world_state_transitioned.update_world_string(simulation_state_current_agent
+                                                        , current_agent_previous_position
+                                                        , actions)
        
-        print(f"my_world_state_transitioned: {my_world_state_transitioned}")
+        print(f"my_world_state_transitioned: {my_world_state_transitioned.to_string()}")
         # self.world.set_state(real_state)
 
         return my_world_state_transitioned

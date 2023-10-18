@@ -12,6 +12,7 @@ from utils import print_items
 from world_mdp import WorldMDP
 from anytree import Node, RenderTree
 from anytree.exporter import UniqueDotExporter
+import cairosvg
 
 # sys.stdout.reconfigure(encoding='utf-8')
 
@@ -157,6 +158,12 @@ def minimax(mdp: MDP[A, S]
     _, action = _max(mdp, state, max_depth)
     print(f"action: {action}")
     UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
+    # picture to svg:
+    # png_path = "mdp_root.png"
+    # svg_path = "mdp_root.svg"
+    # cairosvg.png2svg(png_path, svg_path)
+
+    # UniqueDotExporter(mdp.root).to_picture("mdp_root.svg") #todo render
 
     return action
 
@@ -215,10 +222,13 @@ if __name__ == "__main__":
             )
         )
     # # step
-    # world.world.step([Action.EAST, Action.NORTH])
+    # # world.world.step([Action.EAST, Action.NORTH])
+    # world.transition(world.reset(), Action.EAST)
+    # print(world.world.get_state.world_string)
     # # print world
-    # print(world.world.world_string)
-    action = minimax(world, world.reset(), 3)
+    # print(world.state.world_string)
+    action = minimax(world, world.reset(), 1)
+    # action = minimax(world, world.reset(), 3)
 
 
 #  mdp = GraphMDP.parse("tests/graphs/vary-depth.graph")
