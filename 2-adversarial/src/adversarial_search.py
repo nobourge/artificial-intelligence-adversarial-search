@@ -189,6 +189,8 @@ def _alpha_beta_max(mdp: MDP[A, S]
     best_value = float('-inf')
     best_action = None
     for action in mdp.available_actions(state):
+    # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
+
         new_state = mdp.transition(state, action)
         if isinstance(mdp, WorldMDP):
             new_state_string = new_state.to_string()
@@ -216,16 +218,29 @@ def _alpha_beta_min(mdp: MDP[A, S]
         return state.value
     best_value = float('inf')
     for action in mdp.available_actions(state):
+    # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
+    # FAILED tests/test_alpha_beta.py::test_alpha_beta_two_agents - assert 44 <= 30
+    # FAILED tests/test_alpha_beta.py::test_three_agents2 - assert West == South
         new_state = mdp.transition(state, action)
         if isinstance(mdp, WorldMDP):
             new_state_string = new_state.to_string()
             mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+        
+        if new_state.current_agent == 0:
+            value, _ = _alpha_beta_max(mdp
+                                       , new_state
+                                       , alpha
+                                       , beta
+                                       , max_depth - 1)
+        else:
+            value = _alpha_beta_min(mdp
+                                    , new_state
+                                    , alpha
+                                    , beta
+                                    , max_depth - 1)
 
-        value, _ = _alpha_beta_max(mdp
-                                   , new_state
-                                   , alpha
-                                   , beta
-                                   , max_depth - 1)
+
+        
         best_value = min(best_value, value)
         beta = min(beta, best_value)  # Update beta
         if beta <= alpha:  # Alpha cutoff
@@ -329,24 +344,3 @@ if __name__ == "__main__":
     print(f"world.n_expanded_states: {world.n_expanded_states}")
     assert action == Action.WEST
     assert world.n_expanded_states <= 116
-
-#     # def test_minimax_greedy_5steps():
-#     world = WorldMDP(
-#         World(
-#             """
-# S0 . G G
-# G  @ @ @
-# .  . X X
-# S1 . . .
-# """
-#         )
-#     )
-#     action = minimax(world, world.reset(), 10)
-#     assert (
-#         action == Action.SOUTH
-#     ), "When the agent sees 10 steps in the future, it should realise that it should first take the bottom gem before the other two."
-
-#  mdp = GraphMDP.parse("tests/graphs/vary-depth.graph")
-#  assert minimax(mdp, mdp.reset(), 1) == "Right"
-#  assert minimax(mdp, mdp.reset(), 2) == "Left"
-#  assert minimax(mdp, mdp.reset(), 3) == "Right"

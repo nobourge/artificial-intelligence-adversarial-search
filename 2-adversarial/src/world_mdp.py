@@ -185,13 +185,15 @@ class WorldMDP(MDP[Action, MyWorldState]):
         print(f"current_agent: {current_agent}")
         current_agent_available_actions = world_available_actions[current_agent]
         print(f"current_agent_available_actions: {current_agent_available_actions}")
+        return current_agent_available_actions
         # alpha beta pruning optimization
         # action stay is in general augmenting the number of expanded states
         #                           and not augmenting the state value
         # so stay must be the last action to be considered
         # reverse the list of actions 
-        reversed_current_agent_available_actions = reversed(current_agent_available_actions)
-        return reversed_current_agent_available_actions
+        # reversed_current_agent_available_actions = list(reversed(current_agent_available_actions))
+        # return reversed_current_agent_available_actions #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_two_agents - assert 44 <= 30
+        #todo FAILED tests/test_expectimax.py::test_two_agents2 - assert West == South
 
     def is_final(self, state: MyWorldState) -> bool:
         """returns True if the state is final, False otherwise."""
