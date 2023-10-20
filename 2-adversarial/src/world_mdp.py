@@ -1,7 +1,7 @@
 import copy
 from dataclasses import dataclass
 import sys
-from typing import List
+from typing import List, Tuple
 import lle
 from lle import Position, World, Action
 from mdp import MDP, State
@@ -28,6 +28,7 @@ class MyWorldState(State):
     agents_positions: list
     gems_collected: list
     value_vector: List[float]
+    # alpha_beta_vector: List[Tuple[float, float]] #todo?
     # gems_collected_by_agents: list[list[Position]]
     # Add more attributes here if needed.
     def __init__(self
@@ -47,6 +48,7 @@ class MyWorldState(State):
         self.agents_positions = world.agents_positions
         self.gems_collected = world.get_state().gems_collected
         self.value_vector = value_vector
+        # self.alpha_beta_vector = [] #todo?
         self.node = None
         if last_action:
             self.last_action = last_action
@@ -154,6 +156,8 @@ class WorldMDP(MDP[Action, MyWorldState]):
                  , world: World):
         self.world = world
         world.reset()
+        self.n_agents = world.n_agents
+
         self.initial_state = world.get_state()
         self.root = None
 

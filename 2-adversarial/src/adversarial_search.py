@@ -135,11 +135,6 @@ def _min(mdp: MDP[A, S]
         best_value = min(best_value, value)
     return best_value
 
-# def graphstate_to_my_worldstate(graphstate: str) -> World:
-#     """Converts a graphstate to a World.
-#     Parameters:
-#         graphstate (str): a string representing a graphstate.
-
 def minimax(mdp: MDP[A, S]
             , state: S
             , max_depth: int) -> A:
@@ -181,12 +176,12 @@ def minimax(mdp: MDP[A, S]
 
 def _alpha_beta_max(mdp: MDP[A, S]
                     , state: S
-                    , alpha: float
-                    , beta: float
+                    , alpha_vector: List[float]
+                    , beta_vector: List[float]
                     , max_depth: int) -> Tuple[float, A]:
     if mdp.is_final(state) or max_depth == 0:
         return state.value, None
-    best_value = float('-inf')
+    best_value_vector = [float('-inf') for _ in range(len(alpha_vector))]
     best_action = None
     for action in mdp.available_actions(state):
     # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
@@ -196,56 +191,88 @@ def _alpha_beta_max(mdp: MDP[A, S]
             new_state_string = new_state.to_string()
             mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
 
-        value = _alpha_beta_min(mdp
+        # value = _alpha_beta_min(mdp
+        value_vector = _alpha_beta_min(mdp
                                 , new_state
-                                , alpha
-                                , beta
+                                # , alpha
+                                , alpha_vector
+                                # , beta
+                                , beta_vector
                                 , max_depth - 1)
-        if value > best_value:
-            best_value = value
-            best_action = action
-        alpha = max(alpha, best_value)  # Update alpha
-        if beta <= alpha:  # Beta cutoff
+        # if value > best_value:
+        # if value_vector > best_value_vector:
+        #     best_value_vector = value_vector
+        #     best_action = action
+        # alpha = max(alpha, best_value)  # Update alpha
+        # if beta <= alpha:  # Beta cutoff
+        #     break
+        for i in range(len(best_value_vector)):
+            if value_vector[i] > best_value_vector[i]:
+                best_value_vector[i] = value_vector[i]
+                best_action = action
+                
+        for i in range(len(alpha_vector)):
+            alpha_vector[i] = max(alpha_vector[i], best_value_vector[i])
+        
+        if all(beta <= alpha for alpha, beta in zip(alpha_vector, beta_vector)):
             break
-    return best_value, best_action
+    return best_value_vector, best_action
 
 def _alpha_beta_min(mdp: MDP[A, S]
                     , state: S
-                    , alpha: float
-                    , beta: float
+                    , alpha_vector: float
+                    , beta_vector: float
                     , max_depth: int) -> float:
     if mdp.is_final(state) or max_depth == 0:
-        return state.value
-    best_value = float('inf')
+        return state.value_vector
+    # best_value = float('inf')
+    # for action in mdp.available_actions(state):
+    # # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
+    # # FAILED tests/test_alpha_beta.py::test_alpha_beta_two_agents - assert 44 <= 30
+    # # FAILED tests/test_alpha_beta.py::test_three_agents2 - assert West == South
+    #     new_state = mdp.transition(state, action)
+    #     if isinstance(mdp, WorldMDP):
+    #         new_state_string = new_state.to_string()
+    #         mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+        
+    #     if new_state.current_agent == 0:
+    #         value, _ = _alpha_beta_max(mdp
+    #                                    , new_state
+    #                                    , alpha
+    #                                    , beta
+    #                                    , max_depth - 1)
+    #     else:
+    #         value = _alpha_beta_min(mdp
+    #                                 , new_state
+    #                                 , alpha
+    #                                 , beta
+    #                                 , max_depth - 1)
+
+
+        
+    #     best_value = min(best_value, value)
+    #     beta = min(beta, best_value)  # Update beta
+    #     if beta <= alpha:  # Alpha cutoff
+    #         break
+    # return best_value
+    best_value_vector = [float('inf') for _ in range(len(beta_vector))]
+    
     for action in mdp.available_actions(state):
-    # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
-    # FAILED tests/test_alpha_beta.py::test_alpha_beta_two_agents - assert 44 <= 30
-    # FAILED tests/test_alpha_beta.py::test_three_agents2 - assert West == South
         new_state = mdp.transition(state, action)
-        if isinstance(mdp, WorldMDP):
-            new_state_string = new_state.to_string()
-            mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
+        value_vector, _ = _alpha_beta_max(mdp, new_state, alpha_vector, beta_vector, max_depth - 1)
         
-        if new_state.current_agent == 0:
-            value, _ = _alpha_beta_max(mdp
-                                       , new_state
-                                       , alpha
-                                       , beta
-                                       , max_depth - 1)
-        else:
-            value = _alpha_beta_min(mdp
-                                    , new_state
-                                    , alpha
-                                    , beta
-                                    , max_depth - 1)
-
-
+        for i in range(len(best_value_vector)):
+            if value_vector[i] < best_value_vector[i]:
+                best_value_vector[i] = value_vector[i]
+                
+        for i in range(len(beta_vector)):
+            beta_vector[i] = min(beta_vector[i], best_value_vector[i])
         
-        best_value = min(best_value, value)
-        beta = min(beta, best_value)  # Update beta
-        if beta <= alpha:  # Alpha cutoff
+        if all(beta <= alpha for alpha, beta in zip(alpha_vector, beta_vector)):
             break
-    return best_value
+            
+    # return best_value_vector[0]
+    return best_value_vector
 
 def alpha_beta(mdp: MDP[A, S]
                , state: S
@@ -254,14 +281,26 @@ def alpha_beta(mdp: MDP[A, S]
     is an improvement over 
     minimax 
     that allows for pruning of the search tree."""
+    # todo In maxn (Luckhardt and Irani, 1986), 
+    # the extension of minimax to multi-player games
+    # , pruning is not as successful.
     if state.current_agent != 0:
         raise ValueError("It's not Agent 0's turn to play")
     if isinstance(mdp, WorldMDP):
         new_state_string = state.to_string()
         mdp.root = Node(new_state_string)
         mdp.nodes[new_state_string] = mdp.root
+    
+    alpha_vector = [float('-inf') for _ in range(mdp.n_agents)]
+    # alpha_vector = []
+    beta_vector = [float('inf') for _ in range(mdp.n_agents)]
 
-    _, action = _alpha_beta_max(mdp, state, float('-inf'), float('inf'), max_depth)
+    _, action = _alpha_beta_max(mdp
+                                , state
+                                , alpha_vector
+                                , beta_vector
+                                , max_depth
+                                )
     if isinstance(mdp, WorldMDP):
         date_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         UniqueDotExporter(mdp.root).to_picture("alpha_beta_tree"+date_time+".png")
