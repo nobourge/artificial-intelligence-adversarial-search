@@ -3,6 +3,7 @@ from typing import List, Tuple
 from lle import World
 from problem import SimpleSearchProblem, GemSearchProblem, CornerSearchProblem
 from search import bfs, dfs, astar, Solution
+from adversarial_search import minimax, alphabeta, expectimax
 from utils import print_items
 import time
 import matplotlib
@@ -11,6 +12,9 @@ from matplotlib import cm
 from matplotlib.ticker import LinearLocator
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import colors
+
+def compare_adversarial_search_algorithms():
+    """on respective test maps, compare the size of the paths found for the three search algorithms"""
 
 # execute the 3 search algorithms on the level 3
 # , and compare the size of the paths found for the three search algorithms on the level 3

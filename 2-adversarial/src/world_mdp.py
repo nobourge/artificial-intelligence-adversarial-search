@@ -11,8 +11,91 @@ from utils import print_items
 
 from anytree import Node, RenderTree
 from loguru import logger
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
+
+
+
+
+def get_distance(coord1, coord2):
+    """Returns the distance between two coordinates"""
+    x1, y1 = coord1
+    x2, y2 = coord2
+    return abs(x1 - x2) + abs(y1 - y2)
+
+def min_distance_position(position : Tuple[int, int]
+                          , positions: list[Tuple[int, int]] 
+                            ) -> Tuple[Tuple[int, int], float]:
+    """Returns the position in positions that is closest to position"""
+    min_distance = float("inf")
+    min_position = None
+    for pos in positions:
+        distance = 0
+        distance = get_distance(position, pos)
+        if distance < min_distance:
+            min_distance = distance
+            min_position = pos
+    return min_position, min_distance
+
+def balanced_multi_salesmen_greedy_tsp(remaining_cities: list[Tuple[int, int]]
+                                       , num_salesmen: int
+                                       , start_cities: list[Tuple[int, int]]
+                                       , finish_cities: list[Tuple[int, int]]): 
+    #todo: calculate the distance between the last city and the finish city one time at problem creation
+    """Given a list of cities coordinates, returns a list of cities visited by each agent
+    in the order that minimizes the total distance traveled.
+    """
+    routes = {f"agent_{i+1}": [start_cities[i]] for i in range(num_salesmen)}
+    distances = {f"agent_{i+1}": 0.0 for i in range(num_salesmen)}
+
+    while remaining_cities:
+        for agent in routes.keys():
+            if not remaining_cities:
+                break
+            # current_city = routes[agent][-1]
+            nearest_city, nearest_distance = min_distance_position(routes[agent][-1], remaining_cities)
+            distances[agent] += nearest_distance
+            routes[agent].append(nearest_city)
+            remaining_cities.remove(nearest_city)
+
+    for agent in routes.keys():
+        current_city = routes[agent][-1]
+        finish_city, final_distance = min_distance_position(current_city, finish_cities)
+        distances[agent] += final_distance
+        routes[agent].append(finish_city)
+        
+    total_distance = sum(distances.values())
+    return routes, distances, total_distance
+
+
+
+def min_distance_pairing(list_1
+                             , list_2):
+        # Create a cost matrix
+        cost_matrix = np.zeros((len(list_1), len(list_2)))
+        for i, point1 in enumerate(list_1):
+            for j, point2 in enumerate(list_2):
+                cost_matrix[i, j] = ((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2) ** 0.5
+        # Hungarian algorithm:
+        # from cost_matrix, it does the pairing by minimizing the total distance
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
+        
+        # Extract the paired points, their distances, and the minimum total distance
+        paired_points = []
+        distances = []
+        min_total_distance = 0
+        for i, j in zip(row_ind, col_ind):
+            paired_points.append((list_1[i], list_2[j]))
+            distances.append(cost_matrix[i, j])
+            min_total_distance += cost_matrix[i, j]
+        print("paired_points", paired_points)
+        print("distances", distances)
+        
+        return paired_points, distances, min_total_distance
+
 
 @dataclass
 class MyWorldState(State):
@@ -151,6 +234,20 @@ class MyWorldState(State):
         # state_attributes += f"world: {self.world.world_string}\n"
         state_attributes += f"world: \n{self.world_string}\n"
         return state_attributes
+    
+    def serialize(self) -> tuple:
+        """Serialize the given world state.
+        Args:
+            world_state: the world state to serialize.
+        Returns:
+            A tuple that represents the given world state.
+        """
+        # if objectives_reached:
+        #     return (tuple(world_state.agents_positions), tuple(world_state.gems_collected), tuple(objectives_reached))
+        # else:
+        # return (tuple(self.agents_positions), tuple(self.gems_collected), tuple(self.current_agent))
+        return (tuple(self.agents_positions), tuple(self.gems_collected), self.current_agent)
+
 class WorldMDP(MDP[Action, MyWorldState]):
     def __init__(self
                  , world: World):
@@ -161,8 +258,9 @@ class WorldMDP(MDP[Action, MyWorldState]):
         self.initial_state = world.get_state()
         self.root = None
 
+        self.visited = set() # visited states
         # nodes dict
-        self.nodes = {}
+        self.nodes = {} # key: state, value: node
         self.n_expanded_states = 0
 
     def reset(self):
@@ -236,6 +334,16 @@ class WorldMDP(MDP[Action, MyWorldState]):
         current_agent_position = state.agents_positions[current_agent]
         return current_agent_position in self.world.exit_pos
 
+    def add_to_visited(self
+                          , state: MyWorldState) -> None:
+        """Adds state to visited states."""
+        self.visited.add(state.serialize())
+
+    def was_visited(self,
+                    state: MyWorldState) -> bool:
+        # return serialize(state, objectives_reached) in visited
+        return state.serialize() in self.visited
+    
     def transition(self
                    , state: MyWorldState
                    , action: Action) -> MyWorldState:
@@ -254,7 +362,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # print(f"state.current_agent: {state.current_agent}")
         # print(f"state.current_agent position: {state.agents_positions[state.current_agent]}")
         # print(f"action: {action}")
-
+        
         self.n_expanded_states += 1
         # real_state = self.world.get_state()
         # simulation_world = copy.deepcopy(self.world)
@@ -339,4 +447,3 @@ class BetterValueFunction(WorldMDP):
         # Change the value of the state here.
         ...
     
-    # def evaluate

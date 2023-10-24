@@ -81,6 +81,8 @@ def _max(mdp: MDP[A, S]
         #     else:
         #         print(f"state.last_action: None")
         new_state = mdp.transition(state, action)
+        if mdp.was_visited(new_state):
+            continue
         # if isinstance(mdp, WorldMDP):
         #     #add state to tree
         #     new_state_string = new_state.to_string()
@@ -90,6 +92,7 @@ def _max(mdp: MDP[A, S]
         #     mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
         
         value = _min(mdp, new_state, max_depth - 1)
+        mdp.add_to_visited(new_state)
         if value > best_value:
             best_value = value
             best_action = action
@@ -111,6 +114,8 @@ def _min(mdp: MDP[A, S]
         # print(f"state.current_agent: {state.current_agent}")
         # new_state = mdp.transition(copy.deepcopy(state), action)
         new_state = mdp.transition(state, action)
+        if mdp.was_visited(new_state):
+            continue
         # print(f"new_state.current_agent: {new_state.current_agent}")
         # new_state.last_action = action #todo
         # if isinstance(mdp, WorldMDP):
@@ -121,6 +126,7 @@ def _min(mdp: MDP[A, S]
         #     mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
         
         value, _ = _max(mdp, new_state, max_depth - 1)
+        mdp.add_to_visited(new_state)
 
         # print(f"new_state.current_agent: {new_state.current_agent}")
         # if state.current_agent == 0:
