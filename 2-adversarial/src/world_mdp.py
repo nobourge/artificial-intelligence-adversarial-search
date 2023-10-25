@@ -339,6 +339,11 @@ class WorldMDP(MDP[Action, MyWorldState]):
         """Adds state to visited states."""
         self.visited.add(state.serialize())
 
+    def remove_from_visited(self
+                            , state: MyWorldState) -> None:
+        """Removes state from visited states."""
+        self.visited.remove(state.serialize())
+
     def was_visited(self,
                     state: MyWorldState) -> bool:
         # return serialize(state, objectives_reached) in visited

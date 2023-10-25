@@ -63,6 +63,10 @@ def _max(mdp: MDP[A, S]
     # if isinstance(mdp, WorldMDP):
     #     print(f"current_agent position: {state.world.agents_positions[state.current_agent]}")
     if mdp.is_final(state) or max_depth == 0:
+        # if mdp.is_final(state):
+        #     print(f"mdp.is_final(state)")
+        # if max_depth == 0:
+        #     print(f"max_depth == 0")
         return state.value, None
     best_value = float('-inf')
     best_action = None
@@ -81,8 +85,15 @@ def _max(mdp: MDP[A, S]
         #     else:
         #         print(f"state.last_action: None")
         new_state = mdp.transition(state, action)
-        if mdp.was_visited(new_state):
-            continue
+        # print(f"new_state: {new_state}")
+
+        # if mdp.was_visited(new_state):
+        #     print(f"was visited")
+        #     print("visited states:")
+        #     print_items(mdp.visited)
+        #     continue
+        # mdp.add_to_visited(new_state)
+
         # if isinstance(mdp, WorldMDP):
         #     #add state to tree
         #     new_state_string = new_state.to_string()
@@ -90,12 +101,16 @@ def _max(mdp: MDP[A, S]
         #     # print(f"state.to_string(): {state.to_string()}")
             
         #     mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])        
-        
-        value = _min(mdp, new_state, max_depth - 1)
-        mdp.add_to_visited(new_state)
+        if new_state.current_agent == 0:
+            value, _ = _max(mdp, new_state, max_depth - 1)
+        else:
+            value = _min(mdp, new_state, max_depth - 1)
         if value > best_value:
             best_value = value
+            # print(f"best_value: {best_value}")
             best_action = action
+            # print(f"best_action: {best_action}")
+        # mdp.remove_from_visited(new_state)
     return best_value, best_action
 
 def _min(mdp: MDP[A, S]
@@ -107,15 +122,22 @@ def _min(mdp: MDP[A, S]
     # print(f"current_agent: {state.current_agent}")
     if mdp.is_final(state) or max_depth == 0:
         return state.value
-    best_value = float('inf')
+    worst_value = float('inf')
     
     for action in mdp.available_actions(state):
         # print(f"action: {action}")
         # print(f"state.current_agent: {state.current_agent}")
         # new_state = mdp.transition(copy.deepcopy(state), action)
         new_state = mdp.transition(state, action)
-        if mdp.was_visited(new_state):
-            continue
+        # if mdp.was_visited(new_state):
+        # # if not mdp.was_visited(new_state) or (mdp.nodes[new_state_string].depth <= max_depth and new_state.value >= worst_value): #todo
+        #     print("was visited")
+        #     print(f"new_state: {new_state}")
+        #     print("visited states:")
+        #     print_items(mdp.visited)
+        #     continue
+        # mdp.add_to_visited(new_state)
+
         # print(f"new_state.current_agent: {new_state.current_agent}")
         # new_state.last_action = action #todo
         # if isinstance(mdp, WorldMDP):
@@ -125,8 +147,7 @@ def _min(mdp: MDP[A, S]
         #     print_items(mdp.nodes)
         #     mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
         
-        value, _ = _max(mdp, new_state, max_depth - 1)
-        mdp.add_to_visited(new_state)
+        # value, _ = _max(mdp, new_state, max_depth - 1)
 
         # print(f"new_state.current_agent: {new_state.current_agent}")
         # if state.current_agent == 0:
@@ -134,8 +155,9 @@ def _min(mdp: MDP[A, S]
             value, _ = _max(mdp, new_state, max_depth - 1)
         else:
             value = _min(mdp, new_state, max_depth)
-        best_value = min(best_value, value)
-    return best_value
+        worst_value = min(worst_value, value)
+        # mdp.remove_from_visited(new_state)
+    return worst_value
 
 def minimax(mdp: MDP[A, S]
             , state: S
@@ -163,8 +185,9 @@ def minimax(mdp: MDP[A, S]
     #     mdp.root = Node(new_state_string)
     #     mdp.nodes[new_state_string] = mdp.root
     #     print_items(mdp.nodes)
-    _, action = _max(mdp, state, max_depth)
-    print(f"action: {action}")
+    value, action = _max(mdp, state, max_depth)
+    # print(f"action: {action}")
+    # print(f"value: {value}")
     # if isinstance(mdp, WorldMDP):
     #     UniqueDotExporter(mdp.root).to_picture("mdp_root.png")
     # picture to svg:
@@ -179,15 +202,12 @@ def minimax(mdp: MDP[A, S]
 def _alpha_beta_max(mdp: MDP[A, S]
                     , state: S
                     , alpha: float
-                    # , alpha_vector: List[float]
                     , beta: float
-                    # , beta_vector: List[float]
                     , max_depth: int
                     ) -> Tuple[float, A]:
     if mdp.is_final(state) or max_depth == 0:
         return state.value, None
     best_value = float('-inf')
-    # best_value_vector = [float('-inf') for _ in range(len(alpha_vector))]
     best_action = None
     for action in mdp.available_actions(state):
     # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
@@ -197,48 +217,28 @@ def _alpha_beta_max(mdp: MDP[A, S]
             mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
 
         value = _alpha_beta_min(mdp
-        # value_vector = _alpha_beta_min(mdp
                                 , new_state
                                 , alpha
-                                # , alpha_vector
                                 , beta
-                                # , beta_vector
                                 , max_depth - 1)
         if value > best_value:
-        # if value_vector > best_value_vector:
             best_value = value
             # best_value_vector = value_vector
             best_action = action
         # alpha = max(alpha, best_value)  # Update alpha before cutoff: fail soft
-        # if beta <= alpha:  # Beta cutoff
         if beta <= best_value:  # Beta cutoff
             return best_value, best_action
         alpha = max(alpha, best_value)  # Update alpha after cutoff: fail hard
 
     return best_value, best_action
 
-    #     for i in range(len(best_value_vector)):
-    #         if value_vector[i] > best_value_vector[i]:
-    #             best_value_vector[i] = value_vector[i]
-    #             best_action = action
-                
-    #     for i in range(len(alpha_vector)):
-    #         alpha_vector[i] = max(alpha_vector[i], best_value_vector[i])
-        
-    #     if all(beta <= alpha for alpha, beta in zip(alpha_vector, beta_vector)):
-    #         break
-    # return best_value_vector, best_action
-
 def _alpha_beta_min(mdp: MDP[A, S]
                     , state: S
                     , alpha: float
-                    # , alpha_vector: list[float]
                     , beta: float
-                    # , beta_vector: list[float]
                     , max_depth: int) -> float:
     if mdp.is_final(state) or max_depth == 0:
         return state.value
-        # return state.value_vector
     worst_value = float('inf')
     for action in mdp.available_actions(state):
     # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
@@ -264,31 +264,10 @@ def _alpha_beta_min(mdp: MDP[A, S]
                                     , max_depth)
         worst_value = min(worst_value, value)
         # beta = min(beta, best_value)  # Update beta before cutoff: fail soft
-        # if beta <= alpha:  # Alpha cutoff
         if worst_value <= alpha:  # Alpha cutoff
             return worst_value
         beta = min(beta, worst_value)  # Update beta after cutoff: fail hard
     return worst_value
-
-    # best_value_vector = [float('inf') for _ in range(len(beta_vector))]
-    # for action in mdp.available_actions(state):
-    #     new_state = mdp.transition(state, action)
-    #     if new_state.current_agent == 0:
-    #         value_vector, _ = _alpha_beta_max(mdp, new_state, alpha_vector, beta_vector, max_depth - 1)
-    #     else:
-    #         value_vector = _alpha_beta_min(mdp, new_state, alpha_vector, beta_vector, max_depth - 1)
-    #     for i in range(len(best_value_vector)):
-    #         if value_vector[i] < best_value_vector[i]:
-    #             best_value_vector[i] = value_vector[i]
-                
-    #     for i in range(len(beta_vector)):
-    #         beta_vector[i] = min(beta_vector[i], best_value_vector[i])
-        
-    #     if all(beta <= alpha for alpha, beta in zip(alpha_vector, beta_vector)):
-    #         break
-            
-    # # return best_value_vector[0]
-    # return best_value_vector
 
 def alpha_beta(mdp: MDP[A, S]
                , state: S
@@ -374,29 +353,40 @@ def expectimax(mdp: MDP[A, S]
 #main
 if __name__ == "__main__":
  
-    # def test_three_agents2():
-    """In this test, Agent 2 should take the gem on top of him
-    in order to prevent Agent 0 from getting it, even if Agent 2
-    could deny two gems by going left."""
+    # # def test_three_agents2():
+    # """In this test, Agent 2 should take the gem on top of him
+    # in order to prevent Agent 0 from getting it, even if Agent 2
+    # could deny two gems by going left."""
+    # world = WorldMDP(
+    #     World(
+    #         """
+    #     .  . . . G G S0
+    #     .  . . @ @ @ G
+    #     S2 . . X X X G
+    #     .  . . . G G S1
+    #     """
+    #     )
+    # )
+    # # action = alpha_beta(world, world.reset(), 1)
+    # # print(f"action: {action}")
+    # # assert action == Action.SOUTH
+    # # print(f"world.n_expanded_states: {world.n_expanded_states}")
+    # # assert world.n_expanded_states <= 4
+
+    # world.reset()
+    # action = alpha_beta(world, world.reset(), 3)
+    # print(f"action: {action}")
+    # print(f"world.n_expanded_states: {world.n_expanded_states}")
+    # assert action == Action.WEST
+    # assert world.n_expanded_states <= 116
+
     world = WorldMDP(
         World(
             """
-        .  . . . G G S0
-        .  . . @ @ @ G
-        S2 . . X X X G
-        .  . . . G G S1
+        S0 X
         """
         )
     )
     # action = alpha_beta(world, world.reset(), 1)
-    # print(f"action: {action}")
-    # assert action == Action.SOUTH
-    # print(f"world.n_expanded_states: {world.n_expanded_states}")
-    # assert world.n_expanded_states <= 4
-
-    world.reset()
-    action = alpha_beta(world, world.reset(), 3)
+    action = minimax(world, world.reset(), 3)
     print(f"action: {action}")
-    print(f"world.n_expanded_states: {world.n_expanded_states}")
-    assert action == Action.WEST
-    assert world.n_expanded_states <= 116
