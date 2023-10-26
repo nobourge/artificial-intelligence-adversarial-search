@@ -1,7 +1,7 @@
 import copy
 from dataclasses import dataclass
 import sys
-from typing import List, Tuple
+from typing import List, Tuple#, override
 import lle
 from lle import Position, World, Action
 from mdp import MDP, State
@@ -378,7 +378,6 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # self.world.set_state(self.convert_to_WorldState(state))
         simulation_world.set_state(self.convert_to_WorldState(state))
 
-
         simulation_state = simulation_world.get_state()
         simulation_state_current_agent = state.current_agent
         current_agent_previous_position = simulation_state.agents_positions[simulation_state_current_agent]
@@ -403,7 +402,9 @@ class WorldMDP(MDP[Action, MyWorldState]):
             # print(f"reward: {reward}")
             if reward == -1:
                 next_state_value_vector[0] = -1.0 #lle.REWARD_AGENT_DIED
-                
+
+        # if use_better_value_function: #todo?
+        #     better_valued_state = BetterValueFunction(self).transition(state, action)
         # print(f"next_state_value_vector: {next_state_value_vector}")
         # print(f"transitioned state: {world_state_after_action}")
         # print(f"transitioned state value: {next_state_value_vector[simulation_state_current_agent]}")
@@ -432,23 +433,127 @@ class WorldMDP(MDP[Action, MyWorldState]):
 
         return my_world_state_transitioned
 
+def balanced_multi_salesmen_greedy_tsp(remaining_cities: list[Tuple[int, int]]
+                                       , num_salesmen: int
+                                       , start_cities: list[Tuple[int, int]]
+                                       , finish_cities: list[Tuple[int, int]]
+                                       ) -> Tuple[dict[str, list[Tuple[int, int]]], dict[str, float], float]: 
+    #todo: calculate the distance between the last city and the finish city one time at problem creation
+    """Given a list of cities coordinates, returns a list of cities visited by each agent
+    in the order that minimizes the total distance traveled.
+    """
+    
+    routes = {f"agent_{i+1}": [start_cities[i]] for i in range(num_salesmen)}
+    distances = {f"agent_{i+1}": 0.0 for i in range(num_salesmen)}
+
+    while remaining_cities:
+        for agent in routes.keys():
+            if not remaining_cities:
+                break
+            current_city = routes[agent][-1]
+            nearest_city, nearest_distance = min_distance_position(routes[agent][-1], remaining_cities)
+            distances[agent] += nearest_distance
+            routes[agent].append(nearest_city)
+            remaining_cities.remove(nearest_city)
+
+    for agent in routes.keys():
+        current_city = routes[agent][-1]
+        finish_city, final_distance = min_distance_position(current_city, finish_cities)
+        distances[agent] += final_distance
+        routes[agent].append(finish_city)
+        
+    total_distance = sum(distances.values())
+    return routes, distances, total_distance
+
+
 class BetterValueFunction(WorldMDP):
-    def transition(self, state: MyWorldState, action: Action) -> MyWorldState:
-        """Subclass of WorldMDP 
-        in which the state value
-          is calculated more intelligently than simply considering Agent 0's score. 
-          Write this subclass and verify that for the same map, 
-          the number of expanded nodes is indeed lower 
-          than with the basic evaluation function. 
-          There is no test for this exercise.
+    """Subclass of WorldMDP
+    in which the state value
+      is calculated more intelligently than simply considering Agent 0's score. 
+      Write this subclass and verify that for the same map, 
+      the number of expanded nodes is indeed lower 
+      than with the basic evaluation function. 
+      There is no test for this exercise.
 
-            Improvements:
+        Improvements:
 
-            If Agent 0 dies during a transition, 
-                the state value is reduced by #todo
-                , but the gems already collected are taken into account.
-            The value of a state is increased by 
-            the average of the score differences between Agent 0 and the other agents.."""
+        If Agent 0 dies during a transition, 
+            the state value is reduced by #todo
+            , but the gems already collected are taken into account.
+        The value of a state is increased by 
+        the average of the score differences between Agent 0 and the other agents.."""
+    # @override
+    def transition(self
+                   , state: MyWorldState
+                   , action: Action
+                   , depth
+                   ) -> MyWorldState:
+        """Returns the next state and the reward.
+        """
         # Change the value of the state here.
-        ...
+        print("BetterValueFunction.transition()")
+
+        state = super().transition(state, action)
+
+        value = state.value
+        print(f"WorldMdp.transition state.value: {state.value}")
+
+        if value == -1 or value == 0:
+            return state
+        # prefer shorter paths:
+        if depth != 0:
+            value = value / depth 
+        print(f"depth: {depth}")
+        print(f"value: {value}")
+        gems_to_collect = [gem[0] for gem in self.world.gems if not gem[1].is_collected]
+
+        routes, distances, total_distance = balanced_multi_salesmen_greedy_tsp(gems_to_collect
+                                                       , self.world.n_agents
+                                                       , self.world.agents_positions
+                                                       , self.world.exit_pos)
+        
+        previous_agent = (state.current_agent-1)%self.world.n_agents
+        current_agent = previous_agent
+        
+        if gems_to_collect:
+            # prefer current agent to be closer to the nearest gem
+            # and other agents to be far from the nearest gem
+            
+            current_agent_distance = distances[f"agent_{current_agent+1}"] # +1 because agent_0 is agent_1 #todo
+            other_agents_distances = [distances[f"agent_{i+1}"] for i in range(self.world.n_agents) if i != current_agent]
+            other_agents_average_distance_length = len(other_agents_distances)
+            if other_agents_average_distance_length == 0:
+                other_agents_average_distance_length = 1
+            other_agents_average_distance = sum(other_agents_distances)/other_agents_average_distance_length
+            # print(f"current_agent_distance: {current_agent_distance}")
+            # print(f"other_agents_distances: {other_agents_distances}")
+            # print(f"other_agents_average_distance: {other_agents_average_distance}")
+            # print(f"state.value: {state.value}")
+
+            # value += other_agents_average_distance 
+            if current_agent_distance != 0:
+                value = value / current_agent_distance
+
+        else:
+            # prefer all agents to be closer to the exit
+            average_distance_to_exit = total_distance/self.world.n_agents
+            if average_distance_to_exit != 0:
+                value = value/average_distance_to_exit
+        # print(f"value: {value}")
+        print(f"state.value: {state.value}")
+        state.value = value
+
+        # # keep any value above death value (-1)
+        # if value <= -1:
+        #     value = 0
+        state.value_vector[current_agent] = value
+
+        # return MyWorldState(value
+        #                     , state.value_vector
+        #                     , state.current_agent
+        #                     , state.world
+        #                     , state.world_string
+        #                     , action
+        #                     )
+        return state
     

@@ -1,96 +1,70 @@
-import numpy as np
-from typing import List, Tuple
 from lle import World
-from problem import SimpleSearchProblem, GemSearchProblem, CornerSearchProblem
-from search import bfs, dfs, astar, Solution
-from adversarial_search import minimax, alphabeta, expectimax
+from adversarial_search import minimax, alpha_beta, expectimax
 from utils import print_items
-import time
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib import cm
-from matplotlib.ticker import LinearLocator
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import colors
+from world_mdp import BetterValueFunction, WorldMDP
+
+# map on which minimax and alpha_beta differ the least
+map1 = """
+        S0 X
+        """
+map2 = """
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        """
+# map on which minimax and alpha_beta differ the most
+map3 = """
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        .  G  .  .
+        @  @  @  .
+        S2 .  .  X
+        """        
+# execute the 3 adversarial search algorithms on the 3 maps, 
+# , and for each map, compare the number of nodes extended during the search for 
+# minimax
+# , minimax with better value function
+#  alpha_beta 
+# alpha_beta with better value function
+# and expectimax 
 
 def compare_adversarial_search_algorithms():
-    """on respective test maps, compare the size of the paths found for the three search algorithms"""
+    """# execute the 3 adversarial search algorithms on the 3 maps, 
+        # , and for each map, compare the number of nodes extended during the search for 
+        # minimax
+        # , minimax with better value function
+        #  alpha_beta 
+        # alpha_beta with better value function
+        # and expectimax """
 
-# execute the 3 search algorithms on the level 3
-# , and compare the size of the paths found for the three search algorithms on the level 3
-# , and compare the number of nodes extended during the search for BFS, DSF and A∗ when searching
-# use a annoted graph to show the size of the paths found for the three search algorithms on the level 3.
-def compare_search_algorithms_on_level3():
-    world = World.from_file("level3")
-    world.reset()
+    for map in [map1
+                , map2
+                , map3
+                ]:
+        world = World(map)
+        print("map: ", map)
+        depth = world.width * world.height//2
+        world.reset()
+        mdp = WorldMDP(world)
+        minimax(mdp, mdp.reset(), depth)
+        print("minimax: ", mdp.n_nodes_expanded)
+        world.reset()
+        mdp = BetterValueFunction(world)
+        minimax(mdp, mdp.reset(), depth)
+        print("minimax with better value function: ", mdp.n_nodes_expanded)
+        world.reset()
+        mdp = WorldMDP(world)
+        alpha_beta(mdp, mdp.reset(), depth)  
+        print("alpha_beta: ", mdp.n_nodes_expanded)
+        world.reset()
+        mdp = BetterValueFunction(world)
+        alpha_beta(mdp, mdp.reset(), depth)
+        print("alpha_beta with better value function: ", mdp.n_nodes_expanded)
+        world.reset()
+        mdp = WorldMDP(world)
+        expectimax(mdp, mdp.reset(), depth)
+        print("expectimax: ", mdp.n_nodes_expanded)
 
+compare_adversarial_search_algorithms()
 
-    problem = SimpleSearchProblem(world)
-    solution = dfs(problem)
-    dfs_path_size = len(solution.actions)
-    dfs_nodes_expanded = problem.nodes_expanded
-
-    problem = SimpleSearchProblem(world)
-    solution = bfs(problem)
-    bfs_path_size = len(solution.actions)
-    bfs_nodes_expanded = problem.nodes_expanded
-
-    problem = SimpleSearchProblem(world)
-    solution = astar(problem)
-    astar_path_size = len(solution.actions)
-    astar_nodes_expanded = problem.nodes_expanded
-
-    print("dfs_path_size= ", dfs_path_size)
-    print("bfs_path_size= ", bfs_path_size)
-    print("astar_path_size= ", astar_path_size)
-
-    print("dfs_nodes_expanded= ", dfs_nodes_expanded)
-    print("bfs_nodes_expanded= ", bfs_nodes_expanded)
-    print("astar_nodes_expanded= ", astar_nodes_expanded)
-
-def compare_gem_and_corner_search():
-    """on respective test maps, compare the size of the paths found for the gem search and corner search algorithms"""
-    world = World.from_file("cartes/gems")
-    world.reset()
-
-    problem = GemSearchProblem(world)
-    solution = astar(problem)
-    gem_path_size = len(solution.actions)
-    gem_nodes_expanded = problem.nodes_expanded
-
-    world = World.from_file("cartes/corners")
-    world.reset()
-    problem = CornerSearchProblem(world)
-    solution = astar(problem)
-    corner_path_size = len(solution.actions)
-    corner_nodes_expanded = problem.nodes_expanded
-
-    print("gem_path_size= ", gem_path_size)
-    print("corner_path_size= ", corner_path_size)
-
-    print("gem_nodes_expanded= ", gem_nodes_expanded)
-    print("corner_nodes_expanded= ", corner_nodes_expanded)
-
-def compare_gem_and_corner_search_algorithms_on_level3():
-    """on level 3, compare the size of the paths found for the gem search and corner search algorithms"""
-    world = World.from_file("level3")
-    world.reset()
-
-    problem = GemSearchProblem(world)
-    solution = astar(problem)
-    gem_path_size = len(solution.actions)
-    gem_nodes_expanded = problem.nodes_expanded
-
-    problem = CornerSearchProblem(world)
-    solution = astar(problem)
-    corner_path_size = len(solution.actions)
-    corner_nodes_expanded = problem.nodes_expanded
-
-    print("gem_path_size= ", gem_path_size)
-    print("corner_path_size= ", corner_path_size)
-
-    print("gem_nodes_expanded= ", gem_nodes_expanded)
-    print("corner_nodes_expanded= ", corner_nodes_expanded)
-
-# compare_gem_and_corner_search()
-compare_gem_and_corner_search_algorithms_on_level3()
