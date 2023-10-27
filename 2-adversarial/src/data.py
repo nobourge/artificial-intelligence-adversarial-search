@@ -44,27 +44,27 @@ def compare_adversarial_search_algorithms():
                 ]:
         world = World(map)
         print("map: ", map)
-        depth = world.width * world.height//2
+        depth = (world.width + world.height)//2
         world.reset()
         mdp = WorldMDP(world)
         minimax(mdp, mdp.reset(), depth)
-        print("minimax: ", mdp.n_nodes_expanded)
+        print("minimax: ", mdp.n_expanded_states)
         world.reset()
         mdp = BetterValueFunction(world)
         minimax(mdp, mdp.reset(), depth)
-        print("minimax with better value function: ", mdp.n_nodes_expanded)
+        print("minimax with better value function: ", mdp.n_expanded_states)
         world.reset()
         mdp = WorldMDP(world)
         alpha_beta(mdp, mdp.reset(), depth)  
-        print("alpha_beta: ", mdp.n_nodes_expanded)
+        print("alpha_beta: ", mdp.n_expanded_states)
         world.reset()
         mdp = BetterValueFunction(world)
         alpha_beta(mdp, mdp.reset(), depth)
-        print("alpha_beta with better value function: ", mdp.n_nodes_expanded)
+        print("alpha_beta with better value function: ", mdp.n_expanded_states)
         world.reset()
         mdp = WorldMDP(world)
         expectimax(mdp, mdp.reset(), depth)
-        print("expectimax: ", mdp.n_nodes_expanded)
+        print("expectimax: ", mdp.n_expanded_states)
 
 compare_adversarial_search_algorithms()
 

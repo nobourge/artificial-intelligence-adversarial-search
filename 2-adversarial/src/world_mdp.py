@@ -351,7 +351,9 @@ class WorldMDP(MDP[Action, MyWorldState]):
     
     def transition(self
                    , state: MyWorldState
-                   , action: Action) -> MyWorldState:
+                   , action: Action
+                   , depth: int
+                   ) -> MyWorldState:
         """Returns the next state and the reward.
         If Agent 0 dies during a transition, 
         the state value immediately drops to 
@@ -486,28 +488,32 @@ class BetterValueFunction(WorldMDP):
     def transition(self
                    , state: MyWorldState
                    , action: Action
-                   , depth
+                   , depth: int
                    ) -> MyWorldState:
         """Returns the next state and the reward.
         """
         # Change the value of the state here.
-        print("BetterValueFunction.transition()")
+        # print("BetterValueFunction.transition()")
 
-        state = super().transition(state, action)
+        state = super().transition(state
+                                   , action
+                                   , depth
+                                   )
 
         value = state.value
-        print(f"WorldMdp.transition state.value: {state.value}")
+        # print(f"WorldMdp.transition state.value: {state.value}")
 
         if value == -1 or value == 0:
             return state
+        
         # prefer shorter paths:
+        # print(f"depth: {depth}")
         if depth != 0:
-            value = value / depth 
-        print(f"depth: {depth}")
-        print(f"value: {value}")
+            value = value / (depth +1)
+        # print(f"value: {value}")
         gems_to_collect = [gem[0] for gem in self.world.gems if not gem[1].is_collected]
 
-        routes, distances, total_distance = balanced_multi_salesmen_greedy_tsp(gems_to_collect
+        _, distances, total_distance = balanced_multi_salesmen_greedy_tsp(gems_to_collect
                                                        , self.world.n_agents
                                                        , self.world.agents_positions
                                                        , self.world.exit_pos)
@@ -530,7 +536,7 @@ class BetterValueFunction(WorldMDP):
             # print(f"other_agents_average_distance: {other_agents_average_distance}")
             # print(f"state.value: {state.value}")
 
-            # value += other_agents_average_distance 
+            # value += other_agents_average_distance #todo? may make heuristic not consistent
             if current_agent_distance != 0:
                 value = value / current_agent_distance
 
@@ -540,7 +546,7 @@ class BetterValueFunction(WorldMDP):
             if average_distance_to_exit != 0:
                 value = value/average_distance_to_exit
         # print(f"value: {value}")
-        print(f"state.value: {state.value}")
+        # print(f"state.value: {state.value}")
         state.value = value
 
         # # keep any value above death value (-1)
