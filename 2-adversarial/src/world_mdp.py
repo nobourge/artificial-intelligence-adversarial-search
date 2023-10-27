@@ -138,6 +138,7 @@ class MyWorldState(State):
         else:
             self.last_action = None
 
+
     def get_agents_positions(self) -> list:
         # return self.agents_positions
         return self.world.agents_positions
@@ -247,6 +248,8 @@ class MyWorldState(State):
         # else:
         # return (tuple(self.agents_positions), tuple(self.gems_collected), tuple(self.current_agent))
         return (tuple(self.agents_positions), tuple(self.gems_collected), self.current_agent)
+    
+
 
 class WorldMDP(MDP[Action, MyWorldState]):
     def __init__(self
@@ -262,6 +265,25 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # nodes dict
         self.nodes = {} # key: state, value: node
         self.n_expanded_states = 0
+        self.lasers_dangerous_for_agents = self.get_lasers_dangerous_for_agents()
+
+    def get_lasers_dangerous_for_agents(self) -> list[list[Position]]:
+        """Returns a list of lists
+        , each corresponding to the agent of same index
+        , containing positions of the lasers of a different agent_id (color)."""
+
+        lasers_dangerous_for_agents = [[] for _ in range(self.world.n_agents)]
+        laser_sources = self.world.laser_sources
+
+        for laser_source in laser_sources:
+            laser_source_position = laser_source[0]
+            laser_source_agent_id = laser_source[1].agent_id
+            #add the laser source position to the list of lasers dangerous for the agents of index different from laser_source_agent_id
+            for agent_id in range(self.world.n_agents):
+                if agent_id != laser_source_agent_id:
+                    lasers_dangerous_for_agents[agent_id].append(laser_source_position)
+
+        return lasers_dangerous_for_agents
 
     def reset(self):
         """The world.reset() method returns an initial state of the game. 
@@ -349,10 +371,22 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # return serialize(state, objectives_reached) in visited
         return state.serialize() in self.visited
     
+    def add_value_to_node(self
+                          , state
+                          , value: float
+                          , discriminator: str
+                          ) -> None:
+        """Adds value to node"""
+        #add best_value to the node name
+        new_state_string = state.to_string()
+        new_state_string_with_best_value = new_state_string + "\n "+discriminator+" value : " + str(value)
+        # replace
+        self.nodes[new_state_string].name = new_state_string_with_best_value
+
     def transition(self
                    , state: MyWorldState
                    , action: Action
-                   , depth: int
+                #    , depth: int
                    ) -> MyWorldState:
         """Returns the next state and the reward.
         If Agent 0 dies during a transition, 
@@ -452,7 +486,7 @@ def balanced_multi_salesmen_greedy_tsp(remaining_cities: list[Tuple[int, int]]
         for agent in routes.keys():
             if not remaining_cities:
                 break
-            current_city = routes[agent][-1]
+            # current_city = routes[agent][-1]
             nearest_city, nearest_distance = min_distance_position(routes[agent][-1], remaining_cities)
             distances[agent] += nearest_distance
             routes[agent].append(nearest_city)
@@ -488,7 +522,7 @@ class BetterValueFunction(WorldMDP):
     def transition(self
                    , state: MyWorldState
                    , action: Action
-                   , depth: int
+                   , depth: int = 0
                    ) -> MyWorldState:
         """Returns the next state and the reward.
         """
@@ -497,7 +531,7 @@ class BetterValueFunction(WorldMDP):
 
         state = super().transition(state
                                    , action
-                                   , depth
+                                #    , depth
                                    )
 
         value = state.value
@@ -530,7 +564,7 @@ class BetterValueFunction(WorldMDP):
             other_agents_average_distance_length = len(other_agents_distances)
             if other_agents_average_distance_length == 0:
                 other_agents_average_distance_length = 1
-            other_agents_average_distance = sum(other_agents_distances)/other_agents_average_distance_length
+            # other_agents_average_distance = sum(other_agents_distances)/other_agents_average_distance_length
             # print(f"current_agent_distance: {current_agent_distance}")
             # print(f"other_agents_distances: {other_agents_distances}")
             # print(f"other_agents_average_distance: {other_agents_average_distance}")
