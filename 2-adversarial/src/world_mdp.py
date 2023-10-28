@@ -1,5 +1,6 @@
 import copy
 from dataclasses import dataclass
+import random
 import sys
 from typing import List, Tuple#, override
 import lle
@@ -16,9 +17,6 @@ from scipy.optimize import linear_sum_assignment
 
 
 sys.stdout = auto_indent.AutoIndent(sys.stdout)
-
-
-
 
 def get_distance(coord1, coord2):
     """Returns the distance between two coordinates"""
@@ -111,6 +109,8 @@ class MyWorldState(State):
     agents_positions: list
     gems_collected: list[bool]
     value_vector: List[float]
+    alpha: float = None
+    beta: float = None
     # alpha_beta_vector: List[Tuple[float, float]] #todo?
     # gems_collected_by_agents: list[list[Position]]
     # Add more attributes here if needed.
@@ -375,11 +375,21 @@ class WorldMDP(MDP[Action, MyWorldState]):
                           , state
                           , value: float
                           , discriminator: str
+                          , alpha: float = None
+                            , beta: float = None
                           ) -> None:
         """Adds value to node"""
         #add best_value to the node name
         new_state_string = state.to_string()
         new_state_string_with_best_value = new_state_string + "\n "+discriminator+" value : " + str(value)
+        # if state.alpha != None:
+        #     new_state_string_with_best_value += "\n alpha : " + str(state.alpha)
+        # if state.beta != None:
+        #     new_state_string_with_best_value += "\n beta : " + str(state.beta)
+        if alpha != None:
+            new_state_string_with_best_value += "\n alpha : " + str(alpha)
+        if beta != None:
+            new_state_string_with_best_value += "\n beta : " + str(beta)
         # replace
         self.nodes[new_state_string].name = new_state_string_with_best_value
 
@@ -533,52 +543,84 @@ class BetterValueFunction(WorldMDP):
                                    , action
                                 #    , depth
                                    )
+        
+        previous_agent = (state.current_agent-1)%self.world.n_agents
+        current_agent = previous_agent
+        print(f"current_agent: {current_agent}")
+        print(f"current_agent position: {state.agents_positions[current_agent]}")
 
         value = state.value
-        # print(f"WorldMdp.transition state.value: {state.value}")
+        print(f"WorldMdp.transition state.value: {state.value}")
 
         if value == -1 or value == 0:
             return state
         
         # prefer shorter paths:
         # print(f"depth: {depth}")
-        if depth != 0:
-            value = value / (depth +1)
+        # if depth != 0: #todo?
+            # value = value / (depth +1)
         # print(f"value: {value}")
-        gems_to_collect = [gem[0] for gem in self.world.gems if not gem[1].is_collected]
+        # world_gems = self.world.gems #todo not updated
+        world_gems = state.world.gems
+        print(f"world_gems: {world_gems}")
+        gems_to_collect = [gem[0] for gem in state.world.gems if not gem[1].is_collected]
+        print(f"gems_to_collect: {gems_to_collect}")
+        length_gems_to_collect = len(gems_to_collect)
+        print(f"length_gems_to_collect: {length_gems_to_collect}")
 
-        _, distances, total_distance = balanced_multi_salesmen_greedy_tsp(gems_to_collect
+        _, distances, total_distance = balanced_multi_salesmen_greedy_tsp(copy.deepcopy(gems_to_collect)
                                                        , self.world.n_agents
                                                        , self.world.agents_positions
                                                        , self.world.exit_pos)
+        print(f"distances: {distances}")
+        print(f"total_distance: {total_distance}")
         
-        previous_agent = (state.current_agent-1)%self.world.n_agents
-        current_agent = previous_agent
-        
+        current_agent_distance = distances[f"agent_{current_agent+1}"] # +1 because agent_0 is agent_1 #todo
+        if current_agent_distance == 1:
+            current_agent_distance = 1.5
+        other_agents_distances = [distances[f"agent_{i+1}"] for i in range(self.world.n_agents) if i != current_agent]
+        other_agents_average_distance_length = len(other_agents_distances)
+        if other_agents_average_distance_length == 0:
+            other_agents_average_distance_length = 1
+        # other_agents_average_distance = sum(other_agents_distances)/other_agents_average_distance_length
+        print(f"current_agent_distance: {current_agent_distance}")
+        # print(f"other_agents_distances: {other_agents_distances}")
+        # print(f"other_agents_average_distance: {other_agents_average_distance}")
+        # print(f"state.value: {state.value}")
         if gems_to_collect:
+        # print(f"length_gems_to_collect: {length_gems_to_collect}")
+        # if len(gems_to_collect) > 0:
+            print(f"gems_to_collect: {gems_to_collect}")
             # prefer current agent to be closer to the nearest gem
             # and other agents to be far from the nearest gem
             
-            current_agent_distance = distances[f"agent_{current_agent+1}"] # +1 because agent_0 is agent_1 #todo
-            other_agents_distances = [distances[f"agent_{i+1}"] for i in range(self.world.n_agents) if i != current_agent]
-            other_agents_average_distance_length = len(other_agents_distances)
-            if other_agents_average_distance_length == 0:
-                other_agents_average_distance_length = 1
-            # other_agents_average_distance = sum(other_agents_distances)/other_agents_average_distance_length
-            # print(f"current_agent_distance: {current_agent_distance}")
-            # print(f"other_agents_distances: {other_agents_distances}")
-            # print(f"other_agents_average_distance: {other_agents_average_distance}")
-            # print(f"state.value: {state.value}")
+            
 
             # value += other_agents_average_distance #todo? may make heuristic not consistent
             if current_agent_distance != 0:
-                value = value / current_agent_distance
+                # value = value / current_agent_distance
+                print(f"len(gems_to_collect): {len(gems_to_collect)}")
+                print(f"current_agent_distance: {current_agent_distance}")
+                value = value + (len(gems_to_collect) / current_agent_distance)
+                print(f"value: {value}")
 
         else:
-            # prefer all agents to be closer to the exit
-            average_distance_to_exit = total_distance/self.world.n_agents
-            if average_distance_to_exit != 0:
-                value = value/average_distance_to_exit
+            # prefer agent to be closer to the exit
+            if current_agent_distance != 0:
+                value = value + (lle.REWARD_AGENT_JUST_ARRIVED / current_agent_distance)
+                print(f"value after adding lle.REWARD_AGENT_JUST_ARRIVED / current_agent_distance: {value}")
+
+                # prefer all agents to be closer to the exit
+                average_distance_to_exit = total_distance/self.world.n_agents
+                if other_agents_distances:
+                    if all(distance == 0 for distance in other_agents_distances):
+                        # add reward for each agent being on exit lle.REWARD_AGENT_ON_EXIT
+                        value = value + lle.REWARD_END_GAME/average_distance_to_exit
+                        print(f"value after adding lle.REWARD_END_GAME/average_distance_to_exit: {value}")
+                else:
+                    # add reward for each agent being on exit lle.REWARD_AGENT_ON_EXIT
+                    value = value + lle.REWARD_END_GAME/current_agent_distance
+                    print(f"value after adding lle.REWARD_END_GAME/average_distance_to_exit: {value}")
         # print(f"value: {value}")
         # print(f"state.value: {state.value}")
         state.value = value

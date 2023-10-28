@@ -197,3 +197,477 @@ minimax with better value function:  98
 alpha_beta:  36
 alpha_beta with better value function:  72
 expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+date time:  2023-10-28 13:49:38
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+date time:  2023-10-28 13:52:47
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+date time:  2023-10-28 15:06:02
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+date time:  2023-10-28 17:23:26
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+date time:  2023-10-28 17:45:26
+date time:  2023-10-28 17:49:28
+date time:  2023-10-28 17:50:03
+date time:  2023-10-28 17:50:27
+date time:  2023-10-28 17:52:30
+date time:  2023-10-28 18:03:25
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+map:  .   .   @   .   .  
+@   .   @   .   .  
+.   .   .   .   .  
+@   .   .   .   @  
+.   @   .   .   L1N
+L0W S0  .   .   .  
+L2W .   .   .   X  
+
+minimax:  393
+alpha_beta:  393
+alpha_beta with better value function:  393
+expectimax:  393
+date time:  2023-10-28 18:06:28
+date time:  2023-10-28 18:15:21
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+alpha_beta:  26
+alpha_beta with better value function:  26
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+alpha_beta:  36
+alpha_beta with better value function:  36
+expectimax:  98
+map:  .   .   X   G   @   .   .   .   @  
+.   L1E .   .   .   .   .   .   .  
+.   .   L0S @   @   S0  .   @   .  
+
+minimax:  15
+alpha_beta:  15
+alpha_beta with better value function:  15
+expectimax:  15
+date time:  2023-10-28 18:20:50
+date time:  2023-10-28 18:21:48
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+.  @  .  S3 .  .  . 
+
+G  .  .  .  .  .  X 
+
+S1 .  .  @  .  X  X 
+
+@  @  .  .  .  .  . 
+
+.  @  .  @  .  .  @ 
+
+.  .  X  .  @  S0 . 
+
+date time:  2023-10-28 18:23:36
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+.   X   X   .   .  
+
+L0W X   L1E @   @  
+
+S0  @   S1  .   .  
+
+.   @   G   .   .  
+
+S2  .   .   @   G  
+
+minimax:  948
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  157
+date time:  2023-10-28 18:25:03
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+.  .  @  .  . 
+
+@  @  .  .  S1
+
+.  .  X  .  . 
+
+.  .  .  X  @ 
+
+minimax:  118
+alpha_beta:  118
+alpha_beta with better value function:  118
+expectimax:  118
+date time:  2023-10-28 18:44:28
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+.   @   @   .   .   .   .   .   .   .  
+
+.   @   .   .   .   .   .   .   .   .  
+
+@   .   .   .   S0  L1E .   .   .   .  
+
+S2  .   .   .   .   .   .   @   .   .  
+
+G   .   @   .   @   .   .   .   .   .  
+
+@   .   @   @   .   .   .   .   .   .  
+
+S1  .   .   .   .   .   .   .   .   .  
+
+.   .   .   @   .   .   .   .   @   @  
+
+.   .   G   .   .   X   X   @   .   @  
+
+.   X   @   .   .   @   .   .   @   .  
+
+date time:  2023-10-28 18:48:16
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+date time:  2023-10-28 18:51:14
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+S1 @ 
+
+S0 X 
+
+X  G 
+
+minimax:  3
+alpha_beta:  3
+alpha_beta with better value function:  3
+expectimax:  3
+date time:  2023-10-28 18:56:17
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .   .   .  
+.   .   @  
+X   S1  L1E
+.   L0E X  
+@   @   S0 
+
+minimax:  8
+alpha_beta:  8
+alpha_beta with better value function:  8
+expectimax:  8
