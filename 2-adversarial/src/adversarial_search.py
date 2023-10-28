@@ -26,7 +26,7 @@ def stock_tree(mdp: MDP[A, S]
                , algorithm: str
                 ) -> None:
     """Stocks the tree in a png file"""
-    print("stock_tree()")
+    # print("stock_tree()")
     if isinstance(mdp, WorldMDP):
         date_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         if not os.path.exists('tree/'+algorithm):
@@ -105,14 +105,14 @@ def _max(mdp: MDP[A, S]
             value, _ = _max(mdp, new_state, max_depth, depth + 1)
         else:
             value = _min(mdp, new_state, max_depth, depth + 1)
-        print(f"depth: {depth}")
-        print(f"best_value: {best_value}")
-        print(f"value: {value}")
+        # print(f"depth: {depth}")
+        # print(f"best_value: {best_value}")
+        # print(f"value: {value}")
         if value > best_value:
             best_value = value
             # print(f"best_value between {best_value} and {value}: {best_value}")
             best_action = action
-            print(f"best_action: {best_action}")
+            # print(f"best_action: {best_action}")
         if isinstance(mdp, WorldMDP):
             mdp.add_value_to_node(new_state
                                   , value
@@ -151,23 +151,16 @@ def _min(mdp: MDP[A, S]
             value, _ = _max(mdp, new_state, max_depth, depth + 1)
         else:
             value = _min(mdp, new_state, max_depth, depth)
-        print(f"depth: {depth}")
-        print(f"worst_value: {worst_value}")
-        print(f"value: {value}")
+        # print(f"depth: {depth}")
+        # print(f"worst_value: {worst_value}")
+        # print(f"value: {value}")
         worst_value = min(worst_value, value)
         # print(f"worst_value between {worst_value} and {value}: {worst_value}")
         if isinstance(mdp, WorldMDP):
-            #add worst_value to the node name
-            new_state_string = new_state.to_string()
-            new_state_string_with_worst_value = new_state_string + "\n worst value : " + str(worst_value)
-            # add
-            # mdp.nodes[new_state_string] = Node(new_state_string, parent=mdp.nodes[state.to_string()])
-            # replace 
-            # mdp.nodes[new_state_string] = Node(new_state_string_with_worst_value, parent=mdp.nodes[state.to_string()])
-            mdp.nodes[new_state_string].name = new_state_string_with_worst_value
-            # children = mdp.nodes[new_state_string].children
-            # for child in children:
-            #     child.parent = mdp.nodes[new_state_string]
+            mdp.add_value_to_node(new_state
+                                    , value
+                                    , "worst"
+                                    )
             mdp.remove_from_visited(new_state)
     return worst_value
 
@@ -230,43 +223,54 @@ def get_available_actions_ordered(mdp: MDP[A, S]
                                     ) -> List[A]:
     """Returns the available actions ordered by heuristic value"""
     available_actions = mdp.available_actions(state)
+    if not isinstance(mdp, WorldMDP):
+        return available_actions
     # print(f"available_actions: {available_actions}")
     # print(f"state.current_agent: {state.current_agent}")
     # print(f"state.agents_positions: {state.agents_positions}")
 
-    if isinstance(mdp, WorldMDP):
-        available_actions = mdp.available_actions(state)
-        # move STAY to the end of the list
-        available_actions = sorted(available_actions, key=lambda action: action.name)
-        # print(f"available_actions: {available_actions}")
-        # print(f"state.current_agent: {state.current_agent}")
+    # move STAY to the end of the list
+    available_actions_ordered = [action for action in available_actions if action != Action.STAY]
+    available_actions_ordered.append(Action.STAY)
+    # available_actions_ordered = sorted(available_actions, key=lambda action: action.name) #todo graphmdp
 
-        # if action leads to a laser, move it to the end of the list
-        # using world
-        
-        # if a laser sources has not the same direction as the agent, 
-        if mdp.lasers_dangerous_for_agents[state.current_agent]:
-            print(f"mdp.lasers_dangerous_for_agents[state.current_agent]: {mdp.lasers_dangerous_for_agents[state.current_agent]}")
-            for action in available_actions:
-                print(f"action: {action}")
-                # print(f"state.current_agent: {state.current_agent}")
-                # print(f"state.agents_positions: {state.agents_positions}")
-                print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
-                position_after_action = get_position_after_action(state.world.agents_positions[state.current_agent]
-                                                                        , action
-                                                                        )
-                print(f"position_after_action: {position_after_action}")
+
+    # print(f"available_actions: {available_actions}")
+    # print(f"state.current_agent: {state.current_agent}")    
+    for action in available_actions:
+        # print(f"action: {action}")
+        # print(f"state.current_agent: {state.current_agent}")
+        # print(f"state.agents_positions: {state.agents_positions}")
+        # print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
+        position_after_action = get_position_after_action(state.agents_positions[state.current_agent]
+                                                                , action
+                                                                )
+        # print(f"position_after_action: {position_after_action}")
+
+        # if not all gems are collected,
+        # if not all (not gem for gem in state.gems_collected):
+        if state.world.gems_collected != state.world.n_gems:
+            # if action leads to a gem, move it to the top of the list
+            if position_after_action in [gem[0] for gem in state.world.gems]:
                 # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
-                print(f"state.world.lasers: {state.world.lasers}")
-                if position_after_action in [laser[0] for laser in state.world.lasers]:
-                    # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
-                    # print(f"new_state.world.laser_position: {new_state.world.laser_position}")
-                    print(f"suicide action: {action}")
-                    available_actions.remove(action)
-                    available_actions.append(action)
-        
-    
-    return available_actions
+                # print(f"new_state.world.gems_positions: {new_state.world.gems_positions}")
+                # print(f"action: {action}")
+                available_actions_ordered.remove(action)
+                available_actions_ordered.insert(0, action)
+        # if a laser sources has not the same color as the agent, 
+        if mdp.lasers_dangerous_for_agents[state.current_agent]:
+            # print(f"mdp.lasers_dangerous_for_agents[state.current_agent]: {mdp.lasers_dangerous_for_agents[state.current_agent]}")
+
+            # print(f"state.world.lasers: {state.world.lasers}")
+            # if action leads to a laser, move it to the end of the list
+            if position_after_action in [laser[0] for laser in state.world.lasers]:
+                # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
+                # print(f"new_state.world.laser_position: {new_state.world.laser_position}")
+                # print(f"suicide action: {action}")
+                available_actions_ordered.remove(action)
+                available_actions_ordered.append(action)
+
+    return available_actions_ordered
 
 
 def _alpha_beta_max(mdp: MDP[A, S]
@@ -280,9 +284,12 @@ def _alpha_beta_max(mdp: MDP[A, S]
         return state.value, None
     best_value = float('-inf')
     best_action = None
-    available_actions_ordered = get_available_actions_ordered(mdp, state)
-    print(f"available_actions_ordered: {available_actions_ordered}")
-    for action in available_actions_ordered:
+    if isinstance(mdp, BetterValueFunction):
+        available_actions = get_available_actions_ordered(mdp, state)
+        # print(f"available_actions_ordered: {available_actions_ordered}")
+    else:
+        available_actions = mdp.available_actions(state)
+    for action in available_actions:
     # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
         try:
             new_state = transition(mdp
@@ -314,9 +321,16 @@ def _alpha_beta_max(mdp: MDP[A, S]
             # best_value_vector = value_vector
             best_action = action
         if isinstance(mdp, WorldMDP):
+            mdp.add_value_to_node(new_state
+                                    , value
+                                    , "best"
+                                    )
             mdp.remove_from_visited(new_state)
-        # alpha = max(alpha, best_value)  # Update alpha before cutoff: fail soft
-        if beta <= best_value:  # Beta cutoff
+        # alpha = max(alpha, best_value)  # Update alpha before cutoff: fail soft #todo tests\test_alpha_beta.py:131: AssertionError
+        # if beta <= best_value:  # Beta cutoff
+        if beta <= value:  # Beta cutoff
+            if isinstance(mdp, WorldMDP):
+                print("beta cutoff from state: ", new_state.to_string())
             return best_value, best_action
         alpha = max(alpha, best_value)  # Update alpha after cutoff: fail hard
 
@@ -332,8 +346,12 @@ def _alpha_beta_min(mdp: MDP[A, S]
     if mdp.is_final(state) or depth == max_depth:
         return state.value
     worst_value = float('inf')
-    available_actions_ordered = get_available_actions_ordered(mdp, state)
-    for action in available_actions_ordered:
+    if isinstance(mdp, BetterValueFunction):
+        available_actions = get_available_actions_ordered(mdp, state)
+        # print(f"available_actions_ordered: {available_actions_ordered}")
+    else:
+        available_actions = mdp.available_actions(state)
+    for action in available_actions:
     # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
     # FAILED tests/test_alpha_beta.py::test_alpha_beta_two_agents - assert 44 <= 30
     # FAILED tests/test_alpha_beta.py::test_three_agents2 - assert West == South
@@ -363,9 +381,16 @@ def _alpha_beta_min(mdp: MDP[A, S]
                                     , depth)
         worst_value = min(worst_value, value)
         if isinstance(mdp, WorldMDP):
+            mdp.add_value_to_node(new_state
+                                    , value
+                                    , "worst"
+                                    )
             mdp.remove_from_visited(new_state)
-        # beta = min(beta, best_value)  # Update beta before cutoff: fail soft
-        if worst_value <= alpha:  # Alpha cutoff
+        # beta = min(beta, worst_value)  # Update beta before cutoff: fail soft #todo tests\test_alpha_beta.py:131: AssertionError
+        # if worst_value <= alpha:  # Alpha cutoff
+        if value <= alpha:  # Alpha cutoff
+            if isinstance(mdp, WorldMDP):
+                print("alpha cutoff from state: ", new_state.to_string())
             return worst_value
         beta = min(beta, worst_value)  # Update beta after cutoff: fail hard
     return worst_value
@@ -429,6 +454,10 @@ def _expectimax_max(mdp: MDP[A, S]
             best_value = value
             best_action = action
         if isinstance(mdp, WorldMDP):
+            mdp.add_value_to_node(new_state
+                                    , value
+                                    , "max"
+                                    )
             mdp.remove_from_visited(new_state)
     
     return best_value, best_action
@@ -438,6 +467,11 @@ def _expectimax_exp(mdp: MDP[A, S]
                     , max_depth: int
                     , depth: int = 0
                     ) -> float:
+    """Returns the expected value of the state.
+    The expected value of a state is
+    the average value of the state
+    after all possible actions are performed.
+    """
     if mdp.is_final(state) or depth == max_depth:
         return state.value
     
@@ -460,6 +494,10 @@ def _expectimax_exp(mdp: MDP[A, S]
                                    )
         total_value += value
         if isinstance(mdp, WorldMDP):
+            mdp.add_value_to_node(new_state
+                                    , value
+                                    , "exp"
+                                    )
             mdp.remove_from_visited(new_state)
     
     expected_value = total_value / num_actions if num_actions != 0 else 0

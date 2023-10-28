@@ -1,0 +1,199 @@
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        .  G  .  .
+        @  @  @  .
+        S2 .  .  X
+        
+minimax:  1781
+minimax with better value function:  1781
+alpha_beta:  985
+alpha_beta with better value function:  985
+expectimax:  245
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  66
+alpha_beta with better value function:  66
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  66
+alpha_beta with better value function:  66
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  66
+alpha_beta with better value function:  66
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  18
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  72
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98
+map:  
+        S0 X
+        
+minimax:  2
+minimax with better value function:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  
+        S0 G  .  X
+        .  .  .  .
+        X L1N S1 .
+        
+minimax:  30
+minimax with better value function:  30
+alpha_beta:  26
+alpha_beta with better value function:  18
+expectimax:  30
+map:  
+        S0 G  X  .  .  .  .
+        X L1N S1 .  .  .  .
+        .  .  .  .  .  .  .
+        
+minimax:  98
+minimax with better value function:  98
+alpha_beta:  36
+alpha_beta with better value function:  72
+expectimax:  98

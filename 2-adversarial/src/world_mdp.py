@@ -109,7 +109,7 @@ class MyWorldState(State):
     current_agent: int
     last_action: Action
     agents_positions: list
-    gems_collected: list
+    gems_collected: list[bool]
     value_vector: List[float]
     # alpha_beta_vector: List[Tuple[float, float]] #todo?
     # gems_collected_by_agents: list[list[Position]]
