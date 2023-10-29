@@ -31,11 +31,13 @@ def stock_tree(mdp: MDP[A, S]
         if not os.path.exists('tree/current/'+algorithm):
             os.makedirs('tree/current/'+algorithm)
         UniqueDotExporter(mdp.root).to_picture("tree/current/"+algorithm+".png")
+        print("tree stocked in tree/current/"+algorithm+".png")
 
         date_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         if not os.path.exists('tree/'+algorithm):
             os.makedirs('tree/'+algorithm)
         UniqueDotExporter(mdp.root).to_picture("tree/"+algorithm+"/"+date_time+".png")
+        print("tree stocked in tree/"+algorithm+"/"+date_time+".png")
     # picture to svg:
     # png_path = "mdp_root.png"
     # svg_path = "mdp_root.svg"
@@ -202,79 +204,7 @@ def minimax(mdp: MDP[A, S]
 
     return action
 
-def get_position_after_action(agent_pos: Tuple[int, int]
-                                , action: Action
-                                ) -> Tuple[int, int]:
-    """Returns the position of the agent after performing the given action in the given state."""
-    agent_pos_after_action = None
-    # Apply the action to the agent's position
-    if action == Action.NORTH:
-        agent_pos_after_action = (agent_pos[0] - 1, agent_pos[1])
-    elif action == Action.SOUTH:
-        agent_pos_after_action = (agent_pos[0] + 1, agent_pos[1])
-    elif action == Action.WEST:
-        agent_pos_after_action = (agent_pos[0], agent_pos[1] - 1)
-    elif action == Action.EAST:
-        agent_pos_after_action = (agent_pos[0], agent_pos[1] + 1)
-    elif action == Action.STAY:
-        agent_pos_after_action = (agent_pos[0], agent_pos[1])
-    else:
-        raise ValueError("Invalid action")
-    return agent_pos_after_action
 
-def get_available_actions_ordered(mdp: MDP[A, S]
-                                    , state: S
-                                    ) -> List[A]:
-    """Returns the available actions ordered by heuristic value"""
-    available_actions = mdp.available_actions(state)
-    if not isinstance(mdp, BetterValueFunction):
-        return available_actions
-    # print(f"available_actions: {available_actions}")
-    # print(f"state.current_agent: {state.current_agent}")
-    # print(f"state.agents_positions: {state.agents_positions}")
-
-    # move STAY to the end of the list
-    available_actions_ordered = [action for action in available_actions if action != Action.STAY]
-    available_actions_ordered.append(Action.STAY)
-    # available_actions_ordered = sorted(available_actions, key=lambda action: action.name) #todo graphmdp
-
-
-    # print(f"available_actions: {available_actions}")
-    # print(f"state.current_agent: {state.current_agent}")    
-    for action in available_actions:
-        # print(f"action: {action}")
-        # print(f"state.current_agent: {state.current_agent}")
-        # print(f"state.agents_positions: {state.agents_positions}")
-        # print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
-        position_after_action = get_position_after_action(state.agents_positions[state.current_agent]
-                                                                , action
-                                                                )
-        # print(f"position_after_action: {position_after_action}")
-
-        # if not all gems are collected,
-        # if not all (not gem for gem in state.gems_collected):
-        if state.world.gems_collected != state.world.n_gems:
-            # if action leads to a gem, move it to the top of the list
-            if position_after_action in [gem[0] for gem in state.world.gems]:
-                # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
-                # print(f"new_state.world.gems_positions: {new_state.world.gems_positions}")
-                # print(f"action: {action}")
-                available_actions_ordered.remove(action)
-                available_actions_ordered.insert(0, action)
-        # if a laser sources has not the same color as the agent, 
-        if mdp.lasers_dangerous_for_agents[state.current_agent]:
-            # print(f"mdp.lasers_dangerous_for_agents[state.current_agent]: {mdp.lasers_dangerous_for_agents[state.current_agent]}")
-
-            # print(f"state.world.lasers: {state.world.lasers}")
-            # if action leads to a laser, move it to the end of the list
-            if position_after_action in [laser[0] for laser in state.world.lasers]:
-                # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
-                # print(f"new_state.world.laser_position: {new_state.world.laser_position}")
-                # print(f"suicide action: {action}")
-                available_actions_ordered.remove(action)
-                available_actions_ordered.append(action)
-
-    return available_actions_ordered
 
 
 def _alpha_beta_max(mdp: MDP[A, S]
@@ -357,6 +287,14 @@ def _alpha_beta_min(mdp: MDP[A, S]
                     # ) -> float:
                     ) -> Tuple[float, A, float, float]:
     if mdp.is_final(state) or depth == max_depth:
+        # if isinstance(mdp, WorldMDP):
+        #     mdp.add_value_to_node(state
+        #                             , state.value
+        #                             , "worst"
+        #                             , alpha
+        #                             , beta
+        #                             , "FINAL"
+        #                             )
         return state.value
     worst_value = float('inf')
     # available_actions = get_available_actions_ordered(mdp, state)
@@ -594,15 +532,15 @@ if __name__ == "__main__":
             # )
                World(
             """
-        S0 X  .
+          S0 X  .
         G  @  .
-        X  .  .
+        G  X  .
         """
             )
         )
     # action = minimax(world, world.reset(), 5)
-    # action = alpha_beta(world, world.reset(), 2)
-    action = alpha_beta(world, world.reset(), 1)
+    action = alpha_beta(world, world.reset(), 2)
+    # action = alpha_beta(world, world.reset(), 1)
     # assert action in [Action.SOUTH, Action.STAY]
     # assert action in [Action.SOUTH]
 
@@ -623,12 +561,12 @@ if __name__ == "__main__":
               """
         S0 X  .
         G  @  .
-        X  .  .
+        G  X  .
         """
             )
         )
     # action = minimax(world, world.reset(), 5)
-    action = alpha_beta(world, world.reset(), 1)
-    # action = alpha_beta(world, world.reset(), 2)
+    # action = alpha_beta(world, world.reset(), 1)
+    action = alpha_beta(world, world.reset(), 2)
     # assert action in [Action.SOUTH, Action.STAY]
     # assert action in [Action.SOUTH]

@@ -51,11 +51,12 @@ class MapGenerator:
         
         # Place agents' start positions
         for i in range(num_agents):
-            while True:
+            placed = False
+            while not placed:
                 r, c = random.randint(0, rows-1), random.randint(0, cols-1)
                 if map_grid[r][c] == '.':
                     map_grid[r][c] = f'S{i}'
-                    break
+                    placed = True
         
         # Place exits (same number as agents)
         for _ in range(num_agents):
@@ -90,11 +91,11 @@ class MapGenerator:
 
     # Function to generate random but reasonable parameters for the map
     def generate_random_params(self
-                            #    , max_rows=9
-                               , max_rows=5
-                            #    , max_cols=9
-                               , max_cols=5
-                               , max_agents=4
+                               , max_rows=9
+                            #    , max_rows=5
+                               , max_cols=9
+                            #    , max_cols=5
+                               , max_agents=3
                                , max_gems=6
                                , max_lasers=3):
         """
@@ -112,7 +113,8 @@ class MapGenerator:
         """
         rows = random.randint(2, max_rows)
         cols = random.randint(2, max_cols)
-        num_agents = random.randint(2, rows*cols//2)
+        max_agents = min(max_agents, rows*cols//2)
+        num_agents = random.randint(2, max_agents)
         print("rows: ", rows)
         print("cols: ", cols)
         print("num_agents: ", num_agents)

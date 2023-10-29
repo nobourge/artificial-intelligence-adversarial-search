@@ -5,7 +5,7 @@ import sys
 from typing import List, Tuple#, override
 import lle
 from lle import Position, World, Action
-from mdp import MDP, State
+from mdp import A, MDP, State
 
 import auto_indent
 from utils import print_items
@@ -321,7 +321,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
 
     def is_final(self, state: MyWorldState) -> bool:
         """returns True if the state is final, False otherwise."""
-        return state.world.done
+        return state.world.done and not [gem[0] for gem in state.world.gems if not gem[1].is_collected]
 
     def get_actions(self
                 , current_agent: int
@@ -390,6 +390,8 @@ class WorldMDP(MDP[Action, MyWorldState]):
             new_state_string_with_best_value += "\n alpha : " + str(alpha)
         if beta != None:
             new_state_string_with_best_value += "\n beta : " + str(beta)
+        if self.is_final(state):
+            new_state_string_with_best_value += "\n FINAL"
         # replace
         self.nodes[new_state_string].name = new_state_string_with_best_value
 
@@ -478,6 +480,7 @@ class WorldMDP(MDP[Action, MyWorldState]):
         # self.world.set_state(real_state)
 
         return my_world_state_transitioned
+    
 
 def balanced_multi_salesmen_greedy_tsp(remaining_cities: list[Tuple[int, int]]
                                        , num_salesmen: int
@@ -528,7 +531,84 @@ class BetterValueFunction(WorldMDP):
             , but the gems already collected are taken into account.
         The value of a state is increased by 
         the average of the score differences between Agent 0 and the other agents.."""
-    # @override
+
+
+    def get_position_after_action(self
+                                  , agent_pos: Tuple[int, int]
+                                    , action: Action
+                                    ) -> Tuple[int, int]:
+        """Returns the position of the agent after performing the given action in the given state."""
+        agent_pos_after_action = None
+        # Apply the action to the agent's position
+        if action == Action.NORTH:
+            agent_pos_after_action = (agent_pos[0] - 1, agent_pos[1])
+        elif action == Action.SOUTH:
+            agent_pos_after_action = (agent_pos[0] + 1, agent_pos[1])
+        elif action == Action.WEST:
+            agent_pos_after_action = (agent_pos[0], agent_pos[1] - 1)
+        elif action == Action.EAST:
+            agent_pos_after_action = (agent_pos[0], agent_pos[1] + 1)
+        elif action == Action.STAY:
+            agent_pos_after_action = (agent_pos[0], agent_pos[1])
+        else:
+            raise ValueError("Invalid action")
+        return agent_pos_after_action
+    
+    def get_available_actions_ordered(self
+                                    , state: MyWorldState
+                                    ) -> List[A]:
+        """Returns the available actions ordered by heuristic value"""
+        available_actions = super().available_actions(state)
+        # print(f"available_actions: {available_actions}")
+        # print(f"state.current_agent: {state.current_agent}")
+        # print(f"state.agents_positions: {state.agents_positions}")
+
+        # move STAY to the end of the list
+        available_actions_ordered = [action for action in available_actions if action != Action.STAY]
+        available_actions_ordered.append(Action.STAY)
+        # available_actions_ordered = sorted(available_actions, key=lambda action: action.name) #todo graphmdp
+
+
+        # print(f"available_actions: {available_actions}")
+        # print(f"state.current_agent: {state.current_agent}")    
+        for action in available_actions:
+            # print(f"action: {action}")
+            # print(f"state.current_agent: {state.current_agent}")
+            # print(f"state.agents_positions: {state.agents_positions}")
+            # print(f"state.world.agents_positions[state.current_agent]: {state.world.agents_positions[state.current_agent]}")
+            position_after_action = self.get_position_after_action(state.agents_positions[state.current_agent]
+                                                                    , action
+                                                                    )
+            # print(f"position_after_action: {position_after_action}")
+
+            # if not all gems are collected,
+            # if not all (not gem for gem in state.gems_collected):
+            if state.world.gems_collected != state.world.n_gems:
+                # if action leads to a gem, move it to the top of the list
+                if position_after_action in [gem[0] for gem in state.world.gems]:
+                    # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
+                    # print(f"new_state.world.gems_positions: {new_state.world.gems_positions}")
+                    # print(f"action: {action}")
+                    available_actions_ordered.remove(action)
+                    available_actions_ordered.insert(0, action)
+            # if a laser sources has not the same color as the agent, 
+            if self.lasers_dangerous_for_agents[state.current_agent]:
+                # print(f"mdp.lasers_dangerous_for_agents[state.current_agent]: {mdp.lasers_dangerous_for_agents[state.current_agent]}")
+
+                # print(f"state.world.lasers: {state.world.lasers}")
+                # if action leads to a laser, move it to the end of the list
+                if position_after_action in [laser[0] for laser in state.world.lasers]:
+                    # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
+                    # print(f"new_state.world.laser_position: {new_state.world.laser_position}")
+                    # print(f"suicide action: {action}")
+                    available_actions_ordered.remove(action)
+                    available_actions_ordered.append(action)
+
+        return available_actions_ordered
+
+    def available_actions(self, state: MyWorldState) -> list[Action]:
+        return self.get_available_actions_ordered(state)
+    
     def transition(self
                    , state: MyWorldState
                    , action: Action
@@ -543,10 +623,13 @@ class BetterValueFunction(WorldMDP):
                                    , action
                                 #    , depth
                                    )
-        
-        previous_agent = (state.current_agent-1)%self.world.n_agents
+        n_agents = self.world.n_agents
+        previous_agent = (state.current_agent-1)%n_agents
         current_agent = previous_agent
         print(f"current_agent: {current_agent}")
+        state_agents_positions = state.agents_positions
+        print(f"state_agents_positions: {state_agents_positions}")
+        current_agent_position = state_agents_positions[current_agent]
         print(f"current_agent position: {state.agents_positions[current_agent]}")
 
         value = state.value
@@ -569,8 +652,9 @@ class BetterValueFunction(WorldMDP):
         print(f"length_gems_to_collect: {length_gems_to_collect}")
 
         _, distances, total_distance = balanced_multi_salesmen_greedy_tsp(copy.deepcopy(gems_to_collect)
-                                                       , self.world.n_agents
-                                                       , self.world.agents_positions
+                                                       , n_agents
+                                                    #    , self.world.agents_positions
+                                                       , state_agents_positions
                                                        , self.world.exit_pos)
         print(f"distances: {distances}")
         print(f"total_distance: {total_distance}")
@@ -578,7 +662,7 @@ class BetterValueFunction(WorldMDP):
         current_agent_distance = distances[f"agent_{current_agent+1}"] # +1 because agent_0 is agent_1 #todo
         if current_agent_distance == 1:
             current_agent_distance = 1.5
-        other_agents_distances = [distances[f"agent_{i+1}"] for i in range(self.world.n_agents) if i != current_agent]
+        other_agents_distances = [distances[f"agent_{i+1}"] for i in range(n_agents) if i != current_agent]
         other_agents_average_distance_length = len(other_agents_distances)
         if other_agents_average_distance_length == 0:
             other_agents_average_distance_length = 1
@@ -611,15 +695,14 @@ class BetterValueFunction(WorldMDP):
                 print(f"value after adding lle.REWARD_AGENT_JUST_ARRIVED / current_agent_distance: {value}")
 
                 # prefer all agents to be closer to the exit
-                average_distance_to_exit = total_distance/self.world.n_agents
+                average_distance_to_exit = total_distance/n_agents
+                # add reward for each agent being on exit lle.REWARD_AGENT_ON_EXIT/their distance to exit
                 if other_agents_distances:
                     if all(distance == 0 for distance in other_agents_distances):
-                        # add reward for each agent being on exit lle.REWARD_AGENT_ON_EXIT
                         value = value + lle.REWARD_END_GAME/average_distance_to_exit
                         print(f"value after adding lle.REWARD_END_GAME/average_distance_to_exit: {value}")
                 else:
-                    # add reward for each agent being on exit lle.REWARD_AGENT_ON_EXIT
-                    value = value + lle.REWARD_END_GAME/current_agent_distance
+                    value = value + lle.REWARD_END_GAME*10/current_agent_distance
                     print(f"value after adding lle.REWARD_END_GAME/average_distance_to_exit: {value}")
         # print(f"value: {value}")
         # print(f"state.value: {state.value}")
