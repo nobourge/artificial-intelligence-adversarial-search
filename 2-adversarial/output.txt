@@ -790,3 +790,1225 @@ minimax:  128
 alpha_beta:  36
 alpha_beta with better value function:  38
 expectimax:  128
+date time:  2023-10-29 11:05:28
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+date time:  2023-10-29 11:06:38
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  @  S1 X  @  G  . 
+G  .  G  G  X  . 
+
+minimax:  11
+alpha_beta:  11
+alpha_beta with better value function:  11
+expectimax:  11
+date time:  2023-10-29 11:07:53
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  X  @ 
+X  S0
+X  S1
+
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+date time:  2023-10-29 11:08:09
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .   .   @   .  
+L0W @   @   .  
+.   .   .   X  
+.   .   S2  X  
+.   X   S1  .  
+L1S @   S0  .  
+
+minimax:  125
+alpha_beta:  39
+alpha_beta with better value function:  50
+expectimax:  42
+date time:  2023-10-29 11:10:29
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .  .  @ 
+G  G  . 
+.  X  G 
+X  @  S1
+
+minimax:  8
+alpha_beta:  8
+alpha_beta with better value function:  8
+expectimax:  8
+date time:  2023-10-29 11:11:32
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  X   S1  .   .  
+.   @   S0  L0E
+L1N @   X   L2W
+
+minimax:  8
+alpha_beta:  7
+alpha_beta with better value function:  6
+expectimax:  8
+date time:  2023-10-29 11:17:15
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .   L1S S0 
+G   X   S1 
+@   X   .  
+
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+date time:  2023-10-29 11:19:04
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  G   G   X  
+X   S0  @  
+S1  L0S X  
+
+minimax:  8
+alpha_beta:  8
+alpha_beta with better value function:  6
+expectimax:  8
+date time:  2023-10-29 11:21:53
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .   G   @  
+L0W .   .  
+.   S1  @  
+X   X   .  
+
+minimax:  16
+alpha_beta:  16
+alpha_beta with better value function:  16
+expectimax:  16
+date time:  2023-10-29 11:23:48
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  L1N .   G  
+S1  S0  .  
+G   L0S X  
+G   G   X  
+
+minimax:  11
+alpha_beta:  7
+alpha_beta with better value function:  8
+expectimax:  11
+date time:  2023-10-29 11:26:42
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  G  G  S0 G 
+.  @  S1 X 
+X  G  .  G 
+
+minimax:  14
+alpha_beta:  11
+alpha_beta with better value function:  10
+expectimax:  14
+date time:  2023-10-29 11:27:06
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  .  .  .  . 
+@  S1 .  . 
+@  .  .  . 
+S0 .  X  X 
+
+minimax:  10
+alpha_beta:  7
+alpha_beta with better value function:  7
+expectimax:  10
+date time:  2023-10-29 11:27:31
+map:  
+        S0 X
+        
+minimax:  2
+alpha_beta:  2
+alpha_beta with better value function:  2
+expectimax:  2
+map:  G  X  X 
+.  S1 S2
+G  S0 X 
+
+minimax:  51
+alpha_beta:  34
+alpha_beta with better value function:  39
+expectimax:  14
+date time:  2023-10-29 11:30:48
+map:  
+        S0 X
+        
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+map:  .  .  @  X  . 
+G  S0 .  @  S1
+S2 .  .  .  . 
+@  X  .  .  X 
+.  @  .  .  . 
+
+date time:  2023-10-29 11:32:29
+map:  
+        S0 X
+        
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+map:  .   S0  L1E G  
+G   X   S1  G  
+G   G   X   .  
+
+date time:  2023-10-29 11:33:19
+map:  
+        S0 X
+        
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+map:  S2  @   .   S1  .  
+L0N S0  X   G   @  
+L1N X   .   G   X  
+
+minimax:  3
+alpha_beta:  3
+alpha_beta with better value function:  3
+expectimax:  3
+date time:  2023-10-29 11:34:44
+map:  
+        S0 X
+        
+depth:  2.732050807568877
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+map:  L0N .   G   .   X  
+.   .   S1  G   G  
+X   X   .   S0  G  
+G   .   S2  .   .  
+
+depth:  4.0
+minimax:  7321
+alpha_beta:  1358
+alpha_beta with better value function:  1026
+expectimax:  437
+date time:  2023-10-29 11:56:10
+map:  
+        S0 X
+        
+depth:  2.732050807568877
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+action_minimax:  Stay
+action_alpha_beta:  None
+action_alpha_beta_better_value_function:  None
+action_expectimax:  East
+map:  S0 .  .  .  .  . 
+X  .  .  @  @  @ 
+.  .  G  X  .  . 
+@  .  .  @  S1 . 
+.  @  .  .  .  G 
+.  .  .  .  G  . 
+
+depth:  4.464101615137754
+date time:  2023-10-29 11:58:03
+map:  
+        S0 X
+        
+depth:  2
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+action_minimax:  Stay
+action_alpha_beta:  None
+action_alpha_beta_better_value_function:  None
+action_expectimax:  East
+map:  S1  S0  .   .   @  
+.   .   X   .   @  
+.   X   G   .   .  
+.   .   .   .   .  
+.   .   X   S2  @  
+@   .   L0N .   .  
+
+depth:  4
+minimax:  1652
+alpha_beta:  282
+alpha_beta with better value function:  261
+expectimax:  167
+action_minimax:  None
+action_alpha_beta:  None
+action_alpha_beta_better_value_function:  None
+action_expectimax:  South
+date time:  2023-10-29 12:28:03
+map:  
+        S0 X
+        
+depth:  2
+minimax:  4
+alpha_beta:  4
+alpha_beta with better value function:  4
+expectimax:  4
+action_minimax:  Stay
+action_alpha_beta:  Stay
+action_alpha_beta_better_value_function:  East
+action_expectimax:  East
+map:  X  .  .  .  @ 
+.  G  .  G  S1
+.  @  @  X  . 
+.  .  S0 .  . 
+.  .  .  .  G 
+.  .  .  @  . 
+
+depth:  4
+minimax:  271
+alpha_beta:  74
+alpha_beta with better value function:  57
+expectimax:  271
+action_minimax:  East
+action_alpha_beta:  East
+action_alpha_beta_better_value_function:  East
+action_expectimax:  East
+date time:  2023-10-29 12:47:49
+map: 
+"""
+        S0 X
+        """
+depth:  2
+minimax:  4
+minimax_with_better_value_function:  4
+alpha_beta:  4
+alpha_beta_with_better_value_function:  4
+expectimax:  4
+action_minimax:  Stay
+action_alpha_beta:  Stay
+action_alpha_beta_better_value_function:  East
+action_expectimax:  East
+map: 
+""".   .   .   @   X   G  
+.   .   S1  L0N G   .  
+.   .   .   L1W .   .  
+.   X   @   G   G   S0 
+.   .   .   G   L2W .  
+"""
+depth:  4
+minimax:  270
+minimax_with_better_value_function:  270
+alpha_beta:  122
+alpha_beta_with_better_value_function:  62
+expectimax:  270
+action_minimax:  West
+action_alpha_beta:  West
+action_alpha_beta_better_value_function:  West
+action_expectimax:  West
+date time:  2023-10-29 12:58:38
+map: 
+"""
+        S0 X
+        """
+results = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map: 
+"""@   .   @   G   .   .  
+X   .   .   .   .   S1 
+L1E .   .   S0  G   .  
+@   G   @   .   L2N .  
+.   X   .   .   .   .  
+.   .   .   L0S G   .  
+"""
+results = {
+"depth":  4 ,
+"minimax":  5 ,
+"minimax_with_better_value_function":  5 ,
+"alpha_beta":  5 ,
+"alpha_beta_with_better_value_function":  5 ,
+"expectimax":  5 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:00:53
+map: 
+"""
+        S0 X
+        """
+results = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map: 
+"""@   X   S1  .   .  
+L0S .   X   G   L2E
+G   .   .   G   .  
+.   L1W .   .   G  
+@   .   @   @   .  
+.   .   .   .   S0 
+"""
+results = {
+"depth":  4 ,
+"minimax":  129 ,
+"minimax_with_better_value_function":  129 ,
+"alpha_beta":  54 ,
+"alpha_beta_with_better_value_function":  75 ,
+"expectimax":  129 ,
+"action_minimax":  North ,
+"action_alpha_beta":  North ,
+"action_alpha_beta_better_value_function":  North ,
+"action_expectimax":  North ,
+}
+date time:  2023-10-29 13:02:13
+map: 
+"""
+        S0 X
+        """
+results = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map: 
+"""X  .  .  G  X 
+.  .  .  @  . 
+G  .  .  G  S1
+.  .  .  S0 . 
+@  .  .  @  @ 
+.  @  .  .  . 
+"""
+results = {
+"depth":  4 ,
+"minimax":  226 ,
+"minimax_with_better_value_function":  226 ,
+"alpha_beta":  73 ,
+"alpha_beta_with_better_value_function":  62 ,
+"expectimax":  226 ,
+"action_minimax":  North ,
+"action_alpha_beta":  North ,
+"action_alpha_beta_better_value_function":  North ,
+"action_expectimax":  North ,
+}
+date time:  2023-10-29 13:09:08
+map2023-10-29_13:09:08= """
+        S0 X
+        """
+results2023-10-29_13:09:08 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023-10-29_13:09:09= """.   .   .   .   .   .  
+@   X   X   G   .   G  
+.   X   .   .   .   .  
+G   G   S0  S2  S1  G  
+@   .   .   .   G   @  
+.   @   .   .   L0N .  
+"""
+results2023-10-29_13:09:09 = {
+"depth":  4 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:09:40
+map2023-10-29_13:09:40= """
+        S0 X
+        """
+results2023-10-29_13:09:40 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023-10-29_13:09:41= """X   @   .   .   .   S1 
+.   .   .   .   @   G  
+@   .   .   X   .   .  
+@   @   .   L0N .   .  
+.   .   .   .   .   .  
+@   S0  .   .   X   S2 
+"""
+results2023-10-29_13:09:41 = {
+"depth":  4 ,
+"minimax":  1173 ,
+"minimax_with_better_value_function":  1173 ,
+"alpha_beta":  145 ,
+"alpha_beta_with_better_value_function":  157 ,
+"expectimax":  138 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  North ,
+"action_expectimax":  Stay ,
+}
+date time:  2023-10-29 13:14:59
+map2023_10_29_13_14_59 = """
+        S0 X
+        """
+results2023_10_29_13_14_59 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_15_00 = """@  .  .  .  . 
+.  S0 X  X  . 
+S1 .  .  @  . 
+.  .  @  .  . 
+.  .  .  .  @ 
+"""
+results2023_10_29_13_15_00 = {
+"depth":  4 ,
+"minimax":  268 ,
+"minimax_with_better_value_function":  268 ,
+"alpha_beta":  78 ,
+"alpha_beta_with_better_value_function":  113 ,
+"expectimax":  268 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  Stay ,
+"action_expectimax":  Stay ,
+}
+date time:  2023-10-29 13:16:06
+map2023_10_29_13_16_06 = """
+        S0 X
+        """
+results2023_10_29_13_16_06 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_16_07 = """@  G  .  .  .  . 
+.  S0 .  .  @  @ 
+.  .  .  .  .  . 
+@  .  .  .  .  . 
+S1 X  .  X  .  . 
+.  G  @  .  .  . 
+"""
+results2023_10_29_13_16_07 = {
+"depth":  4 ,
+"minimax":  215 ,
+"minimax_with_better_value_function":  215 ,
+"alpha_beta":  61 ,
+"alpha_beta_with_better_value_function":  121 ,
+"expectimax":  215 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  North ,
+"action_expectimax":  Stay ,
+}
+date time:  2023-10-29 13:18:23
+map2023_10_29_13_18_23 = """
+        S0 X
+        """
+results2023_10_29_13_18_23 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_18_24 = """.   @   .   .   .   .  
+G   .   .   .   .   .  
+X   .   @   .   .   .  
+.   X   .   @   .   .  
+.   .   .   .   S0  @  
+S1  G   L0W .   .   .  
+"""
+results2023_10_29_13_18_24 = {
+"depth":  4 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:19:02
+map2023_10_29_13_19_02 = """
+        S0 X
+        """
+results2023_10_29_13_19_02 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_19_03 = """G   .   L1W @   X  
+.   @   .   .   @  
+.   X   S0  L2N .  
+.   .   .   .   .  
+X   L0E .   S2  S1 
+"""
+results2023_10_29_13_19_03 = {
+"depth":  4 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:19:16
+map2023_10_29_13_19_16 = """
+        S0 X
+        """
+results2023_10_29_13_19_16 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_19_17 = """@   .   .   .   L1S G  
+.   @   L0W .   @   .  
+.   G   .   X   G   .  
+.   G   .   .   S0  X  
+.   @   .   .   .   L2W
+.   .   S1  @   .   .  
+"""
+results2023_10_29_13_19_17 = {
+"depth":  4 ,
+"minimax":  143 ,
+"minimax_with_better_value_function":  143 ,
+"alpha_beta":  44 ,
+"alpha_beta_with_better_value_function":  106 ,
+"expectimax":  143 ,
+"action_minimax":  South ,
+"action_alpha_beta":  South ,
+"action_alpha_beta_better_value_function":  South ,
+"action_expectimax":  South ,
+}
+date time:  2023-10-29 13:24:01
+map2023_10_29_13_24_01 = """
+        S0 X
+        """
+results2023_10_29_13_24_01 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_24_02 = """G   L0N .   .   X   .  
+G   X   .   .   S0  .  
+.   .   .   @   @   @  
+@   .   .   .   .   S1 
+G   .   @   .   .   .  
+.   .   .   .   .   .  
+"""
+results2023_10_29_13_24_02 = {
+"depth":  4 ,
+"minimax":  172 ,
+"minimax_with_better_value_function":  172 ,
+"alpha_beta":  52 ,
+"alpha_beta_with_better_value_function":  71 ,
+"expectimax":  172 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  Stay ,
+"action_expectimax":  Stay ,
+}
+date time:  2023-10-29 13:25:41
+map2023_10_29_13_25_41 = """
+        S0 X
+        """
+results2023_10_29_13_25_41 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_25_42 = """.   .   X  
+L0S .   S1 
+S0  .   .  
+X   .   @  
+X   S2  .  
+"""
+results2023_10_29_13_25_42 = {
+"depth":  3 ,
+"minimax":  176 ,
+"minimax_with_better_value_function":  176 ,
+"alpha_beta":  81 ,
+"alpha_beta_with_better_value_function":  126 ,
+"expectimax":  63 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  Stay ,
+"action_expectimax":  South ,
+}
+date time:  2023-10-29 13:26:41
+map2023_10_29_13_26_41 = """
+        S0 X
+        """
+results2023_10_29_13_26_41 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_26_42 = """.   .   X  
+S0  @   X  
+.   .   .  
+.   G   L0S
+.   .   .  
+G   S1  .  
+"""
+results2023_10_29_13_26_42 = {
+"depth":  4 ,
+"minimax":  163 ,
+"minimax_with_better_value_function":  163 ,
+"alpha_beta":  66 ,
+"alpha_beta_with_better_value_function":  87 ,
+"expectimax":  163 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:40:01
+map2023_10_29_13_40_01 = """
+        S0 X
+        """
+results2023_10_29_13_40_01 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_40_03 = """.   .   L2W X  
+.   G   .   .  
+S2  .   .   G  
+X   S0  .   .  
+S1  .   .   X  
+L1E G   L0S .  
+"""
+results2023_10_29_13_40_03 = {
+"depth":  4 ,
+"minimax":  2142 ,
+date time:  2023-10-29 13:41:24
+map2023_10_29_13_41_24 = """
+        S0 X
+        """
+results2023_10_29_13_41_24 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_41_25 = """X   .   S0  .  
+S1  @   .   .  
+G   L0W .   X  
+@   .   .   .  
+.   G   .   @  
+"""
+results2023_10_29_13_41_25 = {
+"depth":  4 ,
+"minimax":  99 ,
+"minimax_with_better_value_function":  99 ,
+"alpha_beta":  71 ,
+"alpha_beta_with_better_value_function":  87 ,
+"expectimax":  99 ,
+"action_minimax":  None ,
+"action_alpha_beta":  None ,
+"action_alpha_beta_better_value_function":  None ,
+"action_expectimax":  None ,
+}
+date time:  2023-10-29 13:42:41
+map2023_10_29_13_42_41 = """
+        S0 X
+        """
+results2023_10_29_13_42_41 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  Stay ,
+"action_alpha_beta":  Stay ,
+"action_alpha_beta_better_value_function":  East ,
+"action_expectimax":  East ,
+}
+map2023_10_29_13_42_42 = """G   X   X  
+L0N .   S1 
+S2  G   X  
+G   G   .  
+S0  G   @  
+"""
+results2023_10_29_13_42_42 = {
+"depth":  3 ,
+"minimax":  143 ,
+"minimax_with_better_value_function":  143 ,
+"alpha_beta":  82 ,
+"alpha_beta_with_better_value_function":  62 ,
+"expectimax":  47 ,
+"action_minimax":  North ,
+"action_alpha_beta":  North ,
+"action_alpha_beta_better_value_function":  North ,
+"action_expectimax":  North ,
+}
+date time:  2023-10-29 13:47:20
+map2023_10_29_13_47_20 = """
+        S0 X
+        """
+results2023_10_29_13_47_20 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_47_21 = """S1  .   X   @   .  
+.   .   L1W L0N .  
+.   .   S0  .   @  
+.   .   .   @   @  
+X   .   .   .   .  
+"""
+results2023_10_29_13_47_21 = {
+"depth":  4 ,
+"minimax":  202 ,
+"minimax_with_better_value_function":  202 ,
+"alpha_beta":  47 ,
+"alpha_beta_with_better_value_function":  51 ,
+"expectimax":  202 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " Stay " ,
+}
+date time:  2023-10-29 13:48:14
+map2023_10_29_13_48_14 = """
+        S0 X
+        """
+results2023_10_29_13_48_14 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_48_15 = """.   G   S1 
+L0E S0  .  
+X   @   X  
+"""
+results2023_10_29_13_48_15 = {
+"depth":  3 ,
+"minimax":  27 ,
+"minimax_with_better_value_function":  27 ,
+"alpha_beta":  22 ,
+"alpha_beta_with_better_value_function":  16 ,
+"expectimax":  27 ,
+"action_minimax":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
+date time:  2023-10-29 13:49:34
+map2023_10_29_13_49_34 = """
+        S0 X
+        """
+results2023_10_29_13_49_34 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_49_35 = """.  S0 S2 X 
+.  .  G  . 
+.  @  .  G 
+.  .  S1 . 
+.  .  X  X 
+"""
+results2023_10_29_13_49_35 = {
+"depth":  4 ,
+"minimax":  2706 ,
+"minimax_with_better_value_function":  2706 ,
+"alpha_beta":  312 ,
+"alpha_beta_with_better_value_function":  366 ,
+"expectimax":  253 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " South " ,
+"action_expectimax":  " South " ,
+}
+date time:  2023-10-29 13:51:46
+map2023_10_29_13_51_46 = """
+        S0 X
+        """
+results2023_10_29_13_51_46 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_51_47 = """.   S1  .   S0  X  
+@   X   @   .   .  
+S2  X   .   L0N .  
+"""
+results2023_10_29_13_51_47 = {
+"depth":  3 ,
+"minimax":  126 ,
+"minimax_with_better_value_function":  126 ,
+"alpha_beta":  46 ,
+"alpha_beta_with_better_value_function":  72 ,
+"expectimax":  49 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " Stay " ,
+"action_expectimax":  " East " ,
+}
+date time:  2023-10-29 13:53:24
+map2023_10_29_13_53_24 = """
+        S0 X
+        """
+results2023_10_29_13_53_24 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_53_25 = """G  .  .  .  .  G 
+X  .  G  S2 S0 G 
+.  .  G  X  S1 X 
+.  .  G  .  .  . 
+"""
+results2023_10_29_13_53_25 = {
+"depth":  4 ,
+"minimax":  3160 ,
+"minimax_with_better_value_function":  3160 ,
+"alpha_beta":  929 ,
+"alpha_beta_with_better_value_function":  436 ,
+"expectimax":  303 ,
+"action_minimax":  " East " ,
+"action_alpha_beta":  " East " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+date time:  2023-10-29 13:55:46
+map2023_10_29_13_55_46 = """
+        S0 X
+        """
+results2023_10_29_13_55_46 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_55_47 = """.   .   L0S .   .   S2 
+X   L1S .   S1  .   .  
+X   .   .   @   S0  X  
+"""
+results2023_10_29_13_55_47 = {
+"depth":  4 ,
+"minimax":  701 ,
+"minimax_with_better_value_function":  701 ,
+"alpha_beta":  297 ,
+"alpha_beta_with_better_value_function":  385 ,
+"expectimax":  94 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " East " ,
+}
+date time:  2023-10-29 13:56:41
+map2023_10_29_13_56_41 = """
+        S0 X
+        """
+results2023_10_29_13_56_41 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_13_56_42 = """.  X  G 
+@  @  S0
+.  .  . 
+.  .  . 
+.  X  S1
+"""
+results2023_10_29_13_56_42 = {
+"depth":  3 ,
+"minimax":  41 ,
+"minimax_with_better_value_function":  41 ,
+"alpha_beta":  30 ,
+"alpha_beta_with_better_value_function":  20 ,
+"expectimax":  41 ,
+"action_minimax":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
+date time:  2023-10-29 15:14:21
+map2023_10_29_15_14_21 = """
+        S0 X
+        """
+results2023_10_29_15_14_21 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " East " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_15_14_22 = """X  G  @  .  @ 
+.  @  S0 .  . 
+G  .  G  .  . 
+@  .  .  @  G 
+.  .  .  .  X 
+G  S1 .  .  . 
+"""
+results2023_10_29_15_14_22 = {
+"depth":  4 ,
+date time:  2023-10-29 15:22:09
+map2023_10_29_15_22_09 = """
+        S0 X
+        """
+results2023_10_29_15_22_09 = {
+"depth":  2 ,
+"minimax":  4 ,
+"minimax_with_better_value_function":  4 ,
+"alpha_beta":  4 ,
+"alpha_beta_with_better_value_function":  4 ,
+"expectimax":  4 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " East " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_10_29_15_22_10 = """.   .   S0 
+.   L0E S1 
+G   G   .  
+.   .   .  
+X   G   .  
+.   X   .  
+"""
+results2023_10_29_15_22_10 = {
+"depth":  4 ,
+"minimax":  2 ,
+"minimax_with_better_value_function":  2 ,
+"alpha_beta":  2 ,
+date time:  2023-10-29 15:43:56
+map2023_10_29_15_43_56 = """
+        S0 X
+        """
+results2023_10_29_15_43_56 = {
+"depth":  2 ,

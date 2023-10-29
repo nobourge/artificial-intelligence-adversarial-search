@@ -200,12 +200,7 @@ def minimax(mdp: MDP[A, S]
     # print(f"action: {action}")
     # print(f"value: {value}")
     stock_tree(mdp, "minimax")
-    
-
     return action
-
-
-
 
 def _alpha_beta_max(mdp: MDP[A, S]
                     , state: S
@@ -219,11 +214,9 @@ def _alpha_beta_max(mdp: MDP[A, S]
         return state.value, None
     best_value = float('-inf')
     best_action = None
-    # available_actions = get_available_actions_ordered(mdp, state)
-        # print(f"available_actions_ordered: {available_actions_ordered}")
     available_actions = mdp.available_actions(state)
     for action in available_actions:
-    # for action in list(reversed(mdp.available_actions(state))): #todo FAILED tests/test_alpha_beta.py::test_alpha_beta_graph_mdp - assert 10 == 9
+        print(f"action: {action}")
         try:
             new_state = transition(mdp
                                     , state
@@ -232,10 +225,8 @@ def _alpha_beta_max(mdp: MDP[A, S]
                                     )
         except ValueError:
             continue
-
         if new_state.current_agent == 0:
-            # value, _, _, _ = _alpha_beta_max(mdp
-            value, action = _alpha_beta_max(mdp
+            value, _ = _alpha_beta_max(mdp
                                        , new_state
                                        , alpha
                                        , beta
@@ -251,9 +242,10 @@ def _alpha_beta_max(mdp: MDP[A, S]
                                     , depth + 1
                                     )
         if value > best_value:
+            print(f"best_value between {best_value} and {value}: {best_value}")
             best_value = value
-            # best_value_vector = value_vector
             best_action = action
+            print(f"best_action: {best_action}")
         if isinstance(mdp, WorldMDP):
             mdp.add_value_to_node(new_state
                                     , value
@@ -264,7 +256,6 @@ def _alpha_beta_max(mdp: MDP[A, S]
             mdp.remove_from_visited(new_state)
         # alpha = max(alpha, best_value)  # Update alpha before cutoff: fail soft #todo tests\test_alpha_beta.py:131: AssertionError
         if beta <= best_value:  # Beta cutoff
-        # if beta <= value:  # Beta cutoff
             if isinstance(mdp, WorldMDP):
                 print("beta cutoff from state: ", new_state.to_string())
             return best_value, best_action
@@ -287,14 +278,6 @@ def _alpha_beta_min(mdp: MDP[A, S]
                     # ) -> float:
                     ) -> Tuple[float, A, float, float]:
     if mdp.is_final(state) or depth == max_depth:
-        # if isinstance(mdp, WorldMDP):
-        #     mdp.add_value_to_node(state
-        #                             , state.value
-        #                             , "worst"
-        #                             , alpha
-        #                             , beta
-        #                             , "FINAL"
-        #                             )
         return state.value
     worst_value = float('inf')
     # available_actions = get_available_actions_ordered(mdp, state)
@@ -518,55 +501,57 @@ if __name__ == "__main__":
 
     # world = WorldMDP(
     world = BetterValueFunction(
-            # World(
-            #     """
-            # .  L1W
-            # S0 X
-            # """
-            # )
+            World(
+                """
+            .  L1W
+            S0 X
+            """
+            )
             #  World(
             #     """
             # .  L1W
             # S0 S1
             # X  X"""
             # )
-               World(
-            """
-          S0 X  .
-        G  @  .
-        G  X  .
-        """
-            )
+        #        World(
+        #     """
+        #   S0 X  .
+        # G  @  .
+        # G  X  .
+        # """
+        #     )
         )
     # action = minimax(world, world.reset(), 5)
     action = alpha_beta(world, world.reset(), 2)
     # action = alpha_beta(world, world.reset(), 1)
+    print(f"action: {action}")
     # assert action in [Action.SOUTH, Action.STAY]
     # assert action in [Action.SOUTH]
 
     world = WorldMDP(
-            # World(
-            #     """
-            # .  L1W
-            # S0 X
-            # """
-            # )
+            World(
+                """
+            .  L1W
+            S0 X
+            """
+            )
             #  World(
             #     """
             # .  L1W
             # S0 S1
             # X  X"""
             # )
-               World(
-              """
-        S0 X  .
-        G  @  .
-        G  X  .
-        """
-            )
+        #        World(
+        #       """
+        # S0 X  .
+        # G  @  .
+        # G  X  .
+        # """
+        #     )
         )
     # action = minimax(world, world.reset(), 5)
     # action = alpha_beta(world, world.reset(), 1)
     action = alpha_beta(world, world.reset(), 2)
+    print(f"action: {action}")
     # assert action in [Action.SOUTH, Action.STAY]
     # assert action in [Action.SOUTH]

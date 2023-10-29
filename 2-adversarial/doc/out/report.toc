@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Environment Setup}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Rust}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Poetry}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Tests}{2}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Results}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Minimax}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Alpha-beta pruning}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Expectimax}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Heuristics Development}{4}{section.4}%
+\contentsline {section}{\numberline {5}Comparative Analysis}{5}{section.5}%
+\contentsline {section}{\numberline {6}ChatGPT Usage}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Data Dump}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Filtering Output}{6}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Bug Reporting in Laser Learning Environment}{7}{section.7}%
+\contentsline {section}{\numberline {8}References}{8}{section.8}%

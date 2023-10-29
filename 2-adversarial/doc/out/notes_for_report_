@@ -1,6 +1,7 @@
 no need to blame stay as it blamed by adversarial
 
-map:  S2  X   @  
+map:  
+S2  X   @  
 X   X   S0 
 @   L0N G  
 X   X   S1 
@@ -10,7 +11,8 @@ alpha_beta:  25
 alpha_beta with better value function:  15
 expectimax:  11
 
-map:  X   X   X   G   @  
+map:  
+X   X   X   G   @  
 S2  S3  S1  L0E X  
 
 minimax:  18
@@ -18,3 +20,40 @@ alpha_beta:  18
 alpha_beta with better value function:  13
 expectimax:  6
 
+map:  
+X   S1  .   .  
+.   @   S0  L0E
+L1N @   X   L2W
+
+minimax:  8
+alpha_beta:  7
+alpha_beta with better value function:  6
+expectimax:  8
+
+map:  L0N .   G   .   X  
+.   .   S1  G   G  
+X   X   .   S0  G  
+G   .   S2  .   .  
+
+depth:  4.0
+minimax:  7321
+alpha_beta:  1358
+alpha_beta with better value function:  1026
+expectimax:  437
+
+map:  X  .  .  .  @ 
+.  G  .  G  S1
+.  @  @  X  . 
+.  .  S0 .  . 
+.  .  .  .  G 
+.  .  .  @  . 
+
+depth:  4
+minimax:  271
+alpha_beta:  74
+alpha_beta with better value function:  57
+expectimax:  271
+action_minimax:  East
+action_alpha_beta:  East
+action_alpha_beta_better_value_function:  East
+action_expectimax:  East

@@ -60,11 +60,12 @@ class MapGenerator:
         
         # Place exits (same number as agents)
         for _ in range(num_agents):
-            while True:
+            placed = False
+            while not placed:
                 r, c = random.randint(0, rows-1), random.randint(0, cols-1)
                 if map_grid[r][c] == '.':
                     map_grid[r][c] = 'X'
-                    break
+                    placed = True
         
         # Place gems
         for _ in range(num_gems):
@@ -85,15 +86,20 @@ class MapGenerator:
         # Randomly place walls (20% of the map)
         for _ in range((rows * cols) // 5):
             r, c = random.randint(0, rows-1), random.randint(0, cols-1)
-            map_grid[r][c] = '@'
+            if map_grid[r][c] == '.':
+                map_grid[r][c] = '@'
         
         return map_grid
 
     # Function to generate random but reasonable parameters for the map
     def generate_random_params(self
-                               , max_rows=9
+                            #    , max_rows=4
+                               , max_rows=6
+                            #    , max_rows=9
                             #    , max_rows=5
-                               , max_cols=9
+                            #    , max_cols=4
+                               , max_cols=6
+                            #    , max_cols=9
                             #    , max_cols=5
                                , max_agents=3
                                , max_gems=6
@@ -111,8 +117,14 @@ class MapGenerator:
         Returns:
         - A dictionary containing the generated parameters
         """
-        rows = random.randint(2, max_rows)
-        cols = random.randint(2, max_cols)
+        rows_min = 3
+        # rows_min = 5
+        cols_min = 3
+        # cols_min = 5
+        rows = random.randint(rows_min
+                              , max_rows)
+        cols = random.randint(cols_min
+                              , max_cols)
         max_agents = min(max_agents, rows*cols//2)
         num_agents = random.randint(2, max_agents)
         print("rows: ", rows)

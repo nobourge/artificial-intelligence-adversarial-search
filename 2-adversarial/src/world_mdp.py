@@ -560,6 +560,7 @@ class BetterValueFunction(WorldMDP):
         """Returns the available actions ordered by heuristic value"""
         available_actions = super().available_actions(state)
         # print(f"available_actions: {available_actions}")
+        current_agent = state.current_agent
         # print(f"state.current_agent: {state.current_agent}")
         # print(f"state.agents_positions: {state.agents_positions}")
 
@@ -582,8 +583,10 @@ class BetterValueFunction(WorldMDP):
             # print(f"position_after_action: {position_after_action}")
 
             # if not all gems are collected,
-            # if not all (not gem for gem in state.gems_collected):
-            if state.world.gems_collected != state.world.n_gems:
+            # not all (not gem for gem in state.gems_collected):
+            gems_to_collect = [gem[0] for gem in state.world.gems if not gem[1].is_collected]
+
+            if gems_to_collect:
                 # if action leads to a gem, move it to the top of the list
                 if position_after_action in [gem[0] for gem in state.world.gems]:
                     # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
@@ -591,13 +594,24 @@ class BetterValueFunction(WorldMDP):
                     # print(f"action: {action}")
                     available_actions_ordered.remove(action)
                     available_actions_ordered.insert(0, action)
+                # if position_after_action in exit_pos:
+                # if position_after_action in state.world.exit_pos: #todo only if gems_to_collect are close to exit
+                #     if balanced_multi_salesmen_greedy_tsp(copy.deepcopy(gems_to_collect)
+                #                                        , state.world.n_agents
+                #                                        , state.agents_positions
+                #                                        , self.world.exit_pos)[1][f"agent_{current_agent+1}"]:
+                #         # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
+                #         # print(f"new_state.world.exit_pos: {new_state.world.exit_pos}")
+                #         # print(f"action: {action}")
+                #         available_actions_ordered.remove(action)
+                #         available_actions_ordered.insert(0, action)
             # if a laser sources has not the same color as the agent, 
             if self.lasers_dangerous_for_agents[state.current_agent]:
                 # print(f"mdp.lasers_dangerous_for_agents[state.current_agent]: {mdp.lasers_dangerous_for_agents[state.current_agent]}")
 
                 # print(f"state.world.lasers: {state.world.lasers}")
-                # if action leads to a laser, move it to the end of the list
-                if position_after_action in [laser[0] for laser in state.world.lasers]:
+                # if action leads to a laser and laser is on, move it to the end of the list
+                if position_after_action in [laser[0] for laser in state.world.lasers if laser[1].is_on]:
                     # print(f"new_state.world.agents_positions[state.current_agent]: {new_state.world.agents_positions[state.current_agent]}")
                     # print(f"new_state.world.laser_position: {new_state.world.laser_position}")
                     # print(f"suicide action: {action}")
