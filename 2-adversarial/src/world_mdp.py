@@ -79,8 +79,8 @@ class MyWorldState(State):
                  , value_vector: List[float]
                  , current_agent: int
                  , world: World
-                    , world_string: str = None
-                    , last_action: Action = None
+                 , world_string: str = None
+                 , last_action: Action = None
                  ):
         super().__init__(value, current_agent)
         self.world = world

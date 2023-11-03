@@ -325,11 +325,18 @@ def _expectimax_max(mdp: MDP[A, S]
                                     )
         except ValueError:
             continue
-        value = _expectimax_exp(mdp
-                                , new_state
-                                , max_depth 
-                                , depth + 1
-                                )
+        if new_state.current_agent == 0:
+            value, _ = _expectimax_max(mdp
+                                       , new_state
+                                       , max_depth
+                                       , depth + 1
+                                       )
+        else:
+            value = _expectimax_exp(mdp
+                                    , new_state
+                                    , max_depth 
+                                    , depth + 1
+                                    )
         if value > best_value:
             best_value = value
             best_action = action
@@ -364,11 +371,18 @@ def _expectimax_exp(mdp: MDP[A, S]
                                     )
         except ValueError:
             continue
-        value, _ = _expectimax_max(mdp
-                                   , new_state
-                                   , max_depth
-                                   , depth + 1
-                                   )
+        if new_state.current_agent == 0:
+            value, _ = _expectimax_max(mdp
+                                       , new_state
+                                       , max_depth
+                                       , depth + 1
+                                       )
+        else:
+            value = _expectimax_exp(mdp
+                                    , new_state
+                                    , max_depth
+                                    , depth
+                                    )
         total_value += value
         if isinstance(mdp, WorldMDP):
             mdp.add_value_to_node(new_state
