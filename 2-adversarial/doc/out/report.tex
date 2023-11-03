@@ -59,24 +59,17 @@ In this method, the value of a state is changed based on multiple factors:
 \subsection{Fewer Nodes with Better Evaluation}
 \subsubsection{First Map}
 
-\begin{table}[h]
+\begin{figure}
     \centering
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    . & G & S1 \\
-    \hline
-    L0E & S0 & .\\
-    \hline
-    X & @ & X \\
-    \hline
-    \end{tabular}
-    \label{tab:example_grid}
-\end{table}
+    \includegraphics[width=0.3\textwidth]{media/map/map2023_10_29_13_48_15.png}
+    \caption{Map 1}
+    \label{fig:image1}
+\end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{media/map2023_10_29_13_48_15.png}
-    \caption{Map 1}
+    \caption{Map 1 results}
     \label{fig:image1}
 \end{figure}
 \vspace{1em}
@@ -103,30 +96,19 @@ This is what we expected, because we have a better evaluation function.
 \newpage
 \subsubsection{Second Map}
 
-\begin{table}[h]
+\begin{figure}
     \centering
-    \begin{tabular}{|c|c|c|}
-    \hline
-    . & X & G \\
-    \hline
-    @ & @ & S0 \\
-    \hline
-    . & . & . \\
-    \hline
-    . & . & . \\
-    \hline
-    . & X & S1 \\
-    \hline
-    \end{tabular}
-    \label{tab:grid}
-    \end{table}
+    \includegraphics[width=0.3\textwidth]{media/map/map2023_10_29_13_56_42.png}
+    \caption{Map 2}
+    \label{fig:image2}
+\end{figure}
     
 
     
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{media/map2023_10_29_13_56_42.png}
-    \caption{Map 2}
+    \caption{Map 2 results}
     \label{fig:image2}
 \end{figure}
 \vspace{1em}
@@ -140,103 +122,69 @@ the number of nodes is reduced by factor 2.
 \newpage
 \subsubsection{Third Map}
 
-\begin{table}[h]
+\begin{figure}
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    G & . & . & . & . & G \\
-    \hline
-    X & . & G & S2 & S0 & G \\
-    \hline
-    . & . & G & X & S1 & X \\
-    \hline
-    . & . & G & . & . & . \\
-    \hline
-    \end{tabular}
-    \label{tab:your_grid}
-    \end{table}
+    \includegraphics[width=0.5\textwidth]{media/map/map2023_10_29_13_53_25.png}
+    \caption{Map 3}
+    \label{fig:image3}
+\end{figure}
     
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{media/map2023_10_29_13_53_25.png}
-    \caption{Map 3}
+    \caption{Map 3 results}
     \label{fig:image3}
 \end{figure}
 \vspace{1em}
 
 \paragraph{}
-Here again, with a slightly bigger map and whith a much bigger difference with factors of 2 and 7.
-It is to note that \texttt{expectimax}, without any heuristic, has the lowest number of nodes, with correct action.
-
+Here again, with 
+a slightly bigger map and whith 
+a much bigger difference with factors of 2 and 7.
 
 \newpage
 \subsection{Fourth Map}
 
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    S0 & S2 & X \\
-    \hline
-     & G & \\
-    \hline
-    @ & & G \\
-    \hline
-     & S1 & \\
-    \hline
-     & X & X \\
-    \hline
-    \end{tabular}
-    \label{tab:another_example_grid}
-\end{table}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{media/map/map2023_10_29_13_49_35.png}
+    \caption{Map 4}
+    \label{fig:image4}
+\end{figure}
+\vspace{1em}
 % Fourth Image
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{media/map2023_10_29_13_49_35.png}
-    \caption{Map 4}
+    \caption{Map 4 results}
     \label{fig:image4}
 \end{figure}
 \vspace{1em}
 
 \paragraph{}
-This case shows that better evaluation function does not always mean fewer nodes.
+This case shows that better evaluation function 
+does not always mean fewer nodes.
 
 \newpage
 \subsection{Fifth Map}
-
-
-
-
-\begin{table}[h]
+\begin{figure}
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    . & . & L0S & . & . & S2 \\
-    \hline
-    X & L1S & . & S1 & . & . \\
-    \hline
-    X & . & . & @ & S0 & X \\
-    \hline
-    \end{tabular}
-    \label{tab:updated_grid}
-    \end{table}
-        
+    \includegraphics[width=0.5\textwidth]{media/map/map2023_10_29_13_55_47.png}
+    \caption{Map 5}
+    \label{fig:image5}
+\end{figure}
 % Fifth Image
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{media/map2023_10_29_13_55_47.png}
-    \caption{Map 5}
+    \caption{Map 5 results}
     \label{fig:image5}
 \end{figure}
 \vspace{1em}
 
 \paragraph{}
 Again, better evaluation function is not the best.
-
-But what makes it very interesting is that \texttt{expectimax} has,
- again, the lowest number of nodes, 
- but also, is the only one to output the optimal action.
 
 \newpage
 \section{Discussion}
@@ -247,13 +195,6 @@ it is not always fine enough for every case.
 As a result, in some cases, the \texttt{BetterValueFunction} 
 may not actually result in fewer nodes being expanded 
 compared to basic evaluation functions.
-
-\subsection{Use of \texttt{Expectimax}}
-Interestingly, the \texttt{Expectimax} algorithm often 
-resulted in fewer nodes being expanded 
-while also selecting the optimal action. 
-This suggests that stochastic models offer benefits in environments 
-with high levels of uncertainty.
 
 
 \subsection{Future Work}

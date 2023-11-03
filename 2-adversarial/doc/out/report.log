@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.9.20)  29 OCT 2023 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.9.20)  3 NOV 2023 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -177,7 +177,23 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count279
 \l__pdf_internal_box=\box53
-) (report.aux)
+) (report.aux
+
+LaTeX Warning: Label `fig:image1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image3' multiply defined.
+
+
+LaTeX Warning: Label `fig:image4' multiply defined.
+
+
+LaTeX Warning: Label `fig:image5' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -244,80 +260,115 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 24.
  [2{C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<media/map2023_10_29_13_48_15.png, id=104, 462.528pt x 346.896pt>
+<media/map/map2023_10_29_13_48_15.png, id=99, 97.36375pt x 97.36375pt>
+File: media/map/map2023_10_29_13_48_15.png Graphic file (type png)
+<use media/map/map2023_10_29_13_48_15.png>
+Package pdftex.def Info: media/map/map2023_10_29_13_48_15.png  used on input line 64.
+(pdftex.def)             Requested size: 103.50105pt x 103.50516pt.
+<media/map2023_10_29_13_48_15.png, id=100, 462.528pt x 346.896pt>
 File: media/map2023_10_29_13_48_15.png Graphic file (type png)
 <use media/map2023_10_29_13_48_15.png>
-Package pdftex.def Info: media/map2023_10_29_13_48_15.png  used on input line 78.
+Package pdftex.def Info: media/map2023_10_29_13_48_15.png  used on input line 71.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
-<media/20231029-134819.png, id=106, 3685.77pt x 2008.50375pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<media/20231029-134819.png, id=102, 3685.77pt x 2008.50375pt>
 File: media/20231029-134819.png Graphic file (type png)
 <use media/20231029-134819.png>
-Package pdftex.def Info: media/20231029-134819.png  used on input line 95.
+Package pdftex.def Info: media/20231029-134819.png  used on input line 88.
 (pdftex.def)             Requested size: 345.0pt x 187.9903pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./media/map2023_10_29_13_48_15.png>]
-<media/map2023_10_29_13_56_42.png, id=114, 462.528pt x 346.896pt>
+[3 <./media/map/map2023_10_29_13_48_15.png (PNG copy)>]
+<media/map/map2023_10_29_13_56_42.png, id=109, 97.36375pt x 161.60374pt>
+File: media/map/map2023_10_29_13_56_42.png Graphic file (type png)
+<use media/map/map2023_10_29_13_56_42.png>
+Package pdftex.def Info: media/map/map2023_10_29_13_56_42.png  used on input line 101.
+(pdftex.def)             Requested size: 103.50105pt x 171.79726pt.
+<media/map2023_10_29_13_56_42.png, id=110, 462.528pt x 346.896pt>
 File: media/map2023_10_29_13_56_42.png Graphic file (type png)
 <use media/map2023_10_29_13_56_42.png>
-Package pdftex.def Info: media/map2023_10_29_13_56_42.png  used on input line 128.
+Package pdftex.def Info: media/map2023_10_29_13_56_42.png  used on input line 110.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./media/20231029-134819.png>]
-<media/map2023_10_29_13_53_25.png, id=122, 462.528pt x 346.896pt>
+[4 <./media/map2023_10_29_13_48_15.png>]
+<media/map/map2023_10_29_13_53_25.png, id=118, 193.72375pt x 129.48375pt>
+File: media/map/map2023_10_29_13_53_25.png Graphic file (type png)
+<use media/map/map2023_10_29_13_53_25.png>
+Package pdftex.def Info: media/map/map2023_10_29_13_53_25.png  used on input line 127.
+(pdftex.def)             Requested size: 172.5pt x 115.29942pt.
+<media/map2023_10_29_13_53_25.png, id=119, 462.528pt x 346.896pt>
 File: media/map2023_10_29_13_53_25.png Graphic file (type png)
 <use media/map2023_10_29_13_53_25.png>
-Package pdftex.def Info: media/map2023_10_29_13_53_25.png  used on input line 161.
+Package pdftex.def Info: media/map2023_10_29_13_53_25.png  used on input line 134.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5 <./media/map2023_10_29_13_56_42.png>]
-<media/map2023_10_29_13_49_35.png, id=130, 462.528pt x 346.896pt>
+[5 <./media/20231029-134819.png>]
+<media/map/map2023_10_29_13_49_35.png, id=127, 129.48375pt x 161.60374pt>
+File: media/map/map2023_10_29_13_49_35.png Graphic file (type png)
+<use media/map/map2023_10_29_13_49_35.png>
+Package pdftex.def Info: media/map/map2023_10_29_13_49_35.png  used on input line 151.
+(pdftex.def)             Requested size: 137.9979pt x 172.2485pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<media/map2023_10_29_13_49_35.png, id=128, 462.528pt x 346.896pt>
 File: media/map2023_10_29_13_49_35.png Graphic file (type png)
 <use media/map2023_10_29_13_49_35.png>
-Package pdftex.def Info: media/map2023_10_29_13_49_35.png  used on input line 196.
+Package pdftex.def Info: media/map2023_10_29_13_49_35.png  used on input line 159.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6 <./media/map2023_10_29_13_53_25.png>]
-<media/map2023_10_29_13_55_47.png, id=138, 462.528pt x 346.896pt>
+[6 <./media/map/map2023_10_29_13_56_42.png (PNG copy)>]
+<media/map/map2023_10_29_13_55_47.png, id=135, 193.72375pt x 97.36375pt>
+File: media/map/map2023_10_29_13_55_47.png Graphic file (type png)
+<use media/map/map2023_10_29_13_55_47.png>
+Package pdftex.def Info: media/map/map2023_10_29_13_55_47.png  used on input line 173.
+(pdftex.def)             Requested size: 172.5pt x 86.69801pt.
+<media/map2023_10_29_13_55_47.png, id=136, 462.528pt x 346.896pt>
 File: media/map2023_10_29_13_55_47.png Graphic file (type png)
 <use media/map2023_10_29_13_55_47.png>
-Package pdftex.def Info: media/map2023_10_29_13_55_47.png  used on input line 228.
+Package pdftex.def Info: media/map2023_10_29_13_55_47.png  used on input line 180.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./media/map2023_10_29_13_49_35.png>] [8 <./media/map2023_10_29_13_55_47.png>] [9] (report.aux)
+[7 <./media/map2023_10_29_13_56_42.png>] [8 <./media/map/map2023_10_29_13_53_25.png (PNG copy)>] [9 <./media/map2023_10_29_13_53_25.png> <./media/map/map2023_10_29_13_49_35.png (PNG copy)>] [10 <./media/map2023_10_29_13_49_35.png> <./media/map/map2023_10_29_13_55_47.png (PNG copy)>] [11 <./media/map2023_10_29_13_55_47.png>] (report.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 27E20A34358D7909A9C1612AB3584674;2245.
+(rerunfilecheck)             Checksum: 5EE4EABFF455FBF5D0CF3FC50AC45E44;2096.
  ) 
 Here is how much of TeX's memory you used:
- 9830 strings out of 475248
- 154131 string characters out of 5757813
- 1928801 words of memory out of 5000000
- 31228 multiletter control sequences out of 15000+600000
+ 9863 strings out of 475248
+ 155516 string characters out of 5757813
+ 1927801 words of memory out of 5000000
+ 31255 multiletter control sequences out of 15000+600000
  562996 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,384b,435s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/bourg/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on report.pdf (9 pages, 485451 bytes).
+Output written on report.pdf (11 pages, 525154 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 230 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 

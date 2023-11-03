@@ -58,7 +58,7 @@ results2023_10_29_13_49_35 = {
 "minimax_with_better_value_function":  2706 ,
 "alpha_beta":  312 ,
 "alpha_beta_with_better_value_function":  366 ,
-"expectimax":  253 ,
+"expectimax":  2706 ,
 "action_minimax":  " Stay " ,
 "action_minimax_with_better_value_function":  " Stay " ,
 "action_alpha_beta":  " Stay " ,
@@ -77,7 +77,7 @@ results2023_10_29_13_53_25 = {
 "minimax_with_better_value_function":  3160 ,
 "alpha_beta":  929 ,
 "alpha_beta_with_better_value_function":  436 ,
-"expectimax":  303 ,
+"expectimax":  3160 ,
 "action_minimax":  " East " ,
 "action_minimax_with_better_value_function":  " East " ,
 "action_alpha_beta":  " East " ,
@@ -95,12 +95,12 @@ results2023_10_29_13_55_47 = {
 "minimax_with_better_value_function":  701 ,
 "alpha_beta":  297 ,
 "alpha_beta_with_better_value_function":  385 ,
-"expectimax":  94 ,
+"expectimax":  701 ,
 "action_minimax":  " Stay " ,
-"action_minimax_with_better_value_function":  " Stay " ,
+"action_minimax_with_better_value_function":  " North " ,
 "action_alpha_beta":  " Stay " ,
 "action_alpha_beta_with_better_value_function":  " North " ,
-"action_expectimax":  " East " ,
+"action_expectimax":  " Stay " ,
 }
 
 map2023_10_29_13_56_42 = """.  X  G 

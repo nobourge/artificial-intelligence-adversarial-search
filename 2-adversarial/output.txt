@@ -2012,3 +2012,242 @@ map2023_10_29_15_43_56 = """
         """
 results2023_10_29_15_43_56 = {
 "depth":  2 ,
+date time:  2023-11-03 15:50:11
+map2023_11_03_15_50_11 = """.   G   S1 
+L0E S0  .  
+X   @   X  
+"""
+results2023_11_03_15_50_11 = {
+"depth":  3 ,
+"minimax":  27 ,
+"minimax_with_better_value_function":  27 ,
+"alpha_beta":  22 ,
+"alpha_beta_with_better_value_function":  16 ,
+"expectimax":  27 ,
+"action_minimax":  " North " ,
+"action_minimax_with_better_value_function":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
+map2023_11_03_15_50_11 = """.  S0 S2 X 
+.  .  G  . 
+.  @  .  G 
+.  .  S1 . 
+.  .  X  X 
+"""
+results2023_11_03_15_50_11 = {
+"depth":  4 ,
+"minimax":  2706 ,
+"minimax_with_better_value_function":  2706 ,
+"alpha_beta":  312 ,
+"alpha_beta_with_better_value_function":  366 ,
+"expectimax":  2706 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " South " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " South " ,
+"action_expectimax":  " South " ,
+}
+map2023_11_03_15_50_12 = """G  .  .  .  .  G 
+X  .  G  S2 S0 G 
+.  .  G  X  S1 X 
+.  .  G  .  .  . 
+"""
+results2023_11_03_15_50_12 = {
+"depth":  4 ,
+"minimax":  3160 ,
+"minimax_with_better_value_function":  3160 ,
+"alpha_beta":  929 ,
+"alpha_beta_with_better_value_function":  436 ,
+"expectimax":  3160 ,
+"action_minimax":  " East " ,
+"action_minimax_with_better_value_function":  " East " ,
+"action_alpha_beta":  " East " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_11_03_15_50_13 = """.   .   S1  S2  G  
+G   .   L1N .   .  
+.   X   X   X   .  
+@   L0S .   S0  G  
+"""
+results2023_11_03_15_50_13 = {
+"depth":  4 ,
+"minimax":  1030 ,
+"minimax_with_better_value_function":  1030 ,
+"alpha_beta":  495 ,
+"alpha_beta_with_better_value_function":  373 ,
+"expectimax":  1030 ,
+"action_minimax":  " None " ,
+"action_minimax_with_better_value_function":  " None " ,
+"action_alpha_beta":  " None " ,
+"action_alpha_beta_better_value_function":  " None " ,
+"action_expectimax":  " None " ,
+}
+date time:  2023-11-03 15:52:59
+map2023_11_03_15_52_59 = """.   G   S1 
+L0E S0  .  
+X   @   X  
+"""
+results2023_11_03_15_52_59 = {
+"depth":  3 ,
+"minimax":  27 ,
+"minimax_with_better_value_function":  27 ,
+"alpha_beta":  22 ,
+"alpha_beta_with_better_value_function":  16 ,
+"expectimax":  27 ,
+"action_minimax":  " North " ,
+"action_minimax_with_better_value_function":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
+map2023_11_03_15_53_00 = """.  S0 S2 X 
+.  .  G  . 
+.  @  .  G 
+.  .  S1 . 
+.  .  X  X 
+"""
+results2023_11_03_15_53_00 = {
+"depth":  4 ,
+"minimax":  2706 ,
+"minimax_with_better_value_function":  2706 ,
+"alpha_beta":  312 ,
+"alpha_beta_with_better_value_function":  366 ,
+"expectimax":  2706 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " South " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " South " ,
+"action_expectimax":  " South " ,
+}
+map2023_11_03_15_53_00 = """G  .  .  .  .  G 
+X  .  G  S2 S0 G 
+.  .  G  X  S1 X 
+.  .  G  .  .  . 
+"""
+results2023_11_03_15_53_00 = {
+"depth":  4 ,
+"minimax":  3160 ,
+"minimax_with_better_value_function":  3160 ,
+"alpha_beta":  929 ,
+"alpha_beta_with_better_value_function":  436 ,
+"expectimax":  3160 ,
+"action_minimax":  " East " ,
+"action_minimax_with_better_value_function":  " East " ,
+"action_alpha_beta":  " East " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_11_03_15_53_01 = """.   @   .   S1  .   S0 
+.   .   .   .   .   .  
+.   .   .   .   X   .  
+.   .   .   .   .   @  
+.   @   .   .   X   @  
+.   .   L0E G   L1S @  
+"""
+results2023_11_03_15_53_01 = {
+"depth":  4 ,
+"minimax":  184 ,
+"minimax_with_better_value_function":  184 ,
+"alpha_beta":  43 ,
+"alpha_beta_with_better_value_function":  46 ,
+"expectimax":  184 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " South " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " South " ,
+"action_expectimax":  " Stay " ,
+}
+date time:  2023-11-03 15:56:10
+map2023_11_03_15_56_10 = """.   G   S1 
+L0E S0  .  
+X   @   X  
+"""
+results2023_11_03_15_56_10 = {
+"depth":  3 ,
+"minimax":  27 ,
+"minimax_with_better_value_function":  27 ,
+"alpha_beta":  22 ,
+"alpha_beta_with_better_value_function":  16 ,
+"expectimax":  27 ,
+"action_minimax":  " North " ,
+"action_minimax_with_better_value_function":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
+map2023_11_03_15_56_10 = """.  S0 S2 X 
+.  .  G  . 
+.  @  .  G 
+.  .  S1 . 
+.  .  X  X 
+"""
+results2023_11_03_15_56_10 = {
+"depth":  4 ,
+"minimax":  2706 ,
+"minimax_with_better_value_function":  2706 ,
+"alpha_beta":  312 ,
+"alpha_beta_with_better_value_function":  366 ,
+"expectimax":  2706 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " South " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " South " ,
+"action_expectimax":  " South " ,
+}
+map2023_11_03_15_56_10 = """G  .  .  .  .  G 
+X  .  G  S2 S0 G 
+.  .  G  X  S1 X 
+.  .  G  .  .  . 
+"""
+results2023_11_03_15_56_10 = {
+"depth":  4 ,
+"minimax":  3160 ,
+"minimax_with_better_value_function":  3160 ,
+"alpha_beta":  929 ,
+"alpha_beta_with_better_value_function":  436 ,
+"expectimax":  3160 ,
+"action_minimax":  " East " ,
+"action_minimax_with_better_value_function":  " East " ,
+"action_alpha_beta":  " East " ,
+"action_alpha_beta_better_value_function":  " East " ,
+"action_expectimax":  " East " ,
+}
+map2023_11_03_15_56_11 = """.   .   L0S .   .   S2 
+X   L1S .   S1  .   .  
+X   .   .   @   S0  X  
+"""
+results2023_11_03_15_56_11 = {
+"depth":  4 ,
+"minimax":  701 ,
+"minimax_with_better_value_function":  701 ,
+"alpha_beta":  297 ,
+"alpha_beta_with_better_value_function":  385 ,
+"expectimax":  701 ,
+"action_minimax":  " Stay " ,
+"action_minimax_with_better_value_function":  " North " ,
+"action_alpha_beta":  " Stay " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " Stay " ,
+}
+map2023_11_03_15_56_11 = """.  X  G 
+@  @  S0
+.  .  . 
+.  .  . 
+.  X  S1
+"""
+results2023_11_03_15_56_11 = {
+"depth":  3 ,
+"minimax":  41 ,
+"minimax_with_better_value_function":  41 ,
+"alpha_beta":  30 ,
+"alpha_beta_with_better_value_function":  20 ,
+"expectimax":  41 ,
+"action_minimax":  " North " ,
+"action_minimax_with_better_value_function":  " North " ,
+"action_alpha_beta":  " North " ,
+"action_alpha_beta_better_value_function":  " North " ,
+"action_expectimax":  " North " ,
+}
